@@ -1,0 +1,11 @@
+// Network Scanners Started by the OpenHack v0.x Agent
+// Sigma id 1bd4cf6e-00f1-5166-b5cd-01a460d09b6a, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((actor_process_command_line in ("*/bin/openhack*", "* -m openhack*", "*openhack/__main__.py*")) and 
+ (action_process_image_command_line contains "nmap -sV -Pn -T4 " or 
+ (action_process_image_command_line contains "sqlmap -u " and 
+ action_process_image_command_line contains " --batch --disable-coloring") or 
+ action_process_image_command_line contains "nuclei -silent -jsonl -target " or 
+ action_process_image_command_line contains "httpx -silent -json -status-code -title -tech-detect -web-server -no-color" or 
+ action_process_image_command_line contains "subfinder -silent -d "))

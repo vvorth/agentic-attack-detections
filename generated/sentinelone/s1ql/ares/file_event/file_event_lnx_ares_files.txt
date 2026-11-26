@@ -1,0 +1,3 @@
+# Ares Working Files on Its Attack Box
+# Sigma id 803df3dd-f368-5641-8c18-8866ecce2778, level medium
+ObjectType = "File" AND (EndpointOS = "linux" AND (TgtFilePath containsCIS "/tmp/ares-tickets/" OR TgtFilePath containsCIS "/tmp/ares_relay_" OR TgtFilePath containsCIS "/ares_shadowcred_" OR TgtFilePath containsCIS "/ares-hive-" OR TgtFilePath containsCIS "/var/log/ares/" OR TgtFilePath containsCIS "/.ares/sessions/" OR TgtFilePath containsCIS "/.ares/reports/"))

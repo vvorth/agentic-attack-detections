@@ -25,7 +25,7 @@ frameworks/<name>/
 2. Add its indicators to `iocs/indicators.csv` with `framework` set to its folder name. An indicator shared with another framework keeps one row with both names, space separated.
 3. Put rules that would work for any agentic framework in `behaviors/` rather than in the framework folder. Coding-agent abuse, tool bursts, proxy rotation and post-exploitation patterns usually belong there.
 4. Give every rule its ATT&CK techniques in the format [CONTRIBUTING.md](../CONTRIBUTING.md) lists for its kind.
-5. Run `python3 tools/build_feeds.py`, `python3 tools/convert.py`, `python3 tools/build_attack.py` and `python3 tools/validate.py`, and commit everything they regenerate. Add one case per Suricata rule, and a near miss, to `tests/suricata/run_tests.py`: the run fails if a rule has no case.
+5. Run `python3 tools/build_feeds.py`, `python3 tools/convert.py`, `tools/convert_sentinelone.py` and `tools/convert_cortex.py` (each in its own venv, see their requirements files), `python3 tools/build_attack.py` and `python3 tools/validate.py`, and commit everything they regenerate. Add one case per Suricata rule, and a near miss, to `tests/suricata/run_tests.py`: the run fails if a rule has no case.
 6. Add the framework to the tables in the root `README.md`.
 
 ## Number ranges

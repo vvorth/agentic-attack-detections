@@ -1,0 +1,7 @@
+// Shannon Workspace, Deliverable or Browser Files Written
+// Sigma id 82a9276f-09b9-544e-990b-d9f327daa1cc, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path ~= "[/\\]\.shannon[/\\](session\.json|workflow\.log|startup-error\.json)$" or 
+ action_file_path ~= "[/\\]\.shannon[/\\]deliverables[/\\][a-z_]+_(deliverable\.md|exploitation_queue\.json|exploitation_evidence\.md)$" or 
+ action_file_path ~= "[/\\]\.shannon[/\\]\.playwright[/\\](cli\.config\.json|scripts[/\\]stealth\.js)$" or 
+ (action_file_path in ("*/.shannon/config.toml", "*\.shannon\config.toml")))

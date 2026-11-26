@@ -1,0 +1,11 @@
+// Decepticon Sandbox, Agent Server or C2 Container Process
+// Sigma id 83265ac6-f94e-588e-9b1b-74fa1ece484d, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*decepticon_sandbox.server*", "*decepticon_sandbox.web*", "*decepticon_sandbox.browser*", "*@dcptn_completion*")) or 
+ (action_process_image_command_line in ("*decepticon.cli time-window-resume*", "*/app/litellm_startup.py*")) or 
+ (action_process_image_command_line contains "sliver-server operator" and 
+ action_process_image_command_line contains "--name decepticon") or 
+ (action_process_image_command_line contains "teamserver server" and 
+ action_process_image_command_line contains "/opt/havoc/profiles/havoc.yaotl")))

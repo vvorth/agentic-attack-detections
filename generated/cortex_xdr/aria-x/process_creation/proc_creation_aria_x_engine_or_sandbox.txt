@@ -1,0 +1,13 @@
+// ARIA-X Engine, Console or Sandbox Command
+// Sigma id 7f6d76af-d992-54e8-9470-fa4afe2f2753, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains " -m aria_x " or 
+ (action_process_image_command_line in ("*/aria-x serve*", "*/aria-x run *", "*/aria-x demo*")) or 
+ (action_process_image_command_line in ("aria-x serve*", "aria-x run *", "aria-x demo*")) or 
+ (action_process_image_command_line contains " run --rm -i " and 
+ action_process_image_command_line contains "--name aria-x-" and 
+ action_process_image_command_line contains ":/work -w /work" and 
+ action_process_image_command_line contains "bash -lc") or 
+ ((actor_process_command_line in ("* -m aria_x *", "*/aria-x run *", "*/aria-x serve*")) and 
+ (action_process_image_command_line in ("bash -lc *", "/bin/bash -lc *"))))

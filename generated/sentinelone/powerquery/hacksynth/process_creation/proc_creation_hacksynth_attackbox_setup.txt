@@ -1,0 +1,3 @@
+# HackSynth Attackbox Setup Command
+# Sigma id fe2a721e-a4db-599d-b25e-b76a9973e97f, level medium
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "install kali-linux-headless sshpass curl" or (tgt.process.cmdline contains "ssh-keyscan -p 2220 bandit.labs.overthewire.org" or tgt.process.cmdline contains "ssh-keyscan -p 2231 krypton.labs.overthewire.org" or tgt.process.cmdline contains "ssh-keyscan -p 2223 leviathan.labs.overthewire.org")))

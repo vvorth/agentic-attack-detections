@@ -1,0 +1,10 @@
+// Web or Database Service Spawns a Shell or Download Tool on Linux
+// Sigma id 7aa7f15b-752d-52d6-b1c3-8ae93c6552f7, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((((actor_process_image_path in ("*/nginx", "*/httpd", "*/apache2", "*/php-fpm", "*/mysqld", "*/mariadbd", "*/postgres")) or 
+ actor_process_image_path contains "/php-fpm") or 
+ ((actor_process_image_path in ("*/java", "*/node")) and 
+ (action_process_username in ("www-data", "apache", "nginx", "http", "tomcat", "tomcat9", "jetty", "jboss", "wildfly", "node", "nodejs", "nobody", "daemon")))) and 
+ (action_process_image_path in ("*/sh", "*/bash", "*/dash", "*/curl", "*/wget", "*/nc", "*/ncat", "*/socat", "*/busybox"))))

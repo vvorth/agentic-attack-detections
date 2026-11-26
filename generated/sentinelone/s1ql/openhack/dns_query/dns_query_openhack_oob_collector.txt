@@ -1,0 +1,3 @@
+# OpenHack Out-of-Band Collector Resolved
+# Sigma id 7f31fda5-23a9-554f-9c36-584deaef6934, level high
+ObjectType = "DNS" AND (DnsRequest = "oob.openhack.com" OR DnsRequest endswithCIS ".oob.openhack.com")

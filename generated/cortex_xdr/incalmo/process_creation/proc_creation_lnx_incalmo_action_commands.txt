@@ -1,0 +1,23 @@
+// Incalmo Per-Command Script or Tool Command Line
+// Sigma id fe05b2c1-8dfb-5767-b48c-c10c58269a0b, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "dynamic_payload_" or 
+ (action_process_image_command_line contains "nmap" and 
+ action_process_image_command_line contains "--max-rtt-timeout 100ms" and 
+ action_process_image_command_line contains " -sn " and 
+ action_process_image_command_line contains "-oX -") or 
+ (action_process_image_command_line contains "nmap" and 
+ action_process_image_command_line contains "-sV --version-light -oX -") or 
+ (action_process_image_command_line contains "nikto" and 
+ action_process_image_command_line contains "-Tuning 8" and 
+ action_process_image_command_line contains "-maxtime 60s" and 
+ action_process_image_command_line contains "-timeout 3") or 
+ (action_process_image_command_line contains "nuclei" and 
+ action_process_image_command_line contains "-timeout 5" and 
+ action_process_image_command_line contains "-severity critical" and 
+ action_process_image_command_line contains " -j -silent") or 
+ (action_process_image_command_line contains "ncat" and 
+ action_process_image_command_line contains "--no-shutdown -i 5s") or 
+ (action_process_image_command_line in ("*msf_rpc_client.py*", "*sudo_baron_exploit.py*", "*strutsExploit.py*", "*becomeUserAgent.sh*", "*writeable_passwd.sh*", "*bind_metasploit_session*"))))

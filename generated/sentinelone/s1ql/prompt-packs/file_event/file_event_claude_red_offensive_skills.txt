@@ -1,0 +1,3 @@
+# Claude-Red Offensive Skills Installed for a Coding Agent
+# Sigma id 8818d933-0d08-5fd4-a553-e4bcf8f84118, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/skills/claude-red/" OR TgtFilePath containsCIS "\skills\claude-red\") OR ((TgtFilePath containsCIS "/skills/" AND TgtFilePath containsCIS "/offensive-") AND TgtFilePath endswithCIS "/SKILL.md") OR ((TgtFilePath containsCIS "\skills\" AND TgtFilePath containsCIS "\offensive-") AND TgtFilePath endswithCIS "\SKILL.md"))

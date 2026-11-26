@@ -1,0 +1,11 @@
+// Nebula Data Folder, Runtime or Container Files Written
+// Sigma id a619ae46-1b9f-5f55-9811-c1eba1009840, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("*/.local/share/nebula/v3/*", "*/io.nebula.security/core/*")) or 
+ (action_file_path contains "/tmp/nebula-process-" and 
+ action_file_path contains ".pid") or 
+ (action_file_path in ("/run/nebula/public-ip", "/etc/cron.d/nebula-public-ip", "/usr/local/share/nebula/security-tools.json", "/usr/local/bin/nebula-terminal-entrypoint", "/usr/local/lib/nebula-public-ip-update")) or 
+ (action_file_path contains "/tmp/nebula-kali-" and 
+ action_file_path contains "/Dockerfile") or 
+ (action_file_path in ("/run/nebula-memory-runner/*", "/var/lib/nebula-memory-runner/*"))))

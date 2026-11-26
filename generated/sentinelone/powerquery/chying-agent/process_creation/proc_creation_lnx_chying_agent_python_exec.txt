@@ -1,0 +1,3 @@
+# CHYing-agent Python Tool Call in Its Kali Container
+# Sigma id 1b361041-5cd3-5bdc-a4cd-ab59e9b23198, level high
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "IyA9PT0g6Ieq5Yqo5rOo5YWl77ya" and tgt.process.cmdline contains "base64 -d" and tgt.process.cmdline contains "python3"))

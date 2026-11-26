@@ -1,0 +1,7 @@
+// Pensar Apex CLI or Kali Container Started
+// Sigma id 9f74677f-b4b2-5b01-bcac-dcce0e24b46f, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*pensar pentest *", "*pensar targeted-pentest *", "*pensar threat-model*", "*pensar agent-runs worker*", "*pensar.js pentest *", "*pensar.js targeted-pentest *")) or 
+ (action_process_image_command_line in ("*@pensar/apex*", "*pensarai.com/install.sh*", "*pensarai.com/apex.ps1*", "*brew install apex*")) or 
+ (action_process_image_command_line in ("*exec kali-apex*", "*kali-apex:latest*")))

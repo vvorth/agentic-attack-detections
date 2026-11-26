@@ -1,0 +1,3 @@
+# KaliGPT Web Launcher Opens the KaliGPT Custom GPT
+# Sigma id 1f3ca833-8fdb-5d54-8493-a2ee94034c89, level low
+event.type="Process Creation" and tgt.process.cmdline contains "chatgpt.com/g/g-xouSQobsE-kaligpt"

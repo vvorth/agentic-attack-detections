@@ -1,0 +1,3 @@
+# DNS Query for Reported ARTEX Infrastructure
+# Sigma id 7229e832-84df-55f9-b5bc-3d9591d5abbb, level high
+event.category="dns" and ((event.dns.request in ("nginxmysql.com","sqlserver-sqlite.com","www.ddduuuppp.com")) or ((event.dns.request in ("artex.lol","artex.tokena2b.top","artex.ok7777.eu.cc","artex.noog2infra.site")) or (event.dns.request contains ".artex.lol" or event.dns.request contains ".artex.tokena2b.top" or event.dns.request contains ".artex.ok7777.eu.cc" or event.dns.request contains ".artex.noog2infra.site")))

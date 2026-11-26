@@ -1,0 +1,9 @@
+// Web or Database Service Spawns a Shell or Download Tool on Windows
+// Sigma id 6a64daf6-9e1b-57ab-b9fe-cf43e37123b8, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ (((actor_process_image_path in ("*\w3wp.exe", "*\httpd.exe", "*\tomcat.exe", "*\php-cgi.exe", "*\sqlservr.exe", "*\mysqld.exe")) or 
+ ((actor_process_image_path in ("*\java.exe", "*\node.exe")) and 
+ (action_process_username in ("*IIS APPPOOL*", "*NETWORK SERVICE*", "*LOCAL SERVICE*")))) and 
+ (action_process_image_path in ("*\cmd.exe", "*\powershell.exe", "*\pwsh.exe", "*\curl.exe", "*\certutil.exe", "*\bitsadmin.exe", "*\whoami.exe", "*\tasklist.exe"))))

@@ -1,0 +1,8 @@
+// ARTEMIS Codex Sub-Agent Started
+// Sigma id 2454e7c4-6eef-53a7-a1db-ad4c8ed4152f, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains " exec " and 
+ action_process_image_command_line contains "--wait-for-followup" and 
+ action_process_image_command_line contains "--instance-id" and 
+ action_process_image_command_line contains "--log-session-dir")

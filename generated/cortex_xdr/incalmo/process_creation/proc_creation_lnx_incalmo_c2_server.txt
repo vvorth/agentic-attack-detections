@@ -1,0 +1,8 @@
+// Incalmo C2 Server or Its Celery Worker
+// Sigma id 57e6a544-ed95-5bb2-9897-71920401d10e, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*incalmo/c2server/c2server.py*", "*incalmo.c2server.celery.celery_worker*")) or 
+ (action_process_image_command_line contains "msfrpcd" and 
+ action_process_image_command_line contains "-P password")))

@@ -1,0 +1,7 @@
+// KaliGPT Installed or Configured
+// Sigma id 51e6f829-09f4-564a-bef0-0f8a3fa8a1b3, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("*/opt/KaliGPT/*", "*/share/KaliGPT/*")) or 
+ (action_file_path in ("*/bin/kaligpt", "*/bin/opensearchapi")) or 
+ action_file_path contains "/kaligptinstaller.sh"))

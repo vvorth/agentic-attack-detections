@@ -1,0 +1,11 @@
+// CAI Cybersecurity AI CLI, Install, Continuous Ops Worker or Kali Container
+// Sigma id 7d11f287-f002-5e4e-83d9-52042784cebb, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line ~= "(^|[/\\\s])cai(\.exe)?["']?\s(.*\s)?(--api|--api-host|--api-port|--tui|--yaml|--prompt|--yolo|--unrestricted)([\s=]|$)" or 
+ action_process_image_command_line ~= "((pip|pip3|pipx)\s+install|uv\s+(tool\s+install|tool\s+run|pip\s+install|add)|uvx)\s(.*\s)?["']?cai-framework" or 
+ action_process_image_command_line contains "packages.aliasrobotics.com" or 
+ action_process_image_command_line contains "cai.continuous_ops.loop_runner" or 
+ (action_process_image_command_line contains "docker" and 
+ action_process_image_command_line contains "--name kali-security" and 
+ action_process_image_command_line contains "--security-opt=seccomp=unconfined"))

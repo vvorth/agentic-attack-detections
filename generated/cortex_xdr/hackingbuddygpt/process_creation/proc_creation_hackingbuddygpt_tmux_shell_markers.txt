@@ -1,0 +1,8 @@
+// hackingBuddyGPT Local Shell Command Markers Sent Through tmux
+// Sigma id 9acfd2b0-21a2-5d83-958c-7901906c161e, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_path contains "/tmux" and 
+ action_process_image_command_line contains "send-keys") and 
+ (action_process_image_command_line in ("*echo 'CMDSTART*", "*echo 'CMDEND*", "*echo \"__CLEAR_*", "*echo \"__END_*"))))

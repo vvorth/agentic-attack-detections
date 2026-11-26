@@ -1,0 +1,3 @@
+# NeuroSploit Project Store, Vault or C2 Files Written
+# Sigma id e3bb33ff-a33c-55ff-8592-e7841eac06be, level low
+event.category="file" and ((tgt.file.path contains "/.neurosploit/c2/" or tgt.file.path contains "\\.neurosploit\\c2\\" or tgt.file.path contains "/.neurosploit/vault/" or tgt.file.path contains "\\.neurosploit\\vault\\") or (tgt.file.path contains "/.neurosploit/keys.json" or tgt.file.path contains "\\.neurosploit\\keys.json") or tgt.file.path="/tmp/ns_browser_prefetch.js")

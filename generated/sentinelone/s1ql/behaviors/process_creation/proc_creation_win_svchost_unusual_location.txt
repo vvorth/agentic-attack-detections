@@ -1,0 +1,3 @@
+# Svchost Running Outside the Windows System Folder
+# Sigma id eae4b702-9723-5393-8d23-37295c6d40ea, level high
+EventType = "Process Creation" AND (EndpointOS = "windows" AND (TgtProcImagePath endswithCIS "\svchost.exe" AND (NOT (TgtProcImagePath startswithCIS "C:\Windows\System32\" OR TgtProcImagePath startswithCIS "C:\Windows\SysWOW64\" OR TgtProcImagePath startswithCIS "C:\Windows\WinSxS\"))))

@@ -1,0 +1,10 @@
+// Claude-Red Offensive Skills Installed for a Coding Agent
+// Sigma id 8818d933-0d08-5fd4-a553-e4bcf8f84118, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/skills/claude-red/*", "*\skills\claude-red\*")) or 
+ ((action_file_path contains "/skills/" and 
+ action_file_path contains "/offensive-") and 
+ action_file_path contains "/SKILL.md") or 
+ ((action_file_path contains "\skills\" and 
+ action_file_path contains "\offensive-") and 
+ action_file_path contains "\SKILL.md"))

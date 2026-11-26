@@ -1,0 +1,3 @@
+# Network Scanners Started by the OpenHack v0.x Agent
+# Sigma id 1bd4cf6e-00f1-5166-b5cd-01a460d09b6a, level medium
+EventType = "Process Creation" AND ((SrcProcCmdLine containsCIS "/bin/openhack" OR SrcProcCmdLine containsCIS " -m openhack" OR SrcProcCmdLine containsCIS "openhack/__main__.py") AND (TgtProcCmdLine containsCIS "nmap -sV -Pn -T4 " OR (TgtProcCmdLine containsCIS "sqlmap -u " AND TgtProcCmdLine containsCIS " --batch --disable-coloring") OR TgtProcCmdLine containsCIS "nuclei -silent -jsonl -target " OR TgtProcCmdLine containsCIS "httpx -silent -json -status-code -title -tech-detect -web-server -no-color" OR TgtProcCmdLine containsCIS "subfinder -silent -d "))

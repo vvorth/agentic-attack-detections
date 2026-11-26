@@ -1,0 +1,11 @@
+// Windows System Binary Name Running From the Wrong Folder
+// Sigma id d7ffbe3f-7838-53ca-89cc-d441a1088634, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ (((action_process_image_path in ("*\smss.exe", "*\winlogon.exe", "*\dllhost.exe", "*\sihost.exe")) and 
+ (not 
+ (action_process_image_path in ("C:\Windows\System32\*", "C:\Windows\SysWOW64\*")))) or 
+ (action_process_image_path contains "\MicrosoftEdgeUpdate.exe" and 
+ (not 
+ (action_process_image_path in ("*\Microsoft\EdgeUpdate\*", "*\Microsoft\Temp\*"))))))

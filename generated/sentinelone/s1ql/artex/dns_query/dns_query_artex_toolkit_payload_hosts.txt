@@ -1,0 +1,3 @@
+# DNS Query for Payload Hosts Active in ARTEX Operator Toolkits
+# Sigma id bfe42b74-3709-50d9-ab8c-33f20bd53185, level high
+ObjectType = "DNS" AND ((DnsRequest In Contains AnyCase ("vietnam852.com","zhzy999.net","jiancai008.com")) OR (DnsRequest endswithCIS ".vietnam852.com" OR DnsRequest endswithCIS ".zhzy999.net" OR DnsRequest endswithCIS ".jiancai008.com"))

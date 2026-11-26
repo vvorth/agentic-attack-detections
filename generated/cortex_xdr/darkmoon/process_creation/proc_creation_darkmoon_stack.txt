@@ -1,0 +1,10 @@
+// DarkMoon AI Pentest Agent Launcher, Containers or MCP Server
+// Sigma id 1900dd4a-afed-5b22-bcbb-9affa37ca0ab, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "opencode" and 
+ action_process_image_command_line contains "--agent pentest" and 
+ action_process_image_command_line contains "TARGET:") or 
+ action_process_image_command_line ~= "(^|[/\s])darkmoon\.sh(\s|$)" or 
+ (action_process_image_command_line in ("*ascit/darkmoon*", "*ascit/opencode-darkmoon*")) or 
+ (action_process_image_command_line in ("*darkmoon-mcp*", "*darkmoon-cli*")))

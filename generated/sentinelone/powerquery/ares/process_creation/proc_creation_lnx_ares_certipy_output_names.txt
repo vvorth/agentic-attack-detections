@@ -1,0 +1,3 @@
+# Ares Certipy Output File Names
+# Sigma id 837d52f9-8850-5555-b56c-4eea801d0878, level medium
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "certipy" and tgt.process.cmdline matches "-out\\s+\\S*(cert_|shadow_|forged_|cert_retrieve_)\\S+_[0-9]{13}-[0-9]+-[0-9]+"))

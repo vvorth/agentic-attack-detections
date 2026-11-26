@@ -1,0 +1,3 @@
+# Codex or Claude Code CLI Started by Mitsu
+# Sigma id 7059401f-52f3-55c9-9283-6b2d2c770648, level high
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "mcp_servers.mitsu.url=" OR (TgtProcCmdLine containsCIS "\"mcpServers\":{\"mitsu\":{\"type\":\"http\"" OR TgtProcCmdLine containsCIS "mcp__mitsu__intel_upsert_asset") OR (TgtProcCmdLine containsCIS "You are Mitsu: the operator" OR TgtProcCmdLine containsCIS "You are Mitsu, a security assessment assistant." OR TgtProcCmdLine containsCIS "Reply exactly MITSU_OK"))

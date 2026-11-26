@@ -1,0 +1,3 @@
+# SQL Server Spawns a Shell Through xp_cmdshell
+# Sigma id 5a82242d-3e20-5373-9852-830e386a2253, level high
+EventType = "Process Creation" AND (EndpointOS = "windows" AND (SrcProcImagePath endswithCIS "\sqlservr.exe" AND (TgtProcImagePath endswithCIS "\cmd.exe" OR TgtProcImagePath endswithCIS "\powershell.exe" OR TgtProcImagePath endswithCIS "\pwsh.exe" OR TgtProcImagePath endswithCIS "\certutil.exe" OR TgtProcImagePath endswithCIS "\bitsadmin.exe")))

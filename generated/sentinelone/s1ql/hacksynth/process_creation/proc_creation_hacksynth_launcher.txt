@@ -1,0 +1,3 @@
+# HackSynth Benchmark Launcher
+# Sigma id f08ccd82-52f6-5b21-a742-45b80fb68334, level low
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "run_bench.py" AND TgtProcCmdLine RegExp "\\s(-b|--benchmark)\\s") AND (TgtProcCmdLine containsCIS "benchmark_solved.json" OR TgtProcCmdLine containsCIS "combined_solved.json" OR TgtProcCmdLine containsCIS "bandit_solved.json" OR TgtProcCmdLine containsCIS "natas_solved.json" OR TgtProcCmdLine containsCIS "configs/pico_bench/" OR TgtProcCmdLine containsCIS "configs/overthewire_bench/"))

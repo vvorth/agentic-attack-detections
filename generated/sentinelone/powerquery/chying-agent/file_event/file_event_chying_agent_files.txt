@@ -1,0 +1,3 @@
+# CHYing-agent Work Folder, Database or Log Files Written
+# Sigma id 56e2db42-5bb1-5724-bd1e-c939642cb0fe, level low
+event.category="file" and ((tgt.file.path contains "/agent-work/ctf/" and (tgt.file.path contains "/findings.log" or tgt.file.path contains "/attack_timeline.md" or tgt.file.path contains "/dumps/commands.log" or tgt.file.path contains "/dumps/execution_summary.md" or tgt.file.path contains "/dumps/reflection_history.md")) or ((tgt.file.path contains "/agent-work/ctf/" and tgt.file.path contains "/poc_scripts/poc_") and tgt.file.path contains ".py") or tgt.file.path contains "/data/chying.db" or (tgt.file.path contains "/logs/chying_agent_" and tgt.file.path contains ".log") or tgt.file.path contains "/.taie/null-zone/")

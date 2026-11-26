@@ -73,6 +73,28 @@ jobs:
           (cd dist && sha256sum -c SHA256SUMS.txt)
           suricata -T -S dist/agentic-attack-detections.rules -l /tmp --init-errors-fatal --set unix-command.enabled=no
 
+  sentinelone-cortex:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Convert Sigma to SentinelOne S1QL and PowerQuery
+        run: |
+          python -m venv /tmp/venv-s1
+          /tmp/venv-s1/bin/pip install -r tools/requirements-sentinelone.txt
+          /tmp/venv-s1/bin/python tools/convert_sentinelone.py
+      - name: Convert Sigma to Cortex XDR XQL
+        run: |
+          python -m venv /tmp/venv-cortex
+          /tmp/venv-cortex/bin/pip install -r tools/requirements-cortex.txt
+          /tmp/venv-cortex/bin/python tools/convert_cortex.py
+      - name: Check the conversions are committed
+        run: |
+          git add -N generated/sentinelone generated/cortex_xdr
+          git diff --exit-code generated/sentinelone generated/cortex_xdr || (echo "Run tools/convert_sentinelone.py and tools/convert_cortex.py and commit generated/" && exit 1)
+
   splunk:
     runs-on: ubuntu-24.04
     steps:

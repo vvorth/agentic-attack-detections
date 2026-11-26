@@ -1,0 +1,8 @@
+// CAI Continuous Ops Systemd User Unit Written
+// Sigma id d07fdeeb-eb47-511a-b04d-adeeae7e3de1, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path contains "/systemd/user/cai-cops-" and 
+ action_file_path contains ".service") or 
+ (action_file_path contains "/.cai/continuous_ops/run_" and 
+ action_file_path contains ".service")))

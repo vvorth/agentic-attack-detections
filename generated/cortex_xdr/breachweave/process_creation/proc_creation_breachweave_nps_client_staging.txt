@@ -1,0 +1,7 @@
+// BreachWeave Playbook NPS Client Staged on a Host
+// Sigma id ace68a85-41c0-58ab-a183-807781a45748, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "/files/nps/npc_" or 
+ (action_process_image_command_line contains "-server=" and 
+ action_process_image_command_line contains "-vkey=auto"))

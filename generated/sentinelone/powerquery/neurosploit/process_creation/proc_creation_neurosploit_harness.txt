@@ -1,0 +1,3 @@
+# NeuroSploit Harness on a Host
+# Sigma id ec1e9ac1-280c-5e4f-a77c-2b8ceb295512, level medium
+event.type="Process Creation" and ((tgt.process.image.path contains "/neurosploit" or tgt.process.image.path contains "\\neurosploit.exe") or (tgt.process.cmdline contains "c2 daemon --port 0 --dir" or tgt.process.cmdline contains "neurosploit-kali" or tgt.process.cmdline contains "neurosploit-neo4j" or tgt.process.cmdline contains "ns_browser_prefetch.js" or tgt.process.cmdline contains "neurosploit-mcp") or ((src.process.image.path contains "/neurosploit" or src.process.image.path contains "\\neurosploit.exe") and (tgt.process.cmdline contains "--dangerously-skip-permissions" or tgt.process.cmdline contains "--dangerously-bypass-approvals-and-sandbox")))

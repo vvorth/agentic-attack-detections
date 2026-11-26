@@ -1,0 +1,6 @@
+// Virga C2 Server, Operator CLI or MCP Server Started
+// Sigma id 6459511c-803c-5dc8-94ca-08e1ee7dae81, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/virga-server", "*/virga-cli", "*/virga-mcp-stdio", "*\virga-server.exe", "*\virga-cli.exe", "*\virga-server-windows-amd64.exe", "*\virga-cli-windows-amd64.exe", "*/virga-server-linux-amd64", "*/virga-cli-linux-amd64", "*/virga-server-darwin-amd64", "*/virga-server-darwin-arm64", "*/virga-cli-darwin-amd64", "*/virga-cli-darwin-arm64")) or 
+ (action_process_image_command_line in ("*bin/virga-server --config*", "*bin/virga-cli --host*", "*bin/virga-mcp-stdio*", "*--server virga-stdio*", "*--server virga-sse*", "*--server virga-streamable*")))

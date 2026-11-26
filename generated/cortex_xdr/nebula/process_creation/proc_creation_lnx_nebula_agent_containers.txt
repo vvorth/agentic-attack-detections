@@ -1,0 +1,10 @@
+// Nebula Agent Command in Its Kali Container
+// Sigma id 59cff36b-f9b3-5b08-a685-ca1cd5c2cb84, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "os.execv('/bin/bash',['/bin/bash','--noprofile','--norc','-c',sys.argv[2]])" or 
+ action_process_image_command_line contains "/tmp/nebula-process-" or 
+ ((action_process_image_path in ("*/docker", "*/podman")) and 
+ (action_process_image_command_line in ("* nebula-runtime-*", "*--name=nebula-runtime-*", "*--name=nebula-terminal-*", "*--name=nebula-exec-*", "*localhost/nebula-kali-headless*"))) or 
+ (action_process_image_command_line in ("*/usr/local/bin/nebula-terminal-entrypoint*", "*/usr/local/lib/nebula-public-ip-update*"))))

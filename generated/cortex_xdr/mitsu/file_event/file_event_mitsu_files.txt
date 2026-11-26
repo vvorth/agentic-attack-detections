@@ -1,0 +1,6 @@
+// Mitsu Session, Configuration or Report Files Written
+// Sigma id d2be8aa4-645e-5d7a-a14d-04ad7d7ce8fb, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/mitsu/sessions/*", "*/.config/mitsu/*", "*/mitsu/armory/*", "*/mitsu-codex-sessions/*", "*/mitsu-claude-sessions/*")) or 
+ action_file_path contains "/.mitsu-armory-managed" or 
+ (action_file_path in ("*/mitsu/credentials.json", "*/mitsu/mcp_servers.json", "*/mitsu/host.json", "*/mitsu/instance.lock")))

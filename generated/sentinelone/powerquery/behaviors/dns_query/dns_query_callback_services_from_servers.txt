@@ -1,0 +1,3 @@
+# DNS Query to Request Collection or DNS Callback Services
+# Sigma id 68a5326b-3c56-5371-bfd7-2cd1bda49314, level medium
+event.category="dns" and (event.dns.request="webhook.site" or (event.dns.request contains ".webhook.site" or event.dns.request contains ".dnslog.cn" or event.dns.request contains ".interact.sh" or event.dns.request contains ".oast.fun" or event.dns.request contains ".requestcatcher.com" or event.dns.request contains ".pipedream.net"))

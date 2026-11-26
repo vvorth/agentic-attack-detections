@@ -1,0 +1,3 @@
+# VulnBot Login Notice File Created
+# Sigma id 706dfee1-a13f-5161-bbc1-0b5177d1b882, level low
+ObjectType = "File" AND (EndpointOS = "linux" AND (TgtFilePath = "/etc/legal" AND (NOT SrcProcImagePath endswithCIS "/dpkg")))

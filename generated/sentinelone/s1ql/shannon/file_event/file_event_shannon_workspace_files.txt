@@ -1,0 +1,3 @@
+# Shannon Workspace, Deliverable or Browser Files Written
+# Sigma id 82a9276f-09b9-544e-990b-d9f327daa1cc, level medium
+ObjectType = "File" AND (TgtFilePath RegExp "[/\\\\]\\.shannon[/\\\\](session\\.json|workflow\\.log|startup-error\\.json)$" OR TgtFilePath RegExp "[/\\\\]\\.shannon[/\\\\]deliverables[/\\\\][a-z_]+_(deliverable\\.md|exploitation_queue\\.json|exploitation_evidence\\.md)$" OR TgtFilePath RegExp "[/\\\\]\\.shannon[/\\\\]\\.playwright[/\\\\](cli\\.config\\.json|scripts[/\\\\]stealth\\.js)$" OR (TgtFilePath endswithCIS "/.shannon/config.toml" OR TgtFilePath endswithCIS "\.shannon\config.toml"))

@@ -1,0 +1,8 @@
+// ARTEMIS Supervisor or Autonomous Driver Started
+// Sigma id 31ee5f21-c658-5247-99c8-c63658a63147, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (((action_process_image_command_line in ("*supervisor.supervisor*", "*codex-supervisor*")) and 
+ (action_process_image_command_line in ("*--benchmark-mode*", "*--skip-todos*", "*--use-prompt-generation*", "*--finish-on-submit*", "*--codex-binary*", "*configs/tests/ctf_easy.yaml*", "*configs/stanford/*"))) or 
+ ((action_process_image_command_line in ("*codex autonomous *", "*codex auto *")) and 
+ (action_process_image_command_line in ("*--ignore-work-hours*", "*--driver-model*", "*--work-start-hour*", "*--logs-dir*", "*--mode *"))))

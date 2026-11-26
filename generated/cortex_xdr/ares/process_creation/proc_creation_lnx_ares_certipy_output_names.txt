@@ -1,0 +1,7 @@
+// Ares Certipy Output File Names
+// Sigma id 837d52f9-8850-5555-b56c-4eea801d0878, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "certipy" and 
+ action_process_image_command_line ~= "-out\s+\S*(cert_|shadow_|forged_|cert_retrieve_)\S+_[0-9]{13}-[0-9]+-[0-9]+"))

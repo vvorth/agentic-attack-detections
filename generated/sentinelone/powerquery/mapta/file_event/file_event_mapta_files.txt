@@ -1,0 +1,3 @@
+# MAPTA Run Log, Usage or Sandbox Script Files Written
+# Sigma id 29b59224-90dd-5e78-b1a9-38819639bffb, level low
+event.category="file" and ((tgt.file.path contains "/scan_usage.log" or tgt.file.path contains "\\scan_usage.log") or (tgt.file.path contains "_usage_log_" and tgt.file.path contains ".json") or (tgt.file.path contains "/home/user/temp_script_" and tgt.file.path contains ".py"))

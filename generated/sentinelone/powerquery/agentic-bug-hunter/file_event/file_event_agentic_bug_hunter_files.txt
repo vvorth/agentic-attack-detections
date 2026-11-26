@@ -1,0 +1,3 @@
+# Agentic Bug Hunter Configuration, Memory or Spray Log Written
+# Sigma id a1c24960-ea1a-5ea5-a9b5-63885b4046c0, level low
+event.category="file" and ((tgt.file.path contains "/.bughunter/" or tgt.file.path contains "/.cache/bbhunt/scope/" or tgt.file.path contains "/hunt-memory/audit.jsonl" or tgt.file.path contains "/hunt-memory/journal.jsonl" or tgt.file.path contains "/skills/johnwick/SKILL.md" or tgt.file.path contains "/skills/omni-killchain/SKILL.md" or tgt.file.path contains "/agents/credential-hunter.md") or (tgt.file.path contains "/spray/attempts-" and tgt.file.path contains ".jsonl") or tgt.file.path contains "/autonomous_session.json")

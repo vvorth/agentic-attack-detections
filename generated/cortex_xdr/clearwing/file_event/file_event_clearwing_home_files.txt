@@ -1,0 +1,5 @@
+// Clearwing Configuration, Session or Disclosure Data Written
+// Sigma id f37c6bdc-b43b-5255-9b0e-b4cc44bc1153, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.clearwing/*", "*\.clearwing\*")) or 
+ (action_file_path in ("*/clearwing_custom_tools_*", "*/clearwing-scratch-*", "*/clearwing-src-*")))

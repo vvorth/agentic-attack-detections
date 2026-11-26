@@ -1,0 +1,3 @@
+# Custom AI Agent (burp-ai-agent) MCP Server Certificate or MCP Bridge
+# Sigma id f39908c5-5234-5ef1-9ec1-f8ca7d491be7, level low
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "-genkeypair" AND TgtProcCmdLine containsCIS "CN=burp-mcp") OR (TgtProcCmdLine containsCIS "supergateway" AND TgtProcCmdLine containsCIS ":9876/sse"))

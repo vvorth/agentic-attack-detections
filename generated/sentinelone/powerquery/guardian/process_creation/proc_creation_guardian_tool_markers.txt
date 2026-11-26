@@ -1,0 +1,3 @@
+# Guardian Tool Wrapper Markers in a Command Line
+# Sigma id 2ba5eb49-9713-5e7a-bb88-ddb8b80e0e90, level medium
+event.type="Process Creation" and (tgt.process.cmdline contains "/tmp/guardian_ffuf_wordlist.txt" or tgt.process.cmdline contains " -F guardian-prowler" or (tgt.process.cmdline contains "dependency-check" and tgt.process.cmdline contains " --project guardian"))

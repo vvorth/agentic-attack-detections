@@ -1,0 +1,3 @@
+# MAPTA Sandbox Python Runner
+# Sigma id 713ada5c-0f44-56fa-b2a1-d2f3a4deacfc, level medium
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "python3 /home/user/temp_script_" AND TgtProcCmdLine containsCIS ".py")

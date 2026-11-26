@@ -1,0 +1,7 @@
+// Sage (Mythic) Proof Marker or Proof File in a Command Line
+// Sigma id 2ae9dac8-6526-5252-b96a-097fbfd8004f, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ ((action_process_image_command_line in ("*SAGE_REMOTE_EXEC_PROOF_*", "*SAGE_EP_ADJUST_PROOF*", "*SAGE_CA_EXPORT_PROOF*", "*SAGE_CERT_ENROLL_PROOF*", "*SAGE_CERT_AUTH_PROOF*", "*SagePfx-v1-*")) or 
+ (action_process_image_command_line in ("*\sage_remote_exec*", "*\sage_ep_adjust*", "*\sage_ca_export_*", "*\sage_ca_dpapi_*", "*\sage_forged_cert_*", "*\sage_ca_signing_*", "*\sage_cert_enroll_*", "*\sage_gpo_*"))))

@@ -1,0 +1,12 @@
+// CyberStrikeAI Implant Windows Persistence Named SystemUpdate
+// Sigma id a8da8a64-d5a3-597d-a8a7-9a968b5896a7, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ ((action_process_image_command_line contains "reg" and 
+ action_process_image_command_line contains " add " and 
+ action_process_image_command_line contains "\CurrentVersion\Run" and 
+ action_process_image_command_line contains "SystemUpdate") or 
+ (action_process_image_command_line contains "schtasks" and 
+ action_process_image_command_line contains "/create" and 
+ action_process_image_command_line contains "SystemUpdate")))

@@ -1,0 +1,3 @@
+# Incalmo Implant, Script or Run File Written
+# Sigma id 03be2d7d-0290-534d-951c-573623343505, level high
+ObjectType = "File" AND (EndpointOS = "linux" AND (((TgtFilePath endswithCIS "/sandcat_tmp.go" OR TgtFilePath endswithCIS "/tmp/sc.log" OR TgtFilePath endswithCIS "/tmp/state_store.db" OR TgtFilePath endswithCIS "/_litellm_key_status.json" OR TgtFilePath endswithCIS "/plugins/deception/payloads/exploit.py") OR (TgtFilePath containsCIS "/dynamic_payload_" AND TgtFilePath endswithCIS ".sh") OR (TgtFilePath containsCIS "/output/" AND TgtFilePath endswithCIS "/llm_agent.log") OR TgtFilePath endswithCIS "/splunkd") AND (NOT TgtFilePath containsCIS "/bin/splunkd")))

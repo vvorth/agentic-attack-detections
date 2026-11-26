@@ -1,0 +1,3 @@
+# ARIA-X Database, Run Evidence or Working Folders
+# Sigma id ee1ec5c0-526b-536c-940d-c9ffc4a9ff50, level medium
+event.category="file" and ((tgt.file.path contains "/aria-x.db" or tgt.file.path contains "/aria-x.db-wal" or tgt.file.path contains "/aria-x.db-shm" or tgt.file.path contains "/configs/aria-x.toml") or (tgt.file.path contains "/runs/run_" and tgt.file.path contains "/work/evidence/http_") or (tgt.file.path contains "/runs/run_" and (tgt.file.path contains "/report.html" or tgt.file.path contains "/report.md" or tgt.file.path contains "/report.json")) or (tgt.file.path contains "/aria-x-work-" or tgt.file.path contains "/aria-x-doctor-" or tgt.file.path contains "/aria-x-tools-" or tgt.file.path contains "/aria-x-demo-target-"))

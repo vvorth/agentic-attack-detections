@@ -1,0 +1,3 @@
+# Cain Workspace Stage Files Written
+# Sigma id de9463da-7ec1-544d-9f74-3cc10d85cfa2, level low
+ObjectType = "File" AND (TgtFilePath endswithCIS "/recon/recon-output.txt" OR TgtFilePath endswithCIS "\recon\recon-output.txt" OR TgtFilePath endswithCIS "/test/test-output.txt" OR TgtFilePath endswithCIS "\test\test-output.txt" OR TgtFilePath endswithCIS "/test/gate-skipped.txt" OR TgtFilePath endswithCIS "\test\gate-skipped.txt")

@@ -1,0 +1,7 @@
+// VulnBot Login Notice File Created
+// Sigma id 706dfee1-a13f-5161-bbc1-0b5177d1b882, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_file_path = "/etc/legal" and 
+ (not 
+ actor_process_image_path contains "/dpkg")))

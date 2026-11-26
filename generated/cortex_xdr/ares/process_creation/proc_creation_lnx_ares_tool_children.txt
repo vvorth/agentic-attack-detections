@@ -1,0 +1,7 @@
+// Ares Worker Starting Active Directory Attack Tools
+// Sigma id 4ab84c38-598f-5d0e-b311-fcce7d97a466, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (actor_process_image_path contains "/ares" and 
+ (action_process_image_command_line in ("*impacket-*", "*netexec*", "*nxc *", "*certipy*", "*bloodyAD*", "*pywhisker*", "*pygpoabuse*", "*responder*", "*coercer*", "*petitpotam*", "*dfscoerce*", "*bloodhound-python*", "*hashcat*", "*lsassy*", "*evil-winrm*"))))

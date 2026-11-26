@@ -1,0 +1,3 @@
+# CAI Telemetry, Alias Gateway or Private Package Index DNS Query
+# Sigma id da4f089e-1e92-53fa-a781-fd97e5ee07dd, level medium
+event.category="dns" and (event.dns.request in ("logs.aliasrobotics.com","api.aliasrobotics.com","packages.aliasrobotics.com"))

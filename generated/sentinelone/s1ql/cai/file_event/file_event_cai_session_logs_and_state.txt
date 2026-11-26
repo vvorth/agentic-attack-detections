@@ -1,0 +1,3 @@
+# CAI Session Log, API Auth Database or Workspace Written
+# Sigma id 0abc86e5-02e5-5fd2-9c2c-03489e14a6b9, level low
+ObjectType = "File" AND (TgtFilePath RegExp "[/\\\\]\\.cai[/\\\\]logs[/\\\\]([A-Za-z0-9_-]+_)?cai_[0-9a-f-]{36}_\\d{8}_\\d{6}_.*\\.jsonl$" OR (TgtFilePath endswithCIS "/.cai/api_auth.json" OR TgtFilePath endswithCIS "/.cai/api_auth.json.key" OR TgtFilePath endswithCIS "\.cai\api_auth.json" OR TgtFilePath endswithCIS "\.cai\api_auth.json.key") OR (TgtFilePath containsCIS "/.cai/continuous_ops/run_" OR TgtFilePath containsCIS "\.cai\continuous_ops\run_"))

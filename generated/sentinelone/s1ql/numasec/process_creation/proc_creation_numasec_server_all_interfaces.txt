@@ -1,0 +1,3 @@
+# numasec API Server Started on All Interfaces
+# Sigma id 0e01c1a8-3edd-5ebc-b83d-8a47cece546e, level medium
+EventType = "Process Creation" AND ((TgtProcImagePath endswithCIS "/numasec" OR TgtProcImagePath endswithCIS "\numasec.exe") AND (TgtProcCmdLine containsCIS "--hostname 0.0.0.0" OR TgtProcCmdLine containsCIS "--hostname=0.0.0.0" OR TgtProcCmdLine containsCIS "--mdns"))

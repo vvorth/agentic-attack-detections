@@ -1,0 +1,11 @@
+// 0security Probe or Nuclei Target Scan Against a Live Endpoint
+// Sigma id 69c7dd9d-381a-5a6b-be5c-3d11304259ad, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (((action_process_image_command_line in ("* probe http*", "*--i-own-this *")) and 
+ (action_process_image_command_line in ("*0security*", "*0.js*", "*0 probe *"))) or 
+ (action_process_image_command_line contains "--target-url " and 
+ action_process_image_command_line contains "--scanner nuclei") or 
+ (action_process_image_command_line contains "0-nuclei-" and 
+ action_process_image_command_line contains "-etags intrusive,dos,fuzz" and 
+ action_process_image_command_line contains "-pt http"))

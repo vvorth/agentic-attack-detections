@@ -1,0 +1,8 @@
+// numasec AI Security Agent on a Host
+// Sigma id 6521d3e9-170f-5ca5-b9ff-6df115949750, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/bin/numasec", "*\bin\numasec.exe")) or 
+ (action_process_image_command_line in ("*install -g numasec*", "*add -g numasec*", "*francescostabile/numasec*")) or 
+ ((action_process_image_path in ("*/interactsh-client", "*\interactsh-client.exe")) and 
+ (action_process_image_command_line in ("*/numasec/log/int_*", "*\numasec\log\int_*"))))

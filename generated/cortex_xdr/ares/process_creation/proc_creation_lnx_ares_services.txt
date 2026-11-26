@@ -1,0 +1,6 @@
+// Ares Orchestrator or Worker Service
+// Sigma id 2006b526-b24f-5657-8a0e-505f46cc5025, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line in ("*/usr/local/bin/ares orchestrator*", "*/usr/local/bin/ares worker*", "*--unit=ares-orchestrator.service*", "*--slice=system-ares.slice*")))

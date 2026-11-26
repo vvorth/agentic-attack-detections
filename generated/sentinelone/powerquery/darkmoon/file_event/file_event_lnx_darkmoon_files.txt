@@ -1,0 +1,3 @@
+# DarkMoon Configuration, Campaign or Report Files Written
+# Sigma id 9cf90f83-0222-59dc-84a6-9dc5cec46bfd, level low
+event.category="file" and (endpoint.os="linux" and ((tgt.file.path in ("/run/darkmoon-gpu.env","/tmp/darkmoon-mcp-boot.log")) or tgt.file.path contains "/opt/darkmoon/out/" or tgt.file.path contains "/darkmoon-settings/campaigns/camp_" or (tgt.file.path contains "/reports/pentest_report_" and tgt.file.path contains ".md")))

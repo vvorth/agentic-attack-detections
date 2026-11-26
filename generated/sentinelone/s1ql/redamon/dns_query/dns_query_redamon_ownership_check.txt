@@ -1,0 +1,3 @@
+# RedAmon Ownership Check Lookup
+# Sigma id 6eacd941-72ba-5db7-b745-816079cf5127, level low
+ObjectType = "DNS" AND DnsRequest startswithCIS "_redamon-verify."

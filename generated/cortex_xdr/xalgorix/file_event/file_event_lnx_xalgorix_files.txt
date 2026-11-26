@@ -1,0 +1,7 @@
+// Xalgorix Configuration, Service or Scan Data Written
+// Sigma id 9d651383-5871-5ba1-84da-625f1860e5b6, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("/etc/xalgorix.env", "/etc/systemd/system/xalgorix.service", "/tmp/xalgorix.log", "/tmp/xalgorix-crash.log")) or 
+ action_file_path contains "/.xalgorix/data/" or 
+ action_file_path contains "/.xalgorix.env"))

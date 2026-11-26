@@ -1,0 +1,7 @@
+// Ares Minted Machine Account Created With impacket-addcomputer
+// Sigma id 3677dece-25bf-5667-92bc-36b7951a6616, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "addcomputer" and 
+ action_process_image_command_line ~= "-computer-name\s+ARES-[0-9A-F]{8}(\s|$)"))

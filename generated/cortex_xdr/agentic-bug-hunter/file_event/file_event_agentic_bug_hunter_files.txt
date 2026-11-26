@@ -1,0 +1,7 @@
+// Agentic Bug Hunter Configuration, Memory or Spray Log Written
+// Sigma id a1c24960-ea1a-5ea5-a9b5-63885b4046c0, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.bughunter/*", "*/.cache/bbhunt/scope/*", "*/hunt-memory/audit.jsonl*", "*/hunt-memory/journal.jsonl*", "*/skills/johnwick/SKILL.md*", "*/skills/omni-killchain/SKILL.md*", "*/agents/credential-hunter.md*")) or 
+ (action_file_path contains "/spray/attempts-" and 
+ action_file_path contains ".jsonl") or 
+ action_file_path contains "/autonomous_session.json")

@@ -1,0 +1,5 @@
+// CyberStrikeAI Implant LaunchAgent com.apple.systemupdate
+// Sigma id 2ba060cd-8351-51cb-82e8-1adef3c38d02, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_MAC and 
+ action_file_path contains "/Library/LaunchAgents/com.apple.systemupdate.plist")

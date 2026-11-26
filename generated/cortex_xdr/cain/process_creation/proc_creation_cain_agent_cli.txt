@@ -1,0 +1,7 @@
+// Cain AI Pentest Agent Run
+// Sigma id 7d79dcb7-fe87-5b82-8c55-a598b82867c7, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "cain-agent" and 
+ action_process_image_command_line contains " run " and 
+ action_process_image_command_line contains "--target")

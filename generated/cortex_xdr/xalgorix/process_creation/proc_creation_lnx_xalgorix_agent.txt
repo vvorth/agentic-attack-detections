@@ -1,0 +1,7 @@
+// Xalgorix Agent on a Host
+// Sigma id 20414e72-e491-5594-872d-4b65742ac069, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_path contains "/xalgorix" or 
+ (action_process_image_command_line in ("*XALGORIX_WORKSPACE=*", "*__xalgorix_resolve_path*", "*xalgorix-scan-init*", "*xalgord/xalgorix*", "*xalgorix --web*"))))

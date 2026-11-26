@@ -1,0 +1,5 @@
+// Blitz Strike Home Folder, Reports or Agent Personas Written
+// Sigma id d2a75e3d-9c62-5ddf-9a30-9e4a6c2557c6, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.blitzstrike/*", "*\.blitzstrike\*")) or 
+ (action_file_path in ("*/opencode/agents/Blitz Strike.md", "*\opencode\agents\Blitz Strike.md", "*/opencode/agents/Eagle Eye.md", "*\opencode\agents\Eagle Eye.md")))

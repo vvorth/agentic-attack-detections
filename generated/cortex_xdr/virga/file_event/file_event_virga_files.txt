@@ -1,0 +1,8 @@
+// Virga Server, Generator or Model Files Written
+// Sigma id 5c3fd692-b5ca-567d-977b-370a9cbc623c, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path contains "/tmp/virga/extensions/" or 
+ (action_file_path in ("*/data/virga.db", "*/.virga_history", "*/internal/implant/llama/models/model.gguf", "*\internal\implant\llama\models\model.gguf")) or 
+ (action_file_path in ("*/virga-generator-*", "*\virga-generator-*")) or 
+ (action_file_path contains "/logs/virga-" and 
+ action_file_path contains ".jsonl"))

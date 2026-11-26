@@ -1,0 +1,3 @@
+# Deadend CLI Default Trace Collector Lookup
+# Sigma id 6ba1858b-014d-5b36-8da2-b2c19f069896, level medium
+ObjectType = "DNS" AND DnsRequest = "crunch.straylabs.ai"

@@ -1,0 +1,11 @@
+// Cybermes Files Written
+// Sigma id 54fb9bfe-a516-576d-9c82-2eb555f46f42, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.cybermes/bin/cybermes-mcp-v*", "*\.cybermes\bin\cybermes-mcp-v*", "*/.cybermes/update_check.json*", "*\.cybermes\update_check.json*")) or 
+ (action_file_path in ("*/.hermes/skills/autonomous-godmode-hunter/*", "*\.hermes\skills\autonomous-godmode-hunter\*")) or 
+ (action_file_path contains "/recon/" and 
+ (action_file_path in ("*/katana.txt", "*/nuclei_output.txt"))) or 
+ (action_file_path contains "/reports/" and 
+ (action_file_path contains "/evidence/recon_notes.md" or 
+ (action_file_path contains "/REPORT_" and 
+ action_file_path contains ".pdf"))))

@@ -1,0 +1,7 @@
+// LazyOwn C2 Key, Launcher, Credential or Capture Files Written
+// Sigma id e0aa8b5f-2647-5490-9d6a-f2eed600add1, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("*/sessions/key.aes", "*/sessions/c2_launch.env", "*/sessions/c2_launch.sh", "*/sessions/rbac_initial_admin.txt", "*/sessions/users_initial_admin.txt", "*/sessions/sessionLazyOwn.json", "*/sessions/LazyOwn_session_report.csv")) or 
+ (action_file_path contains "/sessions/captured_images/" and 
+ (action_file_path in ("*.png", "*.webm")))))

@@ -1,0 +1,3 @@
+# Claude Code Keychain Credential Read by a Python Process
+# Sigma id f828b29f-c6c1-5953-8937-0f86e7af9512, level medium
+event.type="Process Creation" and (endpoint.os="osx" and ((tgt.process.image.path contains "/security" and (tgt.process.cmdline contains "find-generic-password" and tgt.process.cmdline contains "Claude Code-credentials")) and src.process.image.path contains "python"))

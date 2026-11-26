@@ -1,0 +1,7 @@
+// NyxStrike Server, MCP Client or Tool Started by the Server
+// Sigma id 4f28ea68-b9bd-58b4-accb-a62b492dd7fe, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*nyxstrike_server.py*", "*nyxstrike_mcp.py*", "*nyxstrike.sh*", "*/nyxstrike-env/bin/python*")) or 
+ actor_process_command_line contains "nyxstrike_server.py"))

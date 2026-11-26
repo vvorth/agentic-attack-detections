@@ -1,0 +1,8 @@
+// MCP Kali Server Health Check or Tool Run Under Its API Server
+// Sigma id 08c2300a-f436-5b70-a8d4-306568e62c47, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (actor_process_command_line contains "server.py" and 
+ ((action_process_image_command_line in ("which nmap", "which gobuster", "which dirb", "which nikto")) or 
+ (action_process_image_command_line in ("sqlmap -u *", "hydra -t 4 *", "john --wordlist=*", "enum4linux -a *", "msfconsole -q -r *", "gobuster dir -u *", "nikto -h *", "wpscan --url *")))))

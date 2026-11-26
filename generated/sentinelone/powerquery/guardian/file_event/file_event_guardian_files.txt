@@ -1,0 +1,3 @@
+# Guardian Session, Log or Configuration Files Written
+# Sigma id ffbf7640-2e91-52dc-b0d5-4653db75db07, level low
+event.category="file" and ((tgt.file.path contains "/.guardian/guardian.yaml" or tgt.file.path contains "/.guardian/.env" or tgt.file.path contains "/.guardian/kb/kb.sqlite3" or tgt.file.path contains "/.guardian/ranker.pkl" or tgt.file.path contains "/tmp/guardian_ffuf_wordlist.txt") or tgt.file.path contains "/logs/ai_audit.log" or ((tgt.file.path contains "/reports/session_" or tgt.file.path contains "/reports/.session_") and (tgt.file.path contains ".json" or tgt.file.path contains ".tmp")))

@@ -1,0 +1,3 @@
+# AutoPT Agent Started or Running Its Scan Steps
+# Sigma id 090f97a6-0e7e-5ebb-90cf-9e9a28e40656, level medium
+event.type="Process Creation" and ((tgt.process.cmdline contains "main.py" and tgt.process.cmdline contains "--name " and tgt.process.cmdline contains "--ip_addr ") or (tgt.process.cmdline contains "autopt" and tgt.process.cmdline contains "--benchmark-name" and tgt.process.cmdline contains "--ip-addr") or tgt.process.cmdline contains "nmap -sS -p- --min-rate 3000 -T4 ")

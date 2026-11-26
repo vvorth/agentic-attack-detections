@@ -1,0 +1,6 @@
+// NeuroSploit Beacon Run Key Value NSUpdate
+// Sigma id 5f5a6160-f5ee-5a15-849d-c1c1ade4fa4e, level high
+config case_sensitive = false | preset=xdr_registry | filter (event_type = ENUM.REGISTRY and 
+ event_sub_type = ENUM.REGISTRY_SET_VALUE) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ action_registry_key_name contains "\CurrentVersion\Run\NSUpdate")

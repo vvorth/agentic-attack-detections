@@ -1,0 +1,3 @@
+# Windows System Binary Name Running From the Wrong Folder
+# Sigma id d7ffbe3f-7838-53ca-89cc-d441a1088634, level high
+EventType = "Process Creation" AND (EndpointOS = "windows" AND (((TgtProcImagePath endswithCIS "\smss.exe" OR TgtProcImagePath endswithCIS "\winlogon.exe" OR TgtProcImagePath endswithCIS "\dllhost.exe" OR TgtProcImagePath endswithCIS "\sihost.exe") AND (NOT (TgtProcImagePath startswithCIS "C:\Windows\System32\" OR TgtProcImagePath startswithCIS "C:\Windows\SysWOW64\"))) OR (TgtProcImagePath endswithCIS "\MicrosoftEdgeUpdate.exe" AND (NOT (TgtProcImagePath containsCIS "\Microsoft\EdgeUpdate\" OR TgtProcImagePath containsCIS "\Microsoft\Temp\")))))

@@ -1,0 +1,7 @@
+// Mitsu Shell Tool Command
+// Sigma id b3879fc7-bb18-5a67-924a-4712b08de033, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "/bin/bash -o pipefail -c " and 
+ ((actor_process_command_line in ("*/bin/mitsu", "* -m mitsu")) or 
+ actor_process_command_line contains "/uv/tools/mitsu/"))

@@ -1,0 +1,3 @@
+# Cyber-AutoAgent Operation Files Written
+# Sigma id 2dbb915f-15f8-5498-bf43-527bcf704946, level low
+event.category="file" and (((tgt.file.path contains "/OP_" or tgt.file.path contains "\\OP_") and (tgt.file.path contains "cyber_operations.log" or tgt.file.path contains "security_assessment_report.md" or tgt.file.path contains "execution_prompt_optimized.txt")) or (tgt.file.path contains "/.cyber-autoagent/config.json" or tgt.file.path contains "\\.cyber-autoagent\\config.json"))

@@ -1,0 +1,3 @@
+# NeuroSploit Beacon Windows Persistence Named NSUpdate
+# Sigma id 95e1ccf2-4522-5571-bec7-f883b2f97acc, level high
+EventType = "Process Creation" AND (EndpointOS = "windows" AND ((TgtProcCmdLine containsCIS "schtasks" AND TgtProcCmdLine containsCIS "/create" AND TgtProcCmdLine containsCIS "NSUpdate") OR (TgtProcCmdLine containsCIS "reg" AND TgtProcCmdLine containsCIS " add " AND TgtProcCmdLine containsCIS "\CurrentVersion\Run" AND TgtProcCmdLine containsCIS "NSUpdate")))

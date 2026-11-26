@@ -1,0 +1,3 @@
+# OpenHack Workspace, Temporary or Evidence Files Written
+# Sigma id 8ea1c520-4655-5cd8-9c00-8353bd6a6e9f, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/.openhack/" OR TgtFilePath containsCIS "\.openhack\") OR (TgtFilePath containsCIS "/openhack-subscription-" OR TgtFilePath containsCIS "/openhack-login-" OR TgtFilePath containsCIS "\openhack-subscription-" OR TgtFilePath containsCIS "\openhack-login-") OR (TgtFilePath containsCIS "/.openhack-evidence/" OR TgtFilePath containsCIS ".openhack-sandbox-override-"))

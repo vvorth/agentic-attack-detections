@@ -1,0 +1,12 @@
+// MCP Kali Server API Server or MCP Client Started
+// Sigma id 007a41b4-3da4-5e66-909c-c458ddd16746, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*/usr/bin/kali-server-mcp*", "*/usr/share/mcp-kali-server/*")) or 
+ (action_process_cwd contains "/usr/share/mcp-kali-server" and 
+ (action_process_image_command_line in ("*server.py*", "*client.py*"))) or 
+ action_process_username = "_mcp-kali" or 
+ (action_process_image_command_line contains "client.py" and 
+ action_process_image_command_line contains "--server http" and 
+ action_process_image_command_line contains ":5000")))

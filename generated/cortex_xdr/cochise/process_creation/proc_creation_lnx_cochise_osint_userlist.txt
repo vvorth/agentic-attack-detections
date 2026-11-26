@@ -1,0 +1,6 @@
+// Cochise AI Pentest Agent User List in AD Attack Commands
+// Sigma id e3c3b754-8723-5465-bf52-1f7aa49c3df4, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line in ("* /osint_users.txt*", "*=/osint_users.txt*", "*\"/osint_users.txt*", "*'/osint_users.txt*", "*</osint_users.txt*")))

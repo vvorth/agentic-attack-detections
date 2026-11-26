@@ -1,0 +1,5 @@
+// AutoPT Run Result Written
+// Sigma id 4dc01358-f0f5-56d4-a9a5-b1eab1185598, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/result/*", "*\result\*")) and 
+ action_file_path contains "_FSM.jsonl")

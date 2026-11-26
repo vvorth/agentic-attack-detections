@@ -1,0 +1,3 @@
+# Ares SQL Server Hive Dump Through xp_cmdshell
+# Sigma id b080ca37-185c-5b9a-9f15-025bd2ae6b23, level high
+EventType = "Process Creation" AND (EndpointOS = "windows" AND (TgtProcCmdLine containsCIS "JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwB0AG8AcAAnAAoAJAB0AD0AJABlAG4AdgA6AFQARQBNAFAACgAkAGEAPQAiACQAdABcAGEALgBoAGkAdgBlACIA" OR (TgtProcCmdLine containsCIS "save" AND TgtProcCmdLine containsCIS "HKLM\SAM" AND TgtProcCmdLine containsCIS "\a.hive") OR (TgtProcCmdLine containsCIS "save" AND TgtProcCmdLine containsCIS "HKLM\SYSTEM" AND TgtProcCmdLine containsCIS "\b.hive") OR (TgtProcCmdLine containsCIS "save" AND TgtProcCmdLine containsCIS "HKLM\SECURITY" AND TgtProcCmdLine containsCIS "\c.hive")))

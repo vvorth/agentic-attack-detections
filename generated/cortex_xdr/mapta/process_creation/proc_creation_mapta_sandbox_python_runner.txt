@@ -1,0 +1,6 @@
+// MAPTA Sandbox Python Runner
+// Sigma id 713ada5c-0f44-56fa-b2a1-d2f3a4deacfc, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "python3 /home/user/temp_script_" and 
+ action_process_image_command_line contains ".py")

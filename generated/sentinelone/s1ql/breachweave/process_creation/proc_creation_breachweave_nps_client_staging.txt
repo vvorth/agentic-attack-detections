@@ -1,0 +1,3 @@
+# BreachWeave Playbook NPS Client Staged on a Host
+# Sigma id ace68a85-41c0-58ab-a183-807781a45748, level high
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "/files/nps/npc_" OR (TgtProcCmdLine containsCIS "-server=" AND TgtProcCmdLine containsCIS "-vkey=auto"))

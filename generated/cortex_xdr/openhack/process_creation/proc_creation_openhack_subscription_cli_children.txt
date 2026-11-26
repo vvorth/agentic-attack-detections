@@ -1,0 +1,9 @@
+// Claude Code or Codex CLI Started by OpenHack
+// Sigma id c04336d7-897c-5138-9198-8280c8a2f615, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "--safe-mode" and 
+ action_process_image_command_line contains "disableAllHooks" and 
+ action_process_image_command_line contains "forceLoginMethod") or 
+ action_process_image_command_line contains "openhack-subscription-" or 
+ action_process_image_command_line contains "source-review worker inside OpenHack")

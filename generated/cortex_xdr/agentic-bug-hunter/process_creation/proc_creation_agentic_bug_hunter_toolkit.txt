@@ -1,0 +1,7 @@
+// Agentic Bug Hunter Toolkit on a Host
+// Sigma id d98bc6b4-1575-5ada-9278-9b05e0d9145b, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "agentic-bug-hunter" or 
+ (action_process_image_command_line in ("*/bin/bughunter-agent*", "*/bin/bughunter mcp serve*", "*bughunter/engine.py*", "*bughunter/agent.py*")) or 
+ (action_process_image_command_line in ("*bughunter/tools/recon_engine.sh*", "*bughunter/tools/vuln_scanner.sh*", "*bughunter/tools/bypass_403.sh*", "*bughunter/tools/oob_listener.py*", "*hunt_dashboard.py serve*", "*waf_response_analyzer.py --calibrate*")))

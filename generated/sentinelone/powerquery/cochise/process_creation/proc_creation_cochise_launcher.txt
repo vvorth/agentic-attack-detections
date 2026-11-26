@@ -1,0 +1,3 @@
+# Cochise AI Pentest Agent Launcher
+# Sigma id a9ef7e9d-8998-55d6-961a-ed7197d6524d, level low
+event.type="Process Creation" and ((tgt.process.cmdline contains "/bin/cochise" or tgt.process.cmdline contains "\\Scripts\\cochise.exe") or (tgt.process.cmdline contains "uv run cochise" or tgt.process.cmdline contains "src/cochise.py" or tgt.process.cmdline contains "cochise.cli.cochise" or tgt.process.cmdline contains "/bin/cochise-replay " or tgt.process.cmdline contains "/bin/cochise-analyze-" or tgt.process.cmdline contains "uv run cochise-"))

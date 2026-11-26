@@ -1,0 +1,11 @@
+// LazyOwn Beacon Quick-Start Download One-Liner
+// Sigma id f310f6a9-32a6-5a4e-83a0-fc21333b4d7c, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "curl -sk" and 
+ action_process_image_command_line contains "-o /tmp/.dbus") or 
+ (action_process_image_command_line contains "chmod +x /tmp/.dbus" and 
+ action_process_image_command_line contains "/tmp/.dbus") or 
+ (action_process_image_command_line contains "iwr -Uri" and 
+ action_process_image_command_line contains "win.exe" and 
+ action_process_image_command_line contains "\svchost.exe"))

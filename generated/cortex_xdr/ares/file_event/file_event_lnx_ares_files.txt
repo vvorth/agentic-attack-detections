@@ -1,0 +1,5 @@
+// Ares Working Files on Its Attack Box
+// Sigma id 803df3dd-f368-5641-8c18-8866ecce2778, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_file_path in ("*/tmp/ares-tickets/*", "*/tmp/ares_relay_*", "*/ares_shadowcred_*", "*/ares-hive-*", "*/var/log/ares/*", "*/.ares/sessions/*", "*/.ares/reports/*")))

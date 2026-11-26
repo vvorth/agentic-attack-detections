@@ -1,0 +1,3 @@
+# Tools Started by the Blitz Strike MCP Server
+# Sigma id 279848ea-5408-5f13-b82d-212174b82e67, level medium
+event.type="Process Creation" and (src.process.cmdline contains "blitzstrike" and (tgt.process.cmdline contains "-jsonl -silent -no-color -timeout 10" or tgt.process.cmdline contains "interactsh-client -json" or tgt.process.cmdline contains "chrome-devtools-mcp" or tgt.process.cmdline contains "curl -sk -m 6 --resolve" or tgt.process.cmdline contains "sparse-checkout set payloads templates" or tgt.process.cmdline contains "go install" or tgt.process.cmdline contains "pip install" or tgt.process.cmdline contains "apt-get install -y" or tgt.process.cmdline contains "nuclei -update-templates"))

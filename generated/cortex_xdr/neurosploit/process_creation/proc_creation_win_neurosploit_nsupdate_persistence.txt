@@ -1,0 +1,12 @@
+// NeuroSploit Beacon Windows Persistence Named NSUpdate
+// Sigma id 95e1ccf2-4522-5571-bec7-f883b2f97acc, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ ((action_process_image_command_line contains "schtasks" and 
+ action_process_image_command_line contains "/create" and 
+ action_process_image_command_line contains "NSUpdate") or 
+ (action_process_image_command_line contains "reg" and 
+ action_process_image_command_line contains " add " and 
+ action_process_image_command_line contains "\CurrentVersion\Run" and 
+ action_process_image_command_line contains "NSUpdate")))

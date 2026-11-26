@@ -1,0 +1,3 @@
+# Hermes Agent Jailbreak, Loot or Carbonato Files Written
+# Sigma id 1d3de3d1-0bc8-5bbf-9c8f-77bd3c9da12a, level medium
+ObjectType = "File" AND (EndpointOS = "linux" AND ((TgtFilePath containsCIS "/.hermes/loot/" OR TgtFilePath containsCIS "/.hermes/skills/security/godmode/") OR TgtFilePath endswithCIS "/.hermes/prefill.json" OR (TgtFilePath startswithCIS "/opt/gh0st/" OR (TgtFilePath In Contains AnyCase ("/usr/local/bin/.docker-network-monitor","/usr/sbin/systemd-logind")))))

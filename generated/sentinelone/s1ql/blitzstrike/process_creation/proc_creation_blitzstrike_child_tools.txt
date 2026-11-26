@@ -1,0 +1,3 @@
+# Tools Started by the Blitz Strike MCP Server
+# Sigma id 279848ea-5408-5f13-b82d-212174b82e67, level medium
+EventType = "Process Creation" AND (SrcProcCmdLine containsCIS "blitzstrike" AND (TgtProcCmdLine containsCIS "-jsonl -silent -no-color -timeout 10" OR TgtProcCmdLine containsCIS "interactsh-client -json" OR TgtProcCmdLine containsCIS "chrome-devtools-mcp" OR TgtProcCmdLine containsCIS "curl -sk -m 6 --resolve" OR TgtProcCmdLine containsCIS "sparse-checkout set payloads templates" OR TgtProcCmdLine containsCIS "go install" OR TgtProcCmdLine containsCIS "pip install" OR TgtProcCmdLine containsCIS "apt-get install -y" OR TgtProcCmdLine containsCIS "nuclei -update-templates"))

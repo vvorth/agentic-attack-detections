@@ -1,0 +1,6 @@
+// numasec API Server Started on All Interfaces
+// Sigma id 0e01c1a8-3edd-5ebc-b83d-8a47cece546e, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/numasec", "*\numasec.exe")) and 
+ (action_process_image_command_line in ("*--hostname 0.0.0.0*", "*--hostname=0.0.0.0*", "*--mdns*")))

@@ -1,0 +1,4 @@
+// ARTEX Probe Artifact Created
+// Sigma id c5af5255-c664-5237-9359-34a102f431d1, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path in ("*artex-probe-*", "*\ProgramData\artx5v\*", "*zzartx0000.php*"))

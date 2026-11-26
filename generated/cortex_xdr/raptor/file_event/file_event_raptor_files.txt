@@ -1,0 +1,9 @@
+// RAPTOR Run Folders, Generated Exploits or Configuration Written
+// Sigma id 39348d65-ba8a-5516-aea7-5b14c119f540, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (((action_file_path in ("*/.raptor-run.json", "*/.claude/raptor.env", "*/.config/raptor/models.json", "*/.raptor/identity.json")) or 
+ (action_file_path in ("*/.raptor/projects/*", "*/.raptor/labeled_attempts/*", "*/.raptor/cache/*", "*/.local/share/raptor/sessions.d/*"))) or 
+ (action_file_path contains "/autonomous/exploits/" and 
+ (action_file_path in ("*_exploit.cpp", "*_exploit.c", "*_exploit.py", "*_exploit.java", "*_exploit.js", "*_exploit.go", "*_exploit.rb"))) or 
+ (action_file_path contains "/autonomous/patches/" and 
+ action_file_path contains "_patch.md"))

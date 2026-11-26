@@ -1,0 +1,6 @@
+// CAI Session Log, API Auth Database or Workspace Written
+// Sigma id 0abc86e5-02e5-5fd2-9c2c-03489e14a6b9, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path ~= "[/\\]\.cai[/\\]logs[/\\]([A-Za-z0-9_-]+_)?cai_[0-9a-f-]{36}_\d{8}_\d{6}_.*\.jsonl$" or 
+ (action_file_path in ("*/.cai/api_auth.json", "*/.cai/api_auth.json.key", "*\.cai\api_auth.json", "*\.cai\api_auth.json.key")) or 
+ (action_file_path in ("*/.cai/continuous_ops/run_*", "*\.cai\continuous_ops\run_*")))

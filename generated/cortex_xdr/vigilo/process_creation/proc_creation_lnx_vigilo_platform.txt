@@ -1,0 +1,8 @@
+// Vigilo Platform or White-Box Agent on a Host
+// Sigma id 1baadfc6-4123-5648-b8c8-891d07ba1ce8, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*src.temporal.worker --serve --task-queue vigilo-*", "*-m src.greybox_web.worker*", "*-m src.webapi.main*", "*/usr/local/bin/vigilo-record*", "*vigilo-record show *", "*vigilo-record verdict *", "*vigilo-record lead *")) or 
+ (action_process_image_command_line contains "authorised security assessment run by Vigilo" and 
+ (action_process_image_command_line in ("*--dangerously-skip-permissions*", "*--dangerously-bypass-approvals-and-sandbox*")))))

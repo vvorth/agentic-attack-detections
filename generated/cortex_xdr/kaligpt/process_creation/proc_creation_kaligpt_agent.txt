@@ -1,0 +1,9 @@
+// KaliGPT AI Pentest Agent Started
+// Sigma id 40492751-b985-5e31-bb0e-655e78122279, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*/opt/KaliGPT/OpenSearchAPI/app.py*", "*/share/KaliGPT/OpenSearchAPI/app.py*")) or 
+ (action_process_image_command_line in ("*/usr/local/bin/kaligpt*", "*/usr/bin/kaligpt *")) or 
+ ((action_process_image_command_line in ("* -m agents.gemini*", "* -m agents.ollama*", "* -m agents.openrouter*", "* -m agents.chatgpt*", "* -m agents.litellm*", "* -m agents.web_launcher*")) and 
+ action_process_cwd contains "/KaliGPT")))

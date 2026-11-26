@@ -1,0 +1,3 @@
+# Deadend CLI Agent Backend or Launcher Started
+# Sigma id dbdc81db-59be-504a-b89a-ca0857eb1628, level medium
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "deadend" AND TgtProcCmdLine containsCIS "--log-file" AND TgtProcCmdLine containsCIS "rpc-server-") OR (TgtProcCmdLine containsCIS "deadend_cli.jsonrpc_server" OR TgtProcCmdLine containsCIS "deadend-jsonrpc-server"))

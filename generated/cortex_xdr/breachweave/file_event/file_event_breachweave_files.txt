@@ -1,0 +1,6 @@
+// BreachWeave (tch-agent) Home Folder, Solver State or Crawler Output Written
+// Sigma id 55bd5b4d-01fe-5887-b038-f7f5cf898c47, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.tch-agent/config/*", "*/.tch-agent/solvers/*", "*/.tch-agent/archive_solvers/*", "*/.tch-agent/challenge/*", "*/.tch-agent/runtime/*", "*\.tch-agent\config\*", "*\.tch-agent\solvers\*")) or 
+ action_file_path contains "/THIS_IS_DOCKER_CONTAINER_NOT_TARGET_MACHINE.txt" or 
+ action_file_path contains "/.tch-networks-output/")

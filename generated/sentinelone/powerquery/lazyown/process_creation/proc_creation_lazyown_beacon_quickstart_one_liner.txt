@@ -1,0 +1,3 @@
+# LazyOwn Beacon Quick-Start Download One-Liner
+# Sigma id f310f6a9-32a6-5a4e-83a0-fc21333b4d7c, level high
+event.type="Process Creation" and ((tgt.process.cmdline contains "curl -sk" and tgt.process.cmdline contains "-o /tmp/.dbus") or (tgt.process.cmdline contains "chmod +x /tmp/.dbus" and tgt.process.cmdline contains "/tmp/.dbus") or (tgt.process.cmdline contains "iwr -Uri" and tgt.process.cmdline contains "win.exe" and tgt.process.cmdline contains "\\svchost.exe"))

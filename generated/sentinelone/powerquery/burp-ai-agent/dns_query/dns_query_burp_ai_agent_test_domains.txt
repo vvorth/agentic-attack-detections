@@ -1,0 +1,3 @@
+# Custom AI Agent (burp-ai-agent) Test Domain Lookup
+# Sigma id 49d026da-f31b-5ee2-a2db-e1f14107cf04, level medium
+event.category="dns" and event.dns.request contains "evil-burp-ai"

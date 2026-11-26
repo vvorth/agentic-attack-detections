@@ -1,0 +1,3 @@
+# Custom AI Agent (burp-ai-agent) Extension Files Written
+# Sigma id c7589efb-ab20-5f4a-af6f-c730e0b8bca3, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/.burp-ai-agent/" OR TgtFilePath containsCIS "\.burp-ai-agent\") OR (TgtFilePath containsCIS "Custom-AI-Agent-full-" OR TgtFilePath containsCIS "Custom-AI-Agent-bapp-" OR TgtFilePath containsCIS "custom-ai-agent-bapp.jar"))

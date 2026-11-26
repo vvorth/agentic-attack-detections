@@ -1,0 +1,3 @@
+# CAI Cybersecurity AI CLI, Install, Continuous Ops Worker or Kali Container
+# Sigma id 7d11f287-f002-5e4e-83d9-52042784cebb, level medium
+event.type="Process Creation" and (tgt.process.cmdline matches "(^|[/\\\\\\s])cai(\\.exe)?["']?\\s(.*\\s)?(--api|--api-host|--api-port|--tui|--yaml|--prompt|--yolo|--unrestricted)([\\s=]|$)" or tgt.process.cmdline matches "((pip|pip3|pipx)\\s+install|uv\\s+(tool\\s+install|tool\\s+run|pip\\s+install|add)|uvx)\\s(.*\\s)?["']?cai-framework" or tgt.process.cmdline contains "packages.aliasrobotics.com" or tgt.process.cmdline contains "cai.continuous_ops.loop_runner" or (tgt.process.cmdline contains "docker" and tgt.process.cmdline contains "--name kali-security" and tgt.process.cmdline contains "--security-opt=seccomp=unconfined"))

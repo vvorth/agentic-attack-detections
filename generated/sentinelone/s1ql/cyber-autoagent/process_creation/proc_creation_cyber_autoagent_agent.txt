@@ -1,0 +1,3 @@
+# Cyber-AutoAgent AI Pentest Agent Started
+# Sigma id 8951bac6-de2e-5ab6-87f0-c6cd8af00f7e, level medium
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "cyberautoagent.py" AND (TgtProcCmdLine containsCIS "--target" OR TgtProcCmdLine containsCIS "--service-mode")) OR TgtProcCmdLine containsCIS "--objective via environment" OR TgtProcCmdLine containsCIS "/interfaces/react/dist/index.js" OR TgtProcCmdLine containsCIS "cyber-autoagent:latest")

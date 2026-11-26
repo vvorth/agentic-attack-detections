@@ -1,0 +1,6 @@
+// Guardian AI Pentest CLI Started
+// Sigma id cfccbdb0-bbdb-52ae-9c12-dc3aefe2866a, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("* -m cli.main *", "*/bin/guardian *", "*\Scripts\guardian.exe *")) and 
+ (action_process_image_command_line in ("* workflow run *", "* scan --target *", "* scan -t *", "* recon --target *", "* recon -t *", "* analyze *", "* report --session *", "* report -s *", "* --resume *")))

@@ -1,0 +1,3 @@
+# Sage (Mythic) Remote Execution Through a SageExec Scheduled Task
+# Sigma id 3887f0a9-6fca-560e-808a-a3dd393d3923, level high
+event.type="Process Creation" and (endpoint.os="windows" and ((tgt.process.image.path contains "\\schtasks.exe" and tgt.process.cmdline contains "SageExec_") or (src.process.cmdline contains "schtasks.exe /Create /S " and src.process.cmdline contains "SageExec_")))

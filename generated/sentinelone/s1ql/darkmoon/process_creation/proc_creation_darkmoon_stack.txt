@@ -1,0 +1,3 @@
+# DarkMoon AI Pentest Agent Launcher, Containers or MCP Server
+# Sigma id 1900dd4a-afed-5b22-bcbb-9affa37ca0ab, level medium
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "opencode" AND TgtProcCmdLine containsCIS "--agent pentest" AND TgtProcCmdLine containsCIS "TARGET:") OR TgtProcCmdLine RegExp "(^|[/\\s])darkmoon\\.sh(\\s|$)" OR (TgtProcCmdLine containsCIS "ascit/darkmoon" OR TgtProcCmdLine containsCIS "ascit/opencode-darkmoon") OR (TgtProcCmdLine containsCIS "darkmoon-mcp" OR TgtProcCmdLine containsCIS "darkmoon-cli"))

@@ -1,0 +1,3 @@
+# CyberStrikeAI Implant Run Key Value SystemUpdate
+# Sigma id 5dbb150e-eefe-5b43-96ae-b374d59417f1, level high
+ObjectType = "Registry" AND (EndpointOS = "windows" AND RegistryKeyPath endswithCIS "\CurrentVersion\Run\SystemUpdate")

@@ -1,0 +1,7 @@
+// Guardian Session, Log or Configuration Files Written
+// Sigma id ffbf7640-2e91-52dc-b0d5-4653db75db07, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.guardian/guardian.yaml", "*/.guardian/.env", "*/.guardian/kb/kb.sqlite3", "*/.guardian/ranker.pkl", "*/tmp/guardian_ffuf_wordlist.txt")) or 
+ action_file_path contains "/logs/ai_audit.log" or 
+ ((action_file_path in ("*/reports/session_*", "*/reports/.session_*")) and 
+ (action_file_path in ("*.json", "*.tmp"))))

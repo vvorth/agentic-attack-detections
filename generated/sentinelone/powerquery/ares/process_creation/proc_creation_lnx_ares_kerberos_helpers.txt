@@ -1,0 +1,3 @@
+# Ares Kerberos Ticket Helpers
+# Sigma id 7310d24c-036c-5a42-8cca-a94f21e26a69, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "cross_realm_tgs.py" and tgt.process.cmdline contains "--in-ccache") or tgt.process.cmdline contains "/tmp/ares-tickets/"))

@@ -1,0 +1,16 @@
+// CHYing-agent AI Pentest Agent Launch, Tools Container or Ghidra Services
+// Sigma id e45638e9-dd2c-5d19-90e0-861c607579d0, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "main.py" and 
+ action_process_image_command_line contains "--dashboard" and 
+ action_process_image_command_line contains "--skip-preflight") or 
+ (action_process_image_command_line in ("*run_tencent_ctf.py*", "*run_htb_ctf.py*")) or 
+ action_process_image_command_line contains "chying-agent-docker" or 
+ (action_process_image_command_line contains "GhidraMCPHeadlessServer" and 
+ action_process_image_command_line contains "--port 8089" and 
+ action_process_image_command_line contains "--bind 0.0.0.0") or 
+ (action_process_image_command_line contains "bridge_mcp_ghidra.py" and 
+ action_process_image_command_line contains "--transport sse" and 
+ action_process_image_command_line contains "--mcp-host 0.0.0.0" and 
+ action_process_image_command_line contains "--mcp-port 8766"))

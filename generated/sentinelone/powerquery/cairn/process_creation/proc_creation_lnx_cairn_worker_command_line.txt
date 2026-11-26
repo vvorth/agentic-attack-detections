@@ -1,0 +1,3 @@
+# Cairn Agent Worker or Dispatcher Command Line
+# Sigma id 47a4767c-bd74-5162-82ff-286d6b159e35, level high
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "model_provider=\"cairn\"" or tgt.process.cmdline contains "model_providers.cairn.base_url" or tgt.process.cmdline contains "--provider cairn" or tgt.process.cmdline contains "/tmp/cairn-pi/" or tgt.process.cmdline contains "/tmp/cairn-prompts/" or tgt.process.cmdline contains "cairn dispatch --config" or tgt.process.cmdline contains "cairn-dispatch-" or tgt.process.cmdline contains "cairn-worker-container"))

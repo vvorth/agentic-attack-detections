@@ -1,0 +1,6 @@
+// NeuroSploit Project Store, Vault or C2 Files Written
+// Sigma id e3bb33ff-a33c-55ff-8592-e7841eac06be, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.neurosploit/c2/*", "*\.neurosploit\c2\*", "*/.neurosploit/vault/*", "*\.neurosploit\vault\*")) or 
+ (action_file_path in ("*/.neurosploit/keys.json", "*\.neurosploit\keys.json")) or 
+ action_file_path = "/tmp/ns_browser_prefetch.js")

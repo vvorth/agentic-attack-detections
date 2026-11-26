@@ -1,0 +1,3 @@
+# Shannon Workspace, Deliverable or Browser Files Written
+# Sigma id 82a9276f-09b9-544e-990b-d9f327daa1cc, level medium
+event.category="file" and (tgt.file.path matches "[/\\\\]\\.shannon[/\\\\](session\\.json|workflow\\.log|startup-error\\.json)$" or tgt.file.path matches "[/\\\\]\\.shannon[/\\\\]deliverables[/\\\\][a-z_]+_(deliverable\\.md|exploitation_queue\\.json|exploitation_evidence\\.md)$" or tgt.file.path matches "[/\\\\]\\.shannon[/\\\\]\\.playwright[/\\\\](cli\\.config\\.json|scripts[/\\\\]stealth\\.js)$" or (tgt.file.path contains "/.shannon/config.toml" or tgt.file.path contains "\\.shannon\\config.toml"))

@@ -1,0 +1,6 @@
+// Ares Hashcat or John Session Name
+// Sigma id aaf24266-6bdd-5d9d-9df3-aa25f4747675, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line in ("*--session ares-hc-*", "*--session=ares-hc-*", "*--session=ares-jtr-*", "*--session ares-jtr-*")))

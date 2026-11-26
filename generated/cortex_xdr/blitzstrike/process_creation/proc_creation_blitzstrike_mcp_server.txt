@@ -1,0 +1,6 @@
+// Blitz Strike MCP Server or CLI on a Host
+// Sigma id 6f207162-61d5-5894-8af9-d8c01e73dc77, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*blitzstrike serve*", "*/src/index.ts serve --mcp*", "*blitzstrike/dist/index.js serve*")) or 
+ (action_process_image_command_line in ("*blitzstrike install*", "*blitzstrike install-tools*", "*blitzstrike sync-data*", "*blitzstrike doctor*", "*npx -y blitzstrike*", "*bunx blitzstrike*", "*npm i -g blitzstrike*", "*npm install -g blitzstrike*", "*bun add -g blitzstrike*", "*github.com/shinthink/blitzstrike*")))

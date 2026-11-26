@@ -1,0 +1,8 @@
+// hackingBuddyGPT lse.sh Enumeration on a Linux Target
+// Sigma id 5529ebfe-0cb8-584d-b734-37634b572708, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line contains "linux-smart-enumeration/releases/latest/download/lse.sh" and 
+ action_process_image_command_line contains "-O lse.sh") or 
+ action_process_image_command_line contains "lse.sh -c -i -l 0"))

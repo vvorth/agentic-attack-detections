@@ -1,0 +1,3 @@
+# DNS Query for the PentAGI Update Service
+# Sigma id 54c4cc35-919a-53c8-85b0-0dba9584867c, level medium
+ObjectType = "DNS" AND (DnsRequest In Contains AnyCase ("update.pentagi.com","support.pentagi.com"))

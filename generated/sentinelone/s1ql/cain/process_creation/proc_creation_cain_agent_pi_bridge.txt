@@ -1,0 +1,3 @@
+# Cain Pi Backend Bridge and Its Shell Commands
+# Sigma id 49b9fde8-9907-57fb-a6ab-863656728f4e, level medium
+EventType = "Process Creation" AND (((TgtProcImagePath endswithCIS "/node" OR TgtProcImagePath endswithCIS "\node.exe") AND (TgtProcCmdLine endswithCIS "/toolchain/pi/bridge.mjs" OR TgtProcCmdLine endswithCIS "\toolchain\pi\bridge.mjs")) OR ((SrcProcCmdLine endswithCIS "/toolchain/pi/bridge.mjs" OR SrcProcCmdLine endswithCIS "\toolchain\pi\bridge.mjs") AND TgtProcCmdLine containsCIS " -c "))

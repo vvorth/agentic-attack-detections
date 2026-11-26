@@ -1,0 +1,7 @@
+// Codex or Claude Code CLI Started by Mitsu
+// Sigma id 7059401f-52f3-55c9-9283-6b2d2c770648, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "mcp_servers.mitsu.url=" or 
+ (action_process_image_command_line in ("*\"mcpServers\":{\"mitsu\":{\"type\":\"http\"*", "*mcp__mitsu__intel_upsert_asset*")) or 
+ (action_process_image_command_line in ("*You are Mitsu: the operator*", "*You are Mitsu, a security assessment assistant.*", "*Reply exactly MITSU_OK*")))

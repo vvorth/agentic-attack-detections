@@ -1,0 +1,9 @@
+// CTF Agent Launcher or Its Model CLIs
+// Sigma id cd94c065-3444-5506-b867-660f8c4f47c3, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "ctf-solve" and 
+ (action_process_image_command_line in ("*--ctfd-url*", "*--ctfd-token*", "*--challenges-dir*", "*--coordinator*", "*--max-challenges*", "*--msg-port*", "*--no-submit*"))) or 
+ (action_process_image_command_line contains "codex app-server" and 
+ actor_process_command_line contains "ctf-solve") or 
+ (action_process_image_command_line in ("*IMPORTANT: You are running inside a Docker sandbox. All files are under /challenge/*", "*You are a CTF competition coordinator running for the ENTIRE duration of a live competition*")))

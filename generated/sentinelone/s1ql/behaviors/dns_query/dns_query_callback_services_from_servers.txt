@@ -1,0 +1,3 @@
+# DNS Query to Request Collection or DNS Callback Services
+# Sigma id 68a5326b-3c56-5371-bfd7-2cd1bda49314, level medium
+ObjectType = "DNS" AND (DnsRequest = "webhook.site" OR (DnsRequest endswithCIS ".webhook.site" OR DnsRequest endswithCIS ".dnslog.cn" OR DnsRequest endswithCIS ".interact.sh" OR DnsRequest endswithCIS ".oast.fun" OR DnsRequest endswithCIS ".requestcatcher.com" OR DnsRequest endswithCIS ".pipedream.net"))

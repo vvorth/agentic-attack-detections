@@ -1,0 +1,3 @@
+# Pensar Apex CLI or Kali Container Started
+# Sigma id 9f74677f-b4b2-5b01-bcac-dcce0e24b46f, level medium
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "pensar pentest " OR TgtProcCmdLine containsCIS "pensar targeted-pentest " OR TgtProcCmdLine containsCIS "pensar threat-model" OR TgtProcCmdLine containsCIS "pensar agent-runs worker" OR TgtProcCmdLine containsCIS "pensar.js pentest " OR TgtProcCmdLine containsCIS "pensar.js targeted-pentest ") OR (TgtProcCmdLine containsCIS "@pensar/apex" OR TgtProcCmdLine containsCIS "pensarai.com/install.sh" OR TgtProcCmdLine containsCIS "pensarai.com/apex.ps1" OR TgtProcCmdLine containsCIS "brew install apex") OR (TgtProcCmdLine containsCIS "exec kali-apex" OR TgtProcCmdLine containsCIS "kali-apex:latest"))

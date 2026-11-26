@@ -1,0 +1,3 @@
+# CTF Agent Claude Solver Command Redirected Into Its Sandbox
+# Sigma id 7511b526-3541-55af-9a2b-1f75039a7ad1, level low
+event.type="Process Creation" and ((tgt.process.cmdline contains "docker exec -i " and tgt.process.cmdline contains " bash -c ") and tgt.process.cmdline matches "docker exec -i [0-9a-f]{64} bash -c ")

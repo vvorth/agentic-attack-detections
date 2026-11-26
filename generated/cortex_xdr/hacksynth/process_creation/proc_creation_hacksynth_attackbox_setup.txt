@@ -1,0 +1,7 @@
+// HackSynth Attackbox Setup Command
+// Sigma id fe2a721e-a4db-599d-b25e-b76a9973e97f, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "install kali-linux-headless sshpass curl" or 
+ (action_process_image_command_line in ("*ssh-keyscan -p 2220 bandit.labs.overthewire.org*", "*ssh-keyscan -p 2231 krypton.labs.overthewire.org*", "*ssh-keyscan -p 2223 leviathan.labs.overthewire.org*"))))

@@ -1,0 +1,3 @@
+# Cairn Task Snapshot, Pi Provider Key or Competition Skill Written
+# Sigma id 3bcec7f8-c193-525d-9b3f-aa20c3e369d8, level high
+event.category="file" and (endpoint.os="linux" and (tgt.file.path contains "/tmp/cairn-prompts/" or tgt.file.path contains "/tmp/cairn-pi/" or tgt.file.path contains "/skills/tsec-actions/SKILL.md"))

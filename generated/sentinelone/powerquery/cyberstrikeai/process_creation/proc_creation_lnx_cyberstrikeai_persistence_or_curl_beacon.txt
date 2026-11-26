@@ -1,0 +1,3 @@
+# CyberStrikeAI Implant Linux Persistence or curl Beacon
+# Sigma id 292a54b3-11a5-5766-a339-5e3c2d90988b, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "@reboot" and tgt.process.cmdline contains "sort -u | crontab -") or tgt.process.cmdline contains "X-Implant-Token"))

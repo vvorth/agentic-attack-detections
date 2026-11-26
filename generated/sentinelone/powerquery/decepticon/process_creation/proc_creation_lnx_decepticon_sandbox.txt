@@ -1,0 +1,3 @@
+# Decepticon Sandbox, Agent Server or C2 Container Process
+# Sigma id 83265ac6-f94e-588e-9b1b-74fa1ece484d, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "decepticon_sandbox.server" or tgt.process.cmdline contains "decepticon_sandbox.web" or tgt.process.cmdline contains "decepticon_sandbox.browser" or tgt.process.cmdline contains "@dcptn_completion") or (tgt.process.cmdline contains "decepticon.cli time-window-resume" or tgt.process.cmdline contains "/app/litellm_startup.py") or (tgt.process.cmdline contains "sliver-server operator" and tgt.process.cmdline contains "--name decepticon") or (tgt.process.cmdline contains "teamserver server" and tgt.process.cmdline contains "/opt/havoc/profiles/havoc.yaotl")))

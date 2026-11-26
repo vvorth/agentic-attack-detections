@@ -1,0 +1,6 @@
+// Hexstrike-redteam BOAZ Payload Written
+// Sigma id e4e709c5-6cc1-5366-b3a1-997183bc4510, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_file_path contains "/BOAZ_beta/output/" and 
+ (action_file_path in ("*.exe", "*.dll", "*.cpl", "*.bin"))))

@@ -1,0 +1,8 @@
+// Svchost Running Outside the Windows System Folder
+// Sigma id eae4b702-9723-5393-8d23-37295c6d40ea, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ (action_process_image_path contains "\svchost.exe" and 
+ (not 
+ (action_process_image_path in ("C:\Windows\System32\*", "C:\Windows\SysWOW64\*", "C:\Windows\WinSxS\*")))))

@@ -1,0 +1,3 @@
+# Hermes Agent With Approvals Off or Its Jailbreak Skill
+# Sigma id 6474a9dc-13b9-5160-8188-742e5eee8231, level medium
+EventType = "Process Creation" AND ((TgtProcCmdLine RegExp "(^|[/\\\\\\s])hermes(\\.exe)?(\\s|$)|hermes_cli|run_agent\\.py|/\\.hermes/" AND (TgtProcCmdLine containsCIS "--yolo" OR TgtProcCmdLine containsCIS "HERMES_YOLO_MODE")) OR (TgtProcCmdLine containsCIS "load_godmode.py" OR TgtProcCmdLine containsCIS "auto_jailbreak.py" OR TgtProcCmdLine containsCIS "parseltongue.py" OR TgtProcCmdLine containsCIS "godmode_race.py"))

@@ -1,0 +1,3 @@
+# DNS Query for Payload Hosts Active in ARTEX Operator Toolkits
+# Sigma id bfe42b74-3709-50d9-ab8c-33f20bd53185, level high
+event.category="dns" and ((event.dns.request in ("vietnam852.com","zhzy999.net","jiancai008.com")) or (event.dns.request contains ".vietnam852.com" or event.dns.request contains ".zhzy999.net" or event.dns.request contains ".jiancai008.com"))

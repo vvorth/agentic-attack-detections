@@ -1,0 +1,9 @@
+// Sage (Mythic) Remote Execution Through a SageExec Scheduled Task
+// Sigma id 3887f0a9-6fca-560e-808a-a3dd393d3923, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ ((action_process_image_path contains "\schtasks.exe" and 
+ action_process_image_command_line contains "SageExec_") or 
+ (actor_process_command_line contains "schtasks.exe /Create /S " and 
+ actor_process_command_line contains "SageExec_")))

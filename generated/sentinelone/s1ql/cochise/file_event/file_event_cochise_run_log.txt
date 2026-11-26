@@ -1,0 +1,3 @@
+# Cochise AI Pentest Agent Run Log Created
+# Sigma id 3cf82d57-e000-53fc-81da-ab752c10313e, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/logs/run-20" AND TgtFilePath endswithCIS ".json") AND TgtFilePath RegExp "/logs/run-\\d{8}-\\d{6}\\.json$" AND SrcProcImagePath containsCIS "python")

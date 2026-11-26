@@ -1,0 +1,3 @@
+# Pensar Apex Agent Command Markers
+# Sigma id b406fa4b-5031-59e7-b5da-3d7408594f21, level high
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "User-Agent: pensar-apex" OR TgtProcCmdLine containsCIS "PensarBot/1.0" OR TgtProcCmdLine containsCIS "InVzZSBzdHJpY3QiOwovLyBBcGV4IGNhbGxiYWNrIGxpc3RlbmVy" OR TgtProcCmdLine containsCIS "process.env.APEX_CB_PROBE" OR TgtProcCmdLine containsCIS "APEX_HIDDEN_PAYLOAD_COUNT" OR TgtProcCmdLine containsCIS "APEX_FILE_PAYLOAD_COUNT" OR TgtProcCmdLine containsCIS "__APEX_GREP_EXIT_" OR TgtProcCmdLine containsCIS "<<'APEX_GLOB_PY'" OR TgtProcCmdLine containsCIS "<<'APEX_LIST_PY'")

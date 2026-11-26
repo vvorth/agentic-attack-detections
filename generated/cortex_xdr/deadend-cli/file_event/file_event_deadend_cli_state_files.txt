@@ -1,0 +1,8 @@
+// Deadend CLI Credential Wallet or Session Logs Written
+// Sigma id eff86319-406f-5534-b9ac-7ef50b199b05, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.deadend/reusable_credentials.json", "*/.cache/deadend/memory/reusable_credentials.json")) or 
+ (action_file_path contains "/.cache/deadend/logs/" and 
+ (action_file_path in ("*/requester.jsonl", "*/python_interpreter.jsonl", "*.log"))) or 
+ (action_file_path contains "/.deadend/agents/" and 
+ action_file_path contains "/auth_context/playwright_state.json"))
