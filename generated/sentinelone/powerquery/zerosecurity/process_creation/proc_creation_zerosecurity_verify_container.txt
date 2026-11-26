@@ -1,0 +1,3 @@
+# 0security Verification Container Created
+# Sigma id 88f97405-49c8-548e-b1c4-2f3ef949fdc3, level low
+event.type="Process Creation" and (tgt.process.cmdline contains "create" and tgt.process.cmdline contains "--name 0-verify-" and tgt.process.cmdline contains "--label 0.verify=1")

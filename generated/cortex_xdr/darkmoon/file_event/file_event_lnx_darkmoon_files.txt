@@ -1,0 +1,9 @@
+// DarkMoon Configuration, Campaign or Report Files Written
+// Sigma id 9cf90f83-0222-59dc-84a6-9dc5cec46bfd, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("/run/darkmoon-gpu.env", "/tmp/darkmoon-mcp-boot.log")) or 
+ action_file_path contains "/opt/darkmoon/out/" or 
+ action_file_path contains "/darkmoon-settings/campaigns/camp_" or 
+ (action_file_path contains "/reports/pentest_report_" and 
+ action_file_path contains ".md")))

@@ -1,0 +1,3 @@
+# Sage (Mythic) AI Operator Container Processes
+# Sigma id 8e8f8c42-3cd2-58df-8bbc-4a43e5d66576, level medium
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "/usr/local/bin/sage-entrypoint" or (tgt.process.cmdline contains "--directory /opt/bloodhound_mcp" and tgt.process.cmdline contains "main.py")))

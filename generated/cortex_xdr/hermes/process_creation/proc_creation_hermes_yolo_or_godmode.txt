@@ -1,0 +1,7 @@
+// Hermes Agent With Approvals Off or Its Jailbreak Skill
+// Sigma id 6474a9dc-13b9-5160-8188-742e5eee8231, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line ~= "(^|[/\\\s])hermes(\.exe)?(\s|$)|hermes_cli|run_agent\.py|/\.hermes/" and 
+ (action_process_image_command_line in ("*--yolo*", "*HERMES_YOLO_MODE*"))) or 
+ (action_process_image_command_line in ("*load_godmode.py*", "*auto_jailbreak.py*", "*parseltongue.py*", "*godmode_race.py*")))

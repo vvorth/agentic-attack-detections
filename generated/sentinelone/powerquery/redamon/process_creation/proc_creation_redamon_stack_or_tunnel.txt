@@ -1,0 +1,3 @@
+# RedAmon Stack or Reverse Shell Tunnel on a Host
+# Sigma id be46e125-4e31-5c6e-bb54-fa0cd011195e, level medium
+event.type="Process Creation" and ((tgt.process.cmdline contains "redamon-kali" or tgt.process.cmdline contains "redamon-agent" or tgt.process.cmdline contains "redamon-webapp" or tgt.process.cmdline contains "redamon-recon-" or tgt.process.cmdline contains "redamon-docker-broker" or tgt.process.cmdline contains "/opt/mcp_servers/run_servers.py" or tgt.process.cmdline contains "/opt/mcp_servers/tunnel_manager.py" or tgt.process.cmdline contains "redamon.sh ") or tgt.process.cmdline contains "ngrok tcp 4444" or (tgt.process.cmdline contains "chisel client" and tgt.process.cmdline contains "R:4444:localhost:4444"))

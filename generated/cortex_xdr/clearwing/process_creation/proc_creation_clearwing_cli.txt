@@ -1,0 +1,7 @@
+// Clearwing AI Pentest Agent Command Line
+// Sigma id d08c13be-2d60-5374-8952-c2698a095f3c, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*/bin/clearwing *", "*\Scripts\clearwing.exe *", "*\Scripts\clearwing *", "*clearwing.py *", "*uv run clearwing *")) and 
+ ((action_process_image_command_line in ("* scan *", "* sourcehunt *", "* operate *", "* interactive*", "* webui*", "* campaign *", "* asm *", "* disclose *", "* remediate *", "* parallel *")) or 
+ (action_process_image_command_line in ("*--auto-approve-exploits*", "*--webhook-secret*", "*--webhook-port*", "*--compile-commands*", "*--cve-list*"))))

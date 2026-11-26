@@ -1,0 +1,8 @@
+// Sage (Mythic) AI Operator Container Processes
+// Sigma id 8e8f8c42-3cd2-58df-8bbc-4a43e5d66576, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "/usr/local/bin/sage-entrypoint" or 
+ (action_process_image_command_line contains "--directory /opt/bloodhound_mcp" and 
+ action_process_image_command_line contains "main.py")))

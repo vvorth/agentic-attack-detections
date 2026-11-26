@@ -1,0 +1,7 @@
+// Offensive Tool Started Directly by Mitsu
+// Sigma id 5032704b-d355-53db-a850-ea5da873acaa, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/nmap", "*/masscan", "*/rustscan", "*/naabu", "*/httpx", "*/nuclei", "*/nikto", "*/sqlmap", "*/ffuf", "*/feroxbuster", "*/gobuster", "*/dirsearch", "*/wpscan", "*/whatweb", "*/wafw00f", "*/dalfox", "*/commix", "*/hydra", "*/medusa", "*/ncrack", "*/netexec", "*/nxc", "*/kerbrute", "*/certipy", "*/evil-winrm", "*/msfconsole", "*/searchsploit", "*/vulnx", "*/subfinder", "*/amass", "*/katana", "*/testssl")) and 
+ ((actor_process_command_line in ("*/bin/mitsu", "* -m mitsu")) or 
+ actor_process_command_line contains "/uv/tools/mitsu/"))

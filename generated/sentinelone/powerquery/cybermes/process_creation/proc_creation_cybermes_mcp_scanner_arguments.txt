@@ -1,0 +1,3 @@
+# Scanners Started With Cybermes MCP Argument Order
+# Sigma id 9cc640fd-512b-506a-ae60-87d3ff395ce4, level medium
+event.type="Process Creation" and (((src.process.image.path contains "/cybermes-mcp" or src.process.image.path contains "\\cybermes-mcp.exe") or src.process.image.path contains "cybermes-mcp-v") or (tgt.process.cmdline contains "-sT --open -T3 --max-rate " and tgt.process.cmdline contains " -oN - ") or tgt.process.cmdline contains " -silent -jsonl -timeout 10 -duc" or tgt.process.cmdline contains " -silent -status-code -title -tech-detect -json -timeout " or tgt.process.cmdline contains " -jc -silent -ct " or (tgt.process.cmdline contains "/FUZZ -w " and tgt.process.cmdline contains " -timeout 5 -s -json"))

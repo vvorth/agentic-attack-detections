@@ -1,0 +1,5 @@
+// CyberStrikeAI Webshell OS Probe Command
+// Sigma id 76d2ff37-110c-5b15-99ca-adbeab446f2a, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ action_process_image_command_line contains ":OSPROBE_"

@@ -1,0 +1,7 @@
+// Sage (Mythic) Proof or Certificate File Written on a Windows Host
+// Sigma id fb757105-982f-50dc-b1cf-29e3f6730954, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ ((action_file_path in ("*\Windows\Temp\sage_remote_exec*", "*\Windows\Temp\sage_ep_adjust*", "*\Windows\Temp\sage_ca_export_*", "*\Windows\Temp\sage_ca_dpapi_*", "*\Windows\Temp\sage_forged_cert_*", "*\Windows\Temp\sage_ca_signing_*", "*\sage_cert_enroll_*")) or 
+ (action_file_path contains "\sage_gpo_" and 
+ action_file_path contains "_whoami.txt")))

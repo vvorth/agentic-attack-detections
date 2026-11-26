@@ -1,0 +1,3 @@
+# MCP Kali Server Files Written
+# Sigma id b8a0d660-48cf-505b-bf00-5001068dda48, level medium
+ObjectType = "File" AND (EndpointOS = "linux" AND (TgtFilePath endswithCIS "/mks_msf_resource.rc" OR TgtFilePath startswithCIS "/usr/share/mcp-kali-server/" OR (TgtFilePath endswithCIS "/usr/bin/kali-server-mcp" OR TgtFilePath endswithCIS "/etc/default/kali-server-mcp" OR TgtFilePath endswithCIS "/systemd/system/kali-server-mcp.service")))

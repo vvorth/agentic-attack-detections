@@ -1,0 +1,8 @@
+// Hermes Agent Jailbreak, Loot or Carbonato Files Written
+// Sigma id 1d3de3d1-0bc8-5bbf-9c8f-77bd3c9da12a, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("*/.hermes/loot/*", "*/.hermes/skills/security/godmode/*")) or 
+ action_file_path contains "/.hermes/prefill.json" or 
+ (action_file_path contains "/opt/gh0st/" or 
+ (action_file_path in ("/usr/local/bin/.docker-network-monitor", "/usr/sbin/systemd-logind")))))

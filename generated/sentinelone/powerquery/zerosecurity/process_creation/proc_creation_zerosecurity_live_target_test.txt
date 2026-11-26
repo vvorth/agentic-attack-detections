@@ -1,0 +1,3 @@
+# 0security Probe or Nuclei Target Scan Against a Live Endpoint
+# Sigma id 69c7dd9d-381a-5a6b-be5c-3d11304259ad, level medium
+event.type="Process Creation" and (((tgt.process.cmdline contains " probe http" or tgt.process.cmdline contains "--i-own-this ") and (tgt.process.cmdline contains "0security" or tgt.process.cmdline contains "0.js" or tgt.process.cmdline contains "0 probe ")) or (tgt.process.cmdline contains "--target-url " and tgt.process.cmdline contains "--scanner nuclei") or (tgt.process.cmdline contains "0-nuclei-" and tgt.process.cmdline contains "-etags intrusive,dos,fuzz" and tgt.process.cmdline contains "-pt http"))

@@ -29,6 +29,8 @@ Run these and commit everything they regenerate:
 ```bash
 python3 tools/build_feeds.py           # rebuild feeds/ and the per-framework lists from iocs/indicators.csv
 python3 tools/convert.py               # rebuild generated/ from the Sigma rules
+.venv-s1/bin/python tools/convert_sentinelone.py   # rebuild generated/sentinelone/; venv from tools/requirements-sentinelone.txt
+.venv-cortex/bin/python tools/convert_cortex.py    # rebuild generated/cortex_xdr/; venv from tools/requirements-cortex.txt
 python3 tools/build_attack.py          # rebuild the ATT&CK coverage page and Navigator layers
 python3 tools/validate.py              # Sigma, KQL, Elastic, Splunk, Suricata, YARA, Zeek, feeds
 python3 tests/suricata/run_tests.py    # one flow per Suricata rule

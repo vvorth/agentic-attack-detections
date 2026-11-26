@@ -1,0 +1,3 @@
+# HackSynth Benchmark Launcher
+# Sigma id f08ccd82-52f6-5b21-a742-45b80fb68334, level low
+event.type="Process Creation" and ((tgt.process.cmdline contains "run_bench.py" and tgt.process.cmdline matches "\\s(-b|--benchmark)\\s") and (tgt.process.cmdline contains "benchmark_solved.json" or tgt.process.cmdline contains "combined_solved.json" or tgt.process.cmdline contains "bandit_solved.json" or tgt.process.cmdline contains "natas_solved.json" or tgt.process.cmdline contains "configs/pico_bench/" or tgt.process.cmdline contains "configs/overthewire_bench/"))

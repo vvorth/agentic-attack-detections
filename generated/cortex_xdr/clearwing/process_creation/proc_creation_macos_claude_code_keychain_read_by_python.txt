@@ -1,0 +1,9 @@
+// Claude Code Keychain Credential Read by a Python Process
+// Sigma id f828b29f-c6c1-5953-8937-0f86e7af9512, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_MAC and 
+ ((action_process_image_path contains "/security" and 
+ (action_process_image_command_line contains "find-generic-password" and 
+ action_process_image_command_line contains "Claude Code-credentials")) and 
+ actor_process_image_path contains "python"))

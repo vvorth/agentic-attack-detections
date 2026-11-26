@@ -1,0 +1,3 @@
+# KaliGPT Installed or Configured
+# Sigma id 51e6f829-09f4-564a-bef0-0f8a3fa8a1b3, level low
+ObjectType = "File" AND (EndpointOS = "linux" AND ((TgtFilePath containsCIS "/opt/KaliGPT/" OR TgtFilePath containsCIS "/share/KaliGPT/") OR (TgtFilePath endswithCIS "/bin/kaligpt" OR TgtFilePath endswithCIS "/bin/opensearchapi") OR TgtFilePath endswithCIS "/kaligptinstaller.sh"))

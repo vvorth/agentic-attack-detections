@@ -1,0 +1,7 @@
+// HackSynth Benchmark Launcher
+// Sigma id f08ccd82-52f6-5b21-a742-45b80fb68334, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "run_bench.py" and 
+ action_process_image_command_line ~= "\s(-b|--benchmark)\s") and 
+ (action_process_image_command_line in ("*benchmark_solved.json*", "*combined_solved.json*", "*bandit_solved.json*", "*natas_solved.json*", "*configs/pico_bench/*", "*configs/overthewire_bench/*")))

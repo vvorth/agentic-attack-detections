@@ -1,0 +1,7 @@
+// Cochise AI Pentest Agent Run Log Created
+// Sigma id 3cf82d57-e000-53fc-81da-ab752c10313e, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path contains "/logs/run-20" and 
+ action_file_path contains ".json") and 
+ action_file_path ~= "/logs/run-\d{8}-\d{6}\.json$" and 
+ actor_process_image_path contains "python")

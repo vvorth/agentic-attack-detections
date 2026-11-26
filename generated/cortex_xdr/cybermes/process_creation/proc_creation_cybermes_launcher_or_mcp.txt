@@ -1,0 +1,7 @@
+// Cybermes Launcher, MCP Server or Go Tools Started
+// Sigma id 24f3b9c4-c536-5d53-a9e1-41fd1cdec3f9, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/cybermes-mcp", "*\cybermes-mcp.exe", "*/smart_pipe", "*/search_knowledge")) or 
+ (action_process_image_command_line in ("*cybermes-mcp@latest*", "*/.cybermes/bin/cybermes-mcp-v*", "*\.cybermes\bin\cybermes-mcp-v*", "*cybermes-mcp.js*")) or 
+ (action_process_image_command_line in ("*./cybermes *", "*/cybermes gateway run*", "*cybermes.bat*", "*cybermes.ps1*", "*/opt/hermes-venv/bin/hermes*")))

@@ -1,0 +1,6 @@
+// Shannon Experimental php2shell Crash Probe Started
+// Sigma id 54ad49ab-c349-522e-a532-11e7aee8c79c, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "--exp-php2shell" and 
+ action_process_image_command_line contains "shannon")

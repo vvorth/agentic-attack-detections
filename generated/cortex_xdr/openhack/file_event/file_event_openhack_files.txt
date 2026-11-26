@@ -1,0 +1,6 @@
+// OpenHack Workspace, Temporary or Evidence Files Written
+// Sigma id 8ea1c520-4655-5cd8-9c00-8353bd6a6e9f, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.openhack/*", "*\.openhack\*")) or 
+ (action_file_path in ("*/openhack-subscription-*", "*/openhack-login-*", "*\openhack-subscription-*", "*\openhack-login-*")) or 
+ (action_file_path in ("*/.openhack-evidence/*", "*.openhack-sandbox-override-*")))

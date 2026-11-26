@@ -1,0 +1,5 @@
+// Mitsu Local SearXNG Container
+// Sigma id 319cdede-e39a-5f0d-8581-51ffe6ef432b, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line in ("*mitsu-searxng-config*", "*--name mitsu-searxng-*", "*start mitsu-searxng-*"))

@@ -1,0 +1,8 @@
+// NeuroSploit Harness on a Host
+// Sigma id ec1e9ac1-280c-5e4f-a77c-2b8ceb295512, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/neurosploit", "*\neurosploit.exe")) or 
+ (action_process_image_command_line in ("*c2 daemon --port 0 --dir*", "*neurosploit-kali*", "*neurosploit-neo4j*", "*ns_browser_prefetch.js*", "*neurosploit-mcp*")) or 
+ ((actor_process_image_path in ("*/neurosploit", "*\neurosploit.exe")) and 
+ (action_process_image_command_line in ("*--dangerously-skip-permissions*", "*--dangerously-bypass-approvals-and-sandbox*"))))

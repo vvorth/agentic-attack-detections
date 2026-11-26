@@ -1,0 +1,7 @@
+// cyber-harness Files Written
+// Sigma id 6c7540af-c762-5fd0-84e7-5cf2d052b713, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/cyber-agent.pid", "*\cyber-agent.pid", "*/cyber-harness.db", "*\cyber-harness.db", "*/.cyber/mitm/mitmproxy-ca-cert.pem", "*\.cyber\mitm\mitmproxy-ca-cert.pem", "*/.cyber/active/active.sqlite", "*\.cyber\active\active.sqlite", "*/.cyber/jev/decisions.jsonl", "*\.cyber\jev\decisions.jsonl")) or 
+ (action_file_path in ("*/.cyber/arsenal/bin/*", "*\.cyber\arsenal\bin\*", "*/.aiscan/*", "*\.aiscan\*")) or 
+ ((action_file_path in ("*/.cyber/output/*", "*\.cyber\output\*")) and 
+ action_file_path contains ".log"))

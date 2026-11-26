@@ -1,0 +1,10 @@
+// sapper-v2 Agent Orchestration on a Host
+// Sigma id 6729ae36-bb67-5361-a363-e5b0b2edbbd2, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "echo DRIVE_PANE_EXITED; exec sleep infinity" or 
+ (action_process_image_command_line contains "tmux" and 
+ action_process_image_command_line ~= "\s-[st]\s+['"]?sapper-(cmd|tui|fleet)\b") or 
+ (action_process_image_command_line in ("*You are an autonomous executor in a penetration-testing fact-graph agent system*", "*You are the autonomous field commander of a pentest campaign (TSecBench)*", "*You are an autonomous pentest operator in a CTF benchmark*", "*You are a GENERAL (senior operator) on challenge*", "*/opt/sapper/docker/commander/*")) or 
+ action_process_image_command_line ~= "(^|[/\s])sapper(\.py)?\s(.*\s)?(auto\s(.*\s)?--(minutes|skip-permissions)|bench\s(.*\s)?--(root|minutes)|view\s(.*\s)?--serve)\b"))

@@ -1,0 +1,3 @@
+# KaliGPT AI Pentest Agent Started
+# Sigma id 40492751-b985-5e31-bb0e-655e78122279, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "/opt/KaliGPT/OpenSearchAPI/app.py" OR TgtProcCmdLine containsCIS "/share/KaliGPT/OpenSearchAPI/app.py") OR (TgtProcCmdLine containsCIS "/usr/local/bin/kaligpt" OR TgtProcCmdLine containsCIS "/usr/bin/kaligpt ") OR ((TgtProcCmdLine containsCIS " -m agents.gemini" OR TgtProcCmdLine containsCIS " -m agents.ollama" OR TgtProcCmdLine containsCIS " -m agents.openrouter" OR TgtProcCmdLine containsCIS " -m agents.chatgpt" OR TgtProcCmdLine containsCIS " -m agents.litellm" OR TgtProcCmdLine containsCIS " -m agents.web_launcher") AND TgtProcImagePath containsCIS "/KaliGPT")))

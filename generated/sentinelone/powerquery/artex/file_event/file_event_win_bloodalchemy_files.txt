@@ -1,0 +1,3 @@
+# BLOODALCHEMY Loader Files Written
+# Sigma id e9278635-8c4b-52b4-9343-df99a0618f34, level high
+event.category="file" and (endpoint.os="windows" and (tgt.file.path contains "\\graphics-hook-filter64.dll" or tgt.file.path contains "\\graphics-hook_config.bin"))

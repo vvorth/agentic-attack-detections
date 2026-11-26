@@ -1,0 +1,12 @@
+// Shannon AI Pentest Agent CLI, Worker Container or Report Renderer
+// Sigma id a1390b62-ad0b-5a7a-9ac7-dfef102a8dbf, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "@keygraph/shannon" or 
+ action_process_image_command_line ~= "(^|[/\\\s])shannon["']?\s+start\s(.*\s)?(-u|--url)[\s=]" or 
+ (action_process_image_command_line in ("*keygraph/shannon:*", "*--name shannon-worker-*", "*shannon.workspace=*", "*shannon.workflow-id=*", "*TEMPORAL_ADDRESS=shannon-temporal:7233*")) or 
+ (action_process_image_command_line contains "temporal/worker.js" and 
+ action_process_image_command_line contains "--task-queue" and 
+ action_process_image_command_line contains "--workflow-id") or 
+ action_process_image_command_line ~= "playwright-cli\s+(.*\s)?-s=agent[1-6](\s|$)" or 
+ action_process_image_command_line contains "brand=Shannon | AI Pentester by Keygraph")

@@ -1,0 +1,3 @@
+# Scheduled Task Disguised as Microsoft Edge Update in the SQL Server Toolkit
+# Sigma id 001de136-fc13-5af2-8bc9-236c1ba4ef05, level critical
+event.type="Process Creation" and (endpoint.os="windows" and (tgt.process.image.path contains "\\schtasks.exe" and (tgt.process.cmdline contains "CEC15D9B-F4BB-446A-B6E1-C61E74B016A2" or tgt.process.cmdline contains "4C33CE3F-7722-4257-AF83-351A4911C159" or tgt.process.cmdline contains "Microsoft_UPDATES")))

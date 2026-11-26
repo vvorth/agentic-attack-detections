@@ -1,0 +1,6 @@
+// CyberStrikeAI Implant Run Key Value SystemUpdate
+// Sigma id 5dbb150e-eefe-5b43-96ae-b374d59417f1, level high
+config case_sensitive = false | preset=xdr_registry | filter (event_type = ENUM.REGISTRY and 
+ event_sub_type = ENUM.REGISTRY_SET_VALUE) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ action_registry_key_name contains "\CurrentVersion\Run\SystemUpdate")

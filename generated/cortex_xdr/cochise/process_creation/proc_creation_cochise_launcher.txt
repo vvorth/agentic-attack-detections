@@ -1,0 +1,6 @@
+// Cochise AI Pentest Agent Launcher
+// Sigma id a9ef7e9d-8998-55d6-961a-ed7197d6524d, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*/bin/cochise", "*\Scripts\cochise.exe")) or 
+ (action_process_image_command_line in ("*uv run cochise*", "*src/cochise.py*", "*cochise.cli.cochise*", "*/bin/cochise-replay *", "*/bin/cochise-analyze-*", "*uv run cochise-*")))

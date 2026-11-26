@@ -1,0 +1,5 @@
+// ARTEX Artifact Names in Command Lines
+// Sigma id a939cd68-134a-5626-a4b7-c84fc55788fa, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line in ("*artex-probe-*", "*ArtexProbe*", "*\ProgramData\artx5v*", "*art18-*", "*ARTEX_WRITE_PROBE*", "*ARTX_PERSIST_OK*", "*artex_control_marker_zz9q*"))

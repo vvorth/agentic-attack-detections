@@ -1,0 +1,3 @@
+# DarkMoon Proof File /tmp/.dm_proof Written on a Server
+# Sigma id b26984be-1655-5687-afda-bbfd614f19fb, level high
+event.category="file" and (endpoint.os="linux" and tgt.file.path="/tmp/.dm_proof")

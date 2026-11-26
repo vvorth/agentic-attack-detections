@@ -1,0 +1,3 @@
+# Sage (Mythic) Proof or Certificate File Written on a Windows Host
+# Sigma id fb757105-982f-50dc-b1cf-29e3f6730954, level high
+ObjectType = "File" AND (EndpointOS = "windows" AND ((TgtFilePath containsCIS "\Windows\Temp\sage_remote_exec" OR TgtFilePath containsCIS "\Windows\Temp\sage_ep_adjust" OR TgtFilePath containsCIS "\Windows\Temp\sage_ca_export_" OR TgtFilePath containsCIS "\Windows\Temp\sage_ca_dpapi_" OR TgtFilePath containsCIS "\Windows\Temp\sage_forged_cert_" OR TgtFilePath containsCIS "\Windows\Temp\sage_ca_signing_" OR TgtFilePath containsCIS "\sage_cert_enroll_") OR (TgtFilePath containsCIS "\sage_gpo_" AND TgtFilePath endswithCIS "_whoami.txt")))

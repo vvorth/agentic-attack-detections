@@ -1,0 +1,11 @@
+// RedAI AI Vulnerability Validation Workbench Running or Installed
+// Sigma id 76b101ba-b0a3-5471-a46b-29a2ac43c46a, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (((action_process_image_path in ("*/bun", "*\bun.exe")) and 
+ (action_process_image_command_line in ("*/bin/redai", "*bun run redai"))) or 
+ (action_process_image_command_line in ("*@kpolley/redai*", "*github.com/kpolley/redai*")) or 
+ (action_process_image_command_line in ("*/.redai/validator-environments/*", "*/.redai/runs/*", "*\.redai\validator-environments\*", "*\.redai\runs\*")) or 
+ action_process_image_command_line contains "simctl create redai-template-" or 
+ (action_process_image_command_line contains "simctl clone " and 
+ action_process_image_command_line contains " redai-"))

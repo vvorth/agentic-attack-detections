@@ -1,0 +1,3 @@
+# Agent Zero Container, UI or Tunnel Started
+# Sigma id 454f6966-95ee-57f4-9ab3-d7d6798ab637, level low
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "agent0ai/agent-zero" OR TgtProcCmdLine containsCIS "self_update_manager.py docker-run-ui" OR TgtProcCmdLine containsCIS "/a0/run_tunnel.py")

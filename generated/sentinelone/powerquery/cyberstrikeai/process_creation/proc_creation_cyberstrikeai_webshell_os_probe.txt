@@ -1,0 +1,3 @@
+# CyberStrikeAI Webshell OS Probe Command
+# Sigma id 76d2ff37-110c-5b15-99ca-adbeab446f2a, level high
+event.type="Process Creation" and tgt.process.cmdline contains ":OSPROBE_"

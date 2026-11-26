@@ -1,0 +1,7 @@
+// HexStrike Server or MCP Client Process
+// Sigma id 23f271ff-3e26-57ca-81ec-347c96db618e, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*hexstrike_server.py*", "*hexstrike_mcp.py*")) or 
+ actor_process_command_line contains "hexstrike_server.py"))

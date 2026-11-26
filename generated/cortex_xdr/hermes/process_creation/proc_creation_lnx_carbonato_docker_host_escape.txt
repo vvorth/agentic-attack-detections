@@ -1,0 +1,11 @@
+// Carbonato Docker Worm Host Escape or Persistence
+// Sigma id 59355a64-b6fd-5c50-8370-eea0f297294c, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (((action_process_image_command_line contains "nsenter" and 
+ action_process_image_command_line contains "-t 1" and 
+ action_process_image_command_line contains "-m -u -n -i") and 
+ (action_process_image_command_line in ("*curl *", "*wget *", "*crontab*", "*chattr*", "*authorized_keys*", "*systemctl enable*", "*rc.local*", "*.hermes*"))) or 
+ (action_process_image_command_line in ("*netns-probe*", "*system/resolved*", "*.docker-network-monitor*", "*/opt/gh0st/*", "*CARBONATO_API_KEY*")) or 
+ action_process_image_path = "/usr/sbin/systemd-logind"))

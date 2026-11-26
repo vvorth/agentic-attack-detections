@@ -1,0 +1,5 @@
+// Pensar Apex Agent Command Markers
+// Sigma id b406fa4b-5031-59e7-b5da-3d7408594f21, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line in ("*User-Agent: pensar-apex*", "*PensarBot/1.0*", "*InVzZSBzdHJpY3QiOwovLyBBcGV4IGNhbGxiYWNrIGxpc3RlbmVy*", "*process.env.APEX_CB_PROBE*", "*APEX_HIDDEN_PAYLOAD_COUNT*", "*APEX_FILE_PAYLOAD_COUNT*", "*__APEX_GREP_EXIT_*", "*<<'APEX_GLOB_PY'*", "*<<'APEX_LIST_PY'*"))

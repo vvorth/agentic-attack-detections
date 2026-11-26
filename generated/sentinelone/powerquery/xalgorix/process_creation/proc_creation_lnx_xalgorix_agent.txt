@@ -1,0 +1,3 @@
+# Xalgorix Agent on a Host
+# Sigma id 20414e72-e491-5594-872d-4b65742ac069, level medium
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.image.path contains "/xalgorix" or (tgt.process.cmdline contains "XALGORIX_WORKSPACE=" or tgt.process.cmdline contains "__xalgorix_resolve_path" or tgt.process.cmdline contains "xalgorix-scan-init" or tgt.process.cmdline contains "xalgord/xalgorix" or tgt.process.cmdline contains "xalgorix --web")))

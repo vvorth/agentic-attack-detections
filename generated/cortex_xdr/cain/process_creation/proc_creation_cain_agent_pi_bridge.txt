@@ -1,0 +1,8 @@
+// Cain Pi Backend Bridge and Its Shell Commands
+// Sigma id 49b9fde8-9907-57fb-a6ab-863656728f4e, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (((action_process_image_path in ("*/node", "*\node.exe")) and 
+ (action_process_image_command_line in ("*/toolchain/pi/bridge.mjs", "*\toolchain\pi\bridge.mjs"))) or 
+ ((actor_process_command_line in ("*/toolchain/pi/bridge.mjs", "*\toolchain\pi\bridge.mjs")) and 
+ action_process_image_command_line contains " -c "))

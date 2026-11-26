@@ -1,0 +1,3 @@
+# Cyber-AutoAgent Threat Emulation Marker File
+# Sigma id 0c6cb7a4-5f3d-5f37-85e7-01bab7f4835c, level high
+event.category="file" and (tgt.file.path contains "/.emulation_marker_" or tgt.file.path contains "\\.emulation_marker_")

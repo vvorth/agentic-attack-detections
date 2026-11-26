@@ -1,0 +1,3 @@
+# Ares Orchestrator or Worker Service
+# Sigma id 2006b526-b24f-5657-8a0e-505f46cc5025, level medium
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "/usr/local/bin/ares orchestrator" or tgt.process.cmdline contains "/usr/local/bin/ares worker" or tgt.process.cmdline contains "--unit=ares-orchestrator.service" or tgt.process.cmdline contains "--slice=system-ares.slice"))

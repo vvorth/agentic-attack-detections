@@ -1,0 +1,12 @@
+// VulnBot Shell Setup on the Kali Host It Drives
+// Sigma id dafb4a3d-5699-5044-8028-771509ffa732, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_path contains "/touch" and 
+ action_process_image_command_line contains " /etc/legal") or 
+ (action_process_image_path contains "/chmod" and 
+ (action_process_image_command_line contains " 644 " and 
+ action_process_image_command_line contains "/etc/legal")) or 
+ (action_process_image_path contains "/sudo" and 
+ (action_process_image_command_line in ("*touch /etc/legal*", "*chmod 644 /etc/legal*")))))

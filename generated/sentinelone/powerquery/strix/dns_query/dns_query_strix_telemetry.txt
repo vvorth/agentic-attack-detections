@@ -1,0 +1,3 @@
+# Strix Telemetry DNS Query
+# Sigma id 1e26975c-a563-5eae-95b7-4d1f848b9afc, level medium
+event.category="dns" and (event.dns.request="strix.gateway.scarf.sh" or event.dns.request contains ".strix.gateway.scarf.sh")

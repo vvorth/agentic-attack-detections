@@ -1,0 +1,13 @@
+// Scanners Started With Cybermes MCP Argument Order
+// Sigma id 9cc640fd-512b-506a-ae60-87d3ff395ce4, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (((actor_process_image_path in ("*/cybermes-mcp", "*\cybermes-mcp.exe")) or 
+ actor_process_image_path contains "cybermes-mcp-v") or 
+ (action_process_image_command_line contains "-sT --open -T3 --max-rate " and 
+ action_process_image_command_line contains " -oN - ") or 
+ action_process_image_command_line contains " -silent -jsonl -timeout 10 -duc" or 
+ action_process_image_command_line contains " -silent -status-code -title -tech-detect -json -timeout " or 
+ action_process_image_command_line contains " -jc -silent -ct " or 
+ (action_process_image_command_line contains "/FUZZ -w " and 
+ action_process_image_command_line contains " -timeout 5 -s -json"))

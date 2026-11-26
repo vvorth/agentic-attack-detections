@@ -1,0 +1,3 @@
+# RedAI Run, Report or Validator Environment Files Written
+# Sigma id 9f30b245-12fd-50bf-8b2e-e580e4e7291d, level low
+event.category="file" and (tgt.file.path contains "/.redai/runs/" or tgt.file.path contains "/.redai/validator-environments/" or tgt.file.path contains "/.redai/artifacts/" or tgt.file.path contains "\\.redai\\runs\\" or tgt.file.path contains "\\.redai\\validator-environments\\" or tgt.file.path contains "\\.redai\\artifacts\\")

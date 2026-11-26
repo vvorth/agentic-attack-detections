@@ -1,0 +1,7 @@
+// hackingBuddyGPT Web API Report, Generated Spec or Benchmark Trace Written
+// Sigma id 9421ba54-f030-5fcc-ac07-57e6029b8333, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/hackingBuddyGPT/usecases/web_api/reports/*", "*/hackingBuddyGPT/usecases/web_api/openapi_spec/*", "*\hackingBuddyGPT\usecases\web_api\reports\*", "*\hackingBuddyGPT\usecases\web_api\openapi_spec\*")) or 
+ ((action_file_path contains "/benchmark_results/" and 
+ action_file_path contains "/traces/") and 
+ (action_file_path in ("*.jsonl", "*/console.log"))))

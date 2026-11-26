@@ -1,0 +1,9 @@
+// Strix AI Pentest Agent CLI or Sandbox
+// Sigma id f15a6887-4f5c-590b-bfe3-829a57781f3b, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line ~= "(^|[/\\\s])strix(\.exe)?["']?\s(.*\s)?(--target|-t|--target-list|--scan-mode|--resume)[\s=]" or 
+ action_process_image_command_line ~= "((pip|pip3|pipx)\s+install|uv\s+(tool\s+install|tool\s+run|pip\s+install)|uvx)\s(.*\s)?[\"']?strix-agent" or 
+ action_process_image_command_line contains "usestrix/strix-sandbox" or 
+ (action_process_image_command_line contains "caido-cli" and 
+ action_process_image_command_line contains "--allow-guests"))

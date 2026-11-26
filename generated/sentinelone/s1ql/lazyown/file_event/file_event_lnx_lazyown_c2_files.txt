@@ -1,0 +1,3 @@
+# LazyOwn C2 Key, Launcher, Credential or Capture Files Written
+# Sigma id e0aa8b5f-2647-5490-9d6a-f2eed600add1, level medium
+ObjectType = "File" AND (EndpointOS = "linux" AND ((TgtFilePath endswithCIS "/sessions/key.aes" OR TgtFilePath endswithCIS "/sessions/c2_launch.env" OR TgtFilePath endswithCIS "/sessions/c2_launch.sh" OR TgtFilePath endswithCIS "/sessions/rbac_initial_admin.txt" OR TgtFilePath endswithCIS "/sessions/users_initial_admin.txt" OR TgtFilePath endswithCIS "/sessions/sessionLazyOwn.json" OR TgtFilePath endswithCIS "/sessions/LazyOwn_session_report.csv") OR (TgtFilePath containsCIS "/sessions/captured_images/" AND (TgtFilePath endswithCIS ".png" OR TgtFilePath endswithCIS ".webm"))))

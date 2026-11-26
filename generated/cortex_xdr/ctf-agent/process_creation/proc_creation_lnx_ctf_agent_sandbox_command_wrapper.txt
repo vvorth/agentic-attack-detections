@@ -1,0 +1,7 @@
+// CTF Agent Sandbox Command Wrapper in a Container
+// Sigma id 9e8dbdc8-928d-5d8a-b90e-30c2e4087fcd, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "timeout --signal=KILL --kill-after=5 " and 
+ action_process_image_command_line contains " bash -c "))

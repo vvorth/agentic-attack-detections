@@ -1,0 +1,6 @@
+// Cyber-AutoAgent Threat Emulation Marker Registry Key
+// Sigma id 63a9d992-50b1-5904-962f-f6c24c2d1594, level high
+config case_sensitive = false | preset=xdr_registry | filter (event_type = ENUM.REGISTRY and 
+ event_sub_type = ENUM.REGISTRY_SET_VALUE) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ action_registry_key_name contains "\SOFTWARE\EmulationMarkers\")

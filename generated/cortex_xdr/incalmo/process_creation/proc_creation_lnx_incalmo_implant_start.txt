@@ -1,0 +1,10 @@
+// Incalmo Spreading a Caldera Sandcat Implant
+// Sigma id 17a55df2-2560-53b4-bd8d-218c0b66925b, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*sandcat_tmp.go*", "*C2:%{http_code}*", "*file:sandcat.go*")) or 
+ (action_process_image_command_line contains " -server http" and 
+ action_process_image_command_line contains " -group red") or 
+ (action_process_image_path contains "/splunkd" and 
+ action_process_image_command_line contains " -server http")))

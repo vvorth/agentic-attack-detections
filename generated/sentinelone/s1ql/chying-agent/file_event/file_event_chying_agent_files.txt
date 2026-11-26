@@ -1,0 +1,3 @@
+# CHYing-agent Work Folder, Database or Log Files Written
+# Sigma id 56e2db42-5bb1-5724-bd1e-c939642cb0fe, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/agent-work/ctf/" AND (TgtFilePath endswithCIS "/findings.log" OR TgtFilePath endswithCIS "/attack_timeline.md" OR TgtFilePath endswithCIS "/dumps/commands.log" OR TgtFilePath endswithCIS "/dumps/execution_summary.md" OR TgtFilePath endswithCIS "/dumps/reflection_history.md")) OR ((TgtFilePath containsCIS "/agent-work/ctf/" AND TgtFilePath containsCIS "/poc_scripts/poc_") AND TgtFilePath endswithCIS ".py") OR TgtFilePath endswithCIS "/data/chying.db" OR (TgtFilePath containsCIS "/logs/chying_agent_" AND TgtFilePath endswithCIS ".log") OR TgtFilePath containsCIS "/.taie/null-zone/")

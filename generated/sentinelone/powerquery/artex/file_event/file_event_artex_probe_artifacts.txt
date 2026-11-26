@@ -1,0 +1,3 @@
+# ARTEX Probe Artifact Created
+# Sigma id c5af5255-c664-5237-9359-34a102f431d1, level high
+event.category="file" and (tgt.file.path contains "artex-probe-" or tgt.file.path contains "\\ProgramData\\artx5v\\" or tgt.file.path contains "zzartx0000.php")

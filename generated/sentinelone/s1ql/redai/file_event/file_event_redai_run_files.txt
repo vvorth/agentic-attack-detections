@@ -1,0 +1,3 @@
+# RedAI Run, Report or Validator Environment Files Written
+# Sigma id 9f30b245-12fd-50bf-8b2e-e580e4e7291d, level low
+ObjectType = "File" AND (TgtFilePath containsCIS "/.redai/runs/" OR TgtFilePath containsCIS "/.redai/validator-environments/" OR TgtFilePath containsCIS "/.redai/artifacts/" OR TgtFilePath containsCIS "\.redai\runs\" OR TgtFilePath containsCIS "\.redai\validator-environments\" OR TgtFilePath containsCIS "\.redai\artifacts\")

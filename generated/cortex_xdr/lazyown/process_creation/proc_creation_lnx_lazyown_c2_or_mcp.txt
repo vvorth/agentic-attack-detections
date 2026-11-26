@@ -1,0 +1,11 @@
+// LazyOwn C2 Server, MCP Server or Launcher Started
+// Sigma id 452f7d09-5501-559c-814d-555ec58d6773, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line in ("*lazyc2.py*", "*lazyown_mcp.py*", "*lazyown_mcp_opencode.py*", "*fast_run_as_r00t.sh*", "*sessions/c2_launch.sh*")) or 
+ (action_process_image_command_line contains "python3" and 
+ action_process_image_command_line contains "lazyown.py") or 
+ (action_process_image_command_line contains "tmux" and 
+ action_process_image_command_line contains "lazyown_sessions") or 
+ (action_process_image_command_line in ("*raw.githubusercontent.com/grisuno/LazyOwn/*", "*ghcr.io/grisuno/lazyown*"))))

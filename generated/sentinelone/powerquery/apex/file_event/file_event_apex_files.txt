@@ -1,0 +1,3 @@
+# Pensar Apex Session, Run Store or Callback Listener Files
+# Sigma id c3503bd7-f892-5def-81b5-aea6a55e24fd, level medium
+event.category="file" and ((tgt.file.path contains "/.pensar/sessions/" or tgt.file.path contains "\\.pensar\\sessions\\" or tgt.file.path contains "/.pensar/runtime/runs.sqlite" or tgt.file.path contains "\\.pensar\\runtime\\runs.sqlite") or (tgt.file.path contains "callback-listeners" and tgt.file.path contains ".cjs") or tgt.file.path contains "/tmp/apex_payload_")

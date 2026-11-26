@@ -1,0 +1,3 @@
+# NyxStrike Server, MCP Client or Tool Started by the Server
+# Sigma id 4f28ea68-b9bd-58b4-accb-a62b492dd7fe, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "nyxstrike_server.py" or tgt.process.cmdline contains "nyxstrike_mcp.py" or tgt.process.cmdline contains "nyxstrike.sh" or tgt.process.cmdline contains "/nyxstrike-env/bin/python") or src.process.cmdline contains "nyxstrike_server.py"))

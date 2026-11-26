@@ -1,0 +1,5 @@
+// KaliGPT Web Launcher Opens the KaliGPT Custom GPT
+// Sigma id 1f3ca833-8fdb-5d54-8493-a2ee94034c89, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ action_process_image_command_line contains "chatgpt.com/g/g-xouSQobsE-kaligpt"

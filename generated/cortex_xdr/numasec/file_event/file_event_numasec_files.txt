@@ -1,0 +1,5 @@
+// numasec Operation, Database or Out-of-Band Session Files Written
+// Sigma id c601624c-74b4-5cfe-81ad-0c3bd1492ffe, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.numasec/operation/*", "*\.numasec\operation\*")) or 
+ (action_file_path in ("*/numasec/numasec.db", "*\numasec\numasec.db", "*/numasec/interact-sessions.json", "*\numasec\interact-sessions.json")))

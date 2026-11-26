@@ -1,0 +1,6 @@
+// Cairn Agent Worker or Dispatcher Command Line
+// Sigma id 47a4767c-bd74-5162-82ff-286d6b159e35, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line in ("*model_provider=\"cairn\"*", "*model_providers.cairn.base_url*", "*--provider cairn*", "*/tmp/cairn-pi/*", "*/tmp/cairn-prompts/*", "*cairn dispatch --config*", "*cairn-dispatch-*", "*cairn-worker-container*")))

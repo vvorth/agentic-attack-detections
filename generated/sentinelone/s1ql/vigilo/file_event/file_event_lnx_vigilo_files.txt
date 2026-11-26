@@ -1,0 +1,3 @@
+# Vigilo Run Folder, Deliverables or Delivery State Written
+# Sigma id 77417edd-2f06-5546-b96c-adbf63c7e5cf, level low
+ObjectType = "File" AND (EndpointOS = "linux" AND ((TgtFilePath containsCIS "/.vigilo/" AND (TgtFilePath containsCIS "/deliverables/" OR TgtFilePath containsCIS "/agents/" OR TgtFilePath containsCIS "/prompts/")) OR (TgtFilePath endswithCIS "/.vigilo-remote-url" OR TgtFilePath endswithCIS "/.git/vigilo-delivery.json" OR TgtFilePath endswithCIS "/.git/vigilo-rebuild.json" OR TgtFilePath endswithCIS "/.git/vigilo-delivery.lock")))

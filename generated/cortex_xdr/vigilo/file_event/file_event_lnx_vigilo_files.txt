@@ -1,0 +1,7 @@
+// Vigilo Run Folder, Deliverables or Delivery State Written
+// Sigma id 77417edd-2f06-5546-b96c-adbf63c7e5cf, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path contains "/.vigilo/" and 
+ (action_file_path in ("*/deliverables/*", "*/agents/*", "*/prompts/*"))) or 
+ (action_file_path in ("*/.vigilo-remote-url", "*/.git/vigilo-delivery.json", "*/.git/vigilo-rebuild.json", "*/.git/vigilo-delivery.lock"))))

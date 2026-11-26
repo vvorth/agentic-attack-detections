@@ -1,0 +1,3 @@
+# Shannon Experimental php2shell Crash Probe Started
+# Sigma id 54ad49ab-c349-522e-a532-11e7aee8c79c, level medium
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "--exp-php2shell" AND TgtProcCmdLine containsCIS "shannon")

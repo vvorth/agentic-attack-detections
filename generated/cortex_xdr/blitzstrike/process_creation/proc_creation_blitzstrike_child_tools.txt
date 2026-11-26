@@ -1,0 +1,6 @@
+// Tools Started by the Blitz Strike MCP Server
+// Sigma id 279848ea-5408-5f13-b82d-212174b82e67, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (actor_process_command_line contains "blitzstrike" and 
+ (action_process_image_command_line in ("*-jsonl -silent -no-color -timeout 10*", "*interactsh-client -json*", "*chrome-devtools-mcp*", "*curl -sk -m 6 --resolve*", "*sparse-checkout set payloads templates*", "*go install*", "*pip install*", "*apt-get install -y*", "*nuclei -update-templates*")))

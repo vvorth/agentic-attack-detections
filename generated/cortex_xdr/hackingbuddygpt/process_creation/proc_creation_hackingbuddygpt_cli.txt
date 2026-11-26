@@ -1,0 +1,7 @@
+// hackingBuddyGPT LLM Pentest Agent Started
+// Sigma id f71da8d8-9932-5d4a-8e22-f0e02cb96a55, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*hackingBuddyGPT.cli.wintermute*", "*hackingbuddygpt-log-view*", "*hackingbuddygpt-log-analyze*", "*benchmark_privesc.py*", "*ghcr.io/ipa-lab/hackingbuddygpt*")) or 
+ ((action_process_image_command_line in ("*wintermute*", "*hackingBuddyGPT*")) and 
+ (action_process_image_command_line in ("* MinimalPrivEscLinux*", "* MinimalToolCallPrivEscLinux*", "* PrivEscLinux*", "* ExPrivEscLinuxLSE*", "* PrivEscWindows*", "* WebTestingWithExplanation*", "* WebTestingWithShell*", "* AdvancedWebTesting*", "* WebAPITesting*", "* AD --*"))))

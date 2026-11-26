@@ -1,0 +1,7 @@
+// 0security Verification Container Created
+// Sigma id 88f97405-49c8-548e-b1c4-2f3ef949fdc3, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "create" and 
+ action_process_image_command_line contains "--name 0-verify-" and 
+ action_process_image_command_line contains "--label 0.verify=1")

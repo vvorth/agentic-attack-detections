@@ -1,0 +1,4 @@
+// JSP Web Shell Names Seen in ARTEX Intrusions
+// Sigma id da2a1f27-1099-5c19-ab6f-820c9b3b1e6a, level critical
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path in ("*/cl1217.jsp", "*/f1219a.jsp", "*/z1219.jsp", "*\cl1217.jsp", "*\f1219a.jsp", "*\z1219.jsp"))

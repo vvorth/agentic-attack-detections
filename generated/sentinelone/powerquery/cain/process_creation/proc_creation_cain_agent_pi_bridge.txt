@@ -1,0 +1,3 @@
+# Cain Pi Backend Bridge and Its Shell Commands
+# Sigma id 49b9fde8-9907-57fb-a6ab-863656728f4e, level medium
+event.type="Process Creation" and (((tgt.process.image.path contains "/node" or tgt.process.image.path contains "\\node.exe") and (tgt.process.cmdline contains "/toolchain/pi/bridge.mjs" or tgt.process.cmdline contains "\\toolchain\\pi\\bridge.mjs")) or ((src.process.cmdline contains "/toolchain/pi/bridge.mjs" or src.process.cmdline contains "\\toolchain\\pi\\bridge.mjs") and tgt.process.cmdline contains " -c "))

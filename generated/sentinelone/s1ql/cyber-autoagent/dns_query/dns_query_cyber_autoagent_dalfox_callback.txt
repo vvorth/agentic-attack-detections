@@ -1,0 +1,3 @@
+# Cyber-AutoAgent Dalfox Blind XSS Callback DNS Query
+# Sigma id 4f00c370-3800-5551-81ed-ff487e16c2bb, level medium
+ObjectType = "DNS" AND (DnsRequest = "dalfox-xss-test.com" OR DnsRequest endswithCIS ".dalfox-xss-test.com")

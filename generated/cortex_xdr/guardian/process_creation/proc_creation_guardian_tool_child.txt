@@ -1,0 +1,7 @@
+// Scanner Started Directly by Guardian
+// Sigma id 5a1d3506-981e-5827-99c9-f33b28810c6c, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_path in ("*/nmap", "*/masscan", "*/httpx", "*/subfinder", "*/amass", "*/nuclei", "*/nikto", "*/sqlmap", "*/ffuf", "*/gobuster", "*/wpscan", "*/whatweb", "*/wafw00f", "*/arjun", "*/xsstrike", "*/cmseek", "*/dnsrecon", "*/testssl", "*/testssl.sh", "*/sslyze", "*/kerbrute", "*/crackmapexec", "*/nxc", "*/theHarvester", "*/schemathesis", "*/curl")) and 
+ (actor_process_command_line in ("* -m cli.main *", "*/bin/guardian *"))))

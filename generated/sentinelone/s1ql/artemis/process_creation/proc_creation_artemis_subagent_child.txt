@@ -1,0 +1,3 @@
+# Process Started by an ARTEMIS Codex Sub-Agent
+# Sigma id 889646e6-85f5-5e2e-a702-6154ba536fc6, level medium
+EventType = "Process Creation" AND (SrcProcCmdLine containsCIS "--wait-for-followup" AND SrcProcCmdLine containsCIS "--instance-id")

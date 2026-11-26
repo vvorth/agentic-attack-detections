@@ -1,0 +1,8 @@
+// Decepticon Configuration, Telemetry ID or C2 Operator Config Written
+// Sigma id 71e35d20-e85d-56e2-a3ba-bce5e6bd840c, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (((action_file_path in ("*/.decepticon/*", "*\.decepticon\*")) and 
+ (action_file_path in ("*.env", "*docker-compose.yml", "*install_id", "*litellm.yaml", "*.version"))) or 
+ (action_file_path in ("*/.sliver-configs/decepticon.cfg", "*\.sliver-configs\decepticon.cfg")) or 
+ ((action_file_path in ("*/.decepticon/workspace/*", "*\.decepticon\workspace\*")) and 
+ (action_file_path in ("*/plan/roe.json", "*/plan/opplan.json", "*\plan\roe.json", "*\plan\opplan.json", "*/timeline.jsonl", "*\timeline.jsonl"))))

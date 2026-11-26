@@ -1,0 +1,3 @@
+# NeuroSploit Harness on a Host
+# Sigma id ec1e9ac1-280c-5e4f-a77c-2b8ceb295512, level medium
+EventType = "Process Creation" AND ((TgtProcImagePath endswithCIS "/neurosploit" OR TgtProcImagePath endswithCIS "\neurosploit.exe") OR (TgtProcCmdLine containsCIS "c2 daemon --port 0 --dir" OR TgtProcCmdLine containsCIS "neurosploit-kali" OR TgtProcCmdLine containsCIS "neurosploit-neo4j" OR TgtProcCmdLine containsCIS "ns_browser_prefetch.js" OR TgtProcCmdLine containsCIS "neurosploit-mcp") OR ((SrcProcImagePath endswithCIS "/neurosploit" OR SrcProcImagePath endswithCIS "\neurosploit.exe") AND (TgtProcCmdLine containsCIS "--dangerously-skip-permissions" OR TgtProcCmdLine containsCIS "--dangerously-bypass-approvals-and-sandbox")))

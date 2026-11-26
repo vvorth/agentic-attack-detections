@@ -1,0 +1,8 @@
+// 0security CLI, Web Console or Remote Engine Started
+// Sigma id e025c582-5094-58ff-9f05-49b7bc40b457, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/.0/bin/0security", "*/0security-linux-x64", "*/0security-linux-arm64", "*/0security-darwin-arm64", "*\0security-windows-x64.exe", "*\0-windows-x64.exe", "*/0-linux-x64", "*/0-linux-arm64", "*/0-darwin-arm64")) or 
+ (action_process_image_command_line in ("*/app/dist/0.js --host 0.0.0.0 --server-mode*", "*tini -- node /app/dist/0.js*")) or 
+ (action_process_image_command_line in ("*--engine-token-env ZERO_WORKER_TOKEN*", "*--engine-workspace /tmp/zero-engine/*", "*cd /tmp/zero-engine*")) or 
+ (action_process_image_command_line in ("*dist/0.js --headless --port 0*", "*0security --headless --port 0*")))

@@ -1,0 +1,7 @@
+// Pensar Apex Session, Run Store or Callback Listener Files
+// Sigma id c3503bd7-f892-5def-81b5-aea6a55e24fd, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.pensar/sessions/*", "*\.pensar\sessions\*", "*/.pensar/runtime/runs.sqlite*", "*\.pensar\runtime\runs.sqlite*")) or 
+ (action_file_path contains "callback-listeners" and 
+ action_file_path contains ".cjs") or 
+ action_file_path contains "/tmp/apex_payload_")

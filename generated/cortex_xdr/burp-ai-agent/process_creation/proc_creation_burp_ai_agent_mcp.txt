@@ -1,0 +1,8 @@
+// Custom AI Agent (burp-ai-agent) MCP Server Certificate or MCP Bridge
+// Sigma id f39908c5-5234-5ef1-9ec1-f8ca7d491be7, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "-genkeypair" and 
+ action_process_image_command_line contains "CN=burp-mcp") or 
+ (action_process_image_command_line contains "supergateway" and 
+ action_process_image_command_line contains ":9876/sse"))

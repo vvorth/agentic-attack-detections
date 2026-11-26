@@ -1,0 +1,8 @@
+// MCP for Security Tool Wrapper Started
+// Sigma id 2a614feb-dea9-5a99-bf12-7a923a485af9, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_path contains "/node" and 
+ (action_process_image_command_line in ("*/alterx-mcp/build/index.js*", "*/amass-mcp/build/index.js*", "*/arjun-mcp/build/index.js*", "*/assetfinder-mcp/build/index.js*", "*/cero/build/index.js*", "*/cero-mcp/build/index.js*", "*/commix-mcp/build/index.js*", "*/crtsh-mcp/build/index.js*", "*/ffuf-mcp/build/index.js*", "*/gowitness-mcp/build/index.js*", "*/http-headers-security-mcp/build/index.js*", "*/httpx-mcp/build/index.js*", "*/katana-mcp/build/index.js*", "*/masscan-mcp/build/index.js*", "*/mobsf-mcp/build/index.js*", "*/nmap-mcp/build/index.js*", "*/nuclei-mcp/build/index.js*", "*/scoutsuite-mcp/build/index.js*", "*/shuffledns-mcp/build/index.js*", "*/smuggler-mcp/build/index.js*", "*/sqlmap-mcp/build/index.js*", "*/sslscan-mcp/build/index.js*", "*/waybackurls-mcp/build/index.js*", "*/wpscan-mcp/build/index.js*"))) or 
+ action_process_image_command_line contains "cyprox/mcp-for-security"))

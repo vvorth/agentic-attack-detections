@@ -1,0 +1,7 @@
+// VulnBot CLI Started
+// Sigma id e65e9d4a-1178-56b9-bc1f-7c920e1baf70, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "cli.py" and 
+ action_process_image_command_line contains "vulnbot") and 
+ (action_process_image_command_line in ("*cli.py vulnbot*", "*cli.py pentestgpt*", "*cli.py start -a*", "*cli.py init*", "*cli.py base*")))

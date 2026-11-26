@@ -1,0 +1,3 @@
+# OpenHack Workspace, Temporary or Evidence Files Written
+# Sigma id 8ea1c520-4655-5cd8-9c00-8353bd6a6e9f, level low
+event.category="file" and ((tgt.file.path contains "/.openhack/" or tgt.file.path contains "\\.openhack\\") or (tgt.file.path contains "/openhack-subscription-" or tgt.file.path contains "/openhack-login-" or tgt.file.path contains "\\openhack-subscription-" or tgt.file.path contains "\\openhack-login-") or (tgt.file.path contains "/.openhack-evidence/" or tgt.file.path contains ".openhack-sandbox-override-"))

@@ -1,0 +1,3 @@
+# LazyOwn DNS C2 Zone Lookup
+# Sigma id ef65dc47-e81c-5f67-b893-63517d44f1af, level high
+event.category="dns" and (event.dns.request="c2.lazyown.org" or event.dns.request contains ".c2.lazyown.org")

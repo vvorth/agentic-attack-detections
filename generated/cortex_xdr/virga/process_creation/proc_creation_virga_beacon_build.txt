@@ -1,0 +1,7 @@
+// Virga Beacon Built with go build
+// Sigma id c24c2aae-c27a-5d81-ad3b-4814a9c3e4c8, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*internal/implant/config.BuildC2Host=*", "*internal/implant/config.BuildLlamaEnabled=*")) or 
+ (action_process_image_command_line contains "llama_selfextract,prebuilt" and 
+ action_process_image_command_line contains "internal/implant/main.go"))

@@ -1,0 +1,3 @@
+# NeuroSploit Beacon or Persistence on Linux
+# Sigma id 936d9e3d-22cf-55c0-9745-d8d4e1e79923, level high
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "X-Implant-Token" AND TgtProcCmdLine containsCIS "/api/beacon") OR TgtProcCmdLine containsCIS "nsupdate.service" OR (TgtProcCmdLine containsCIS "# NSUpdate" AND TgtProcCmdLine containsCIS ".bashrc")))

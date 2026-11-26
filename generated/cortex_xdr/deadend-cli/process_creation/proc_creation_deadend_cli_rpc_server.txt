@@ -1,0 +1,8 @@
+// Deadend CLI Agent Backend or Launcher Started
+// Sigma id dbdc81db-59be-504a-b89a-ca0857eb1628, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "deadend" and 
+ action_process_image_command_line contains "--log-file" and 
+ action_process_image_command_line contains "rpc-server-") or 
+ (action_process_image_command_line in ("*deadend_cli.jsonrpc_server*", "*deadend-jsonrpc-server*")))

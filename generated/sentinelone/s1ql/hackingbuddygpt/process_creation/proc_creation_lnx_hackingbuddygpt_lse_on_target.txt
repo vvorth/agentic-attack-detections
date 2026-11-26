@@ -1,0 +1,3 @@
+# hackingBuddyGPT lse.sh Enumeration on a Linux Target
+# Sigma id 5529ebfe-0cb8-584d-b734-37634b572708, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "linux-smart-enumeration/releases/latest/download/lse.sh" AND TgtProcCmdLine containsCIS "-O lse.sh") OR TgtProcCmdLine containsCIS "lse.sh -c -i -l 0"))

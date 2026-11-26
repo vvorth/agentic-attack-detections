@@ -1,0 +1,4 @@
+// RedAI Run, Report or Validator Environment Files Written
+// Sigma id 9f30b245-12fd-50bf-8b2e-e580e4e7291d, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path in ("*/.redai/runs/*", "*/.redai/validator-environments/*", "*/.redai/artifacts/*", "*\.redai\runs\*", "*\.redai\validator-environments\*", "*\.redai\artifacts\*"))

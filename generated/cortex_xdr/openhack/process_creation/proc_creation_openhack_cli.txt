@@ -1,0 +1,10 @@
+// OpenHack Scanner or Pentest Agent Command Line
+// Sigma id 391fd2eb-7a02-5ea7-8763-abe0399722aa, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains " dashboard --port " and 
+ action_process_image_command_line contains " --home " and 
+ action_process_image_command_line contains " --no-open") or 
+ (((action_process_image_path in ("*/openhack", "*\openhack.exe")) or 
+ (action_process_image_command_line in ("*/bin/openhack *", "*\Scripts\openhack.exe *", "* -m openhack *", "*src/cli/index.ts *"))) and 
+ (action_process_image_command_line in ("* scan*", "* hack *", "* plan *", "* resume *", "* dashboard*", "*--claude-code*", "*--codex*", "*--anthropic*", "*--openai*"))))

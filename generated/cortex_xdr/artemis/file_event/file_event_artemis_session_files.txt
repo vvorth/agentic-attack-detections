@@ -1,0 +1,9 @@
+// ARTEMIS Session or Sub-Agent Files Written
+// Sigma id e87d7b9f-bbf8-5a93-afdd-24877d9ed5d3, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path contains "supervisor_session_" and 
+ (action_file_path in ("*supervisor_todo.json", "*supervisor_heartbeat.json", "*session_metadata.json", "*vulnerabilities_found.log", "*session_vulnerabilities.jsonl"))) or 
+ ((action_file_path in ("*/workspaces/*", "*\workspaces\*")) and 
+ (action_file_path in ("*followup_input.json", "*realtime_context.txt"))) or 
+ (action_file_path in ("*/codex-logs-backup/autonomous_session_*", "*\codex-logs-backup\autonomous_session_*")) or 
+ (action_file_path in ("*/logs/latest_session_heartbeat.json", "*\logs\latest_session_heartbeat.json")))

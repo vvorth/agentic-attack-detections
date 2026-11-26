@@ -1,0 +1,3 @@
+# DarkMoon AI Pentest Agent Launcher, Containers or MCP Server
+# Sigma id 1900dd4a-afed-5b22-bcbb-9affa37ca0ab, level medium
+event.type="Process Creation" and ((tgt.process.cmdline contains "opencode" and tgt.process.cmdline contains "--agent pentest" and tgt.process.cmdline contains "TARGET:") or tgt.process.cmdline matches "(^|[/\\s])darkmoon\\.sh(\\s|$)" or (tgt.process.cmdline contains "ascit/darkmoon" or tgt.process.cmdline contains "ascit/opencode-darkmoon") or (tgt.process.cmdline contains "darkmoon-mcp" or tgt.process.cmdline contains "darkmoon-cli"))

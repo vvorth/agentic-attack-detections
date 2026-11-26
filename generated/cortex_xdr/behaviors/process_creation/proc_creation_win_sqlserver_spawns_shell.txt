@@ -1,0 +1,7 @@
+// SQL Server Spawns a Shell Through xp_cmdshell
+// Sigma id 5a82242d-3e20-5373-9852-830e386a2253, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ (actor_process_image_path contains "\sqlservr.exe" and 
+ (action_process_image_path in ("*\cmd.exe", "*\powershell.exe", "*\pwsh.exe", "*\certutil.exe", "*\bitsadmin.exe"))))

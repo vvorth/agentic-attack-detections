@@ -1,0 +1,3 @@
+# CyberStrikeAI Implant Windows Persistence Named SystemUpdate
+# Sigma id a8da8a64-d5a3-597d-a8a7-9a968b5896a7, level high
+event.type="Process Creation" and (endpoint.os="windows" and ((tgt.process.cmdline contains "reg" and tgt.process.cmdline contains " add " and tgt.process.cmdline contains "\\CurrentVersion\\Run" and tgt.process.cmdline contains "SystemUpdate") or (tgt.process.cmdline contains "schtasks" and tgt.process.cmdline contains "/create" and tgt.process.cmdline contains "SystemUpdate")))

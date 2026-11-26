@@ -1,0 +1,3 @@
+# Incalmo Spreading a Caldera Sandcat Implant
+# Sigma id 17a55df2-2560-53b4-bd8d-218c0b66925b, level high
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "sandcat_tmp.go" OR TgtProcCmdLine containsCIS "C2:%{http_code}" OR TgtProcCmdLine containsCIS "file:sandcat.go") OR (TgtProcCmdLine containsCIS " -server http" AND TgtProcCmdLine containsCIS " -group red") OR (TgtProcImagePath endswithCIS "/splunkd" AND TgtProcCmdLine containsCIS " -server http")))

@@ -1,0 +1,8 @@
+// HackSynth Agent Command Wrapper in a Container
+// Sigma id 94fad7a0-f8b9-56de-af95-58b1ad11ef2e, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_path contains "/timeout" and 
+ action_process_image_command_line ~= "^(\S*/)?timeout \d+s /bin/bash -c " and 
+ (actor_process_image_path in ("*/containerd-shim", "*/containerd-shim-runc-v2", "*/runc"))))

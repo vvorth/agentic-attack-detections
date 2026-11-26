@@ -1,0 +1,3 @@
+# AutoPT Run Result Written
+# Sigma id 4dc01358-f0f5-56d4-a9a5-b1eab1185598, level medium
+event.category="file" and ((tgt.file.path contains "/result/" or tgt.file.path contains "\\result\\") and tgt.file.path contains "_FSM.jsonl")

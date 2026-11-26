@@ -1,0 +1,9 @@
+// Decepticon AI Red Team Agent Installed or Started
+// Sigma id b2cc9abb-091b-552c-9671-43932c67be6d, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*decepticon.red/install*", "*raw.githubusercontent.com/BitterSecurity/Decepticon/*")) or 
+ action_process_image_command_line ~= "(^|[/\\\s])decepticon(\.exe)?["']?\s+(onboard|start|stop|status|doctor|update|attach|resume|mcp\s+serve)(\s|$)" or 
+ action_process_image_command_line contains "ghcr.io/bittersecurity/decepticon-" or 
+ ((action_process_image_command_line in ("*decepticon-sandbox*", "*decepticon-langgraph*", "*decepticon-c2-sliver*", "*decepticon-c2-havoc*")) and 
+ action_process_image_command_line contains "docker"))

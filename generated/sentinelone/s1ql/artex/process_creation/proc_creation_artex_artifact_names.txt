@@ -1,0 +1,3 @@
+# ARTEX Artifact Names in Command Lines
+# Sigma id a939cd68-134a-5626-a4b7-c84fc55788fa, level high
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "artex-probe-" OR TgtProcCmdLine containsCIS "ArtexProbe" OR TgtProcCmdLine containsCIS "\ProgramData\artx5v" OR TgtProcCmdLine containsCIS "art18-" OR TgtProcCmdLine containsCIS "ARTEX_WRITE_PROBE" OR TgtProcCmdLine containsCIS "ARTX_PERSIST_OK" OR TgtProcCmdLine containsCIS "artex_control_marker_zz9q")

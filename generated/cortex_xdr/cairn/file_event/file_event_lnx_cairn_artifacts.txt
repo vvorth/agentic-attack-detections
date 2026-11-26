@@ -1,0 +1,5 @@
+// Cairn Task Snapshot, Pi Provider Key or Competition Skill Written
+// Sigma id 3bcec7f8-c193-525d-9b3f-aa20c3e369d8, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_file_path in ("*/tmp/cairn-prompts/*", "*/tmp/cairn-pi/*", "*/skills/tsec-actions/SKILL.md*")))

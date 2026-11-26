@@ -1,0 +1,3 @@
+# ARTEX Probe Artifact Created
+# Sigma id c5af5255-c664-5237-9359-34a102f431d1, level high
+ObjectType = "File" AND (TgtFilePath containsCIS "artex-probe-" OR TgtFilePath containsCIS "\ProgramData\artx5v\" OR TgtFilePath containsCIS "zzartx0000.php")

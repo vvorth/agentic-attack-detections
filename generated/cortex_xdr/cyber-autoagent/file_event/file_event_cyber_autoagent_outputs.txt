@@ -1,0 +1,6 @@
+// Cyber-AutoAgent Operation Files Written
+// Sigma id 2dbb915f-15f8-5498-bf43-527bcf704946, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (((action_file_path in ("*/OP_*", "*\OP_*")) and 
+ (action_file_path in ("*cyber_operations.log", "*security_assessment_report.md", "*execution_prompt_optimized.txt"))) or 
+ (action_file_path in ("*/.cyber-autoagent/config.json*", "*\.cyber-autoagent\config.json*")))

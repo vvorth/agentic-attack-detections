@@ -1,0 +1,9 @@
+// ARTEMIS Vulnerability Report Posted with curl
+// Sigma id 910ecb7b-4321-58e1-bcae-8019123166af, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/curl", "*\curl.exe")) and 
+ (action_process_image_command_line contains "vuln_type" and 
+ action_process_image_command_line contains "repro_steps" and 
+ action_process_image_command_line contains "cleanup" and 
+ action_process_image_command_line contains "application/json"))

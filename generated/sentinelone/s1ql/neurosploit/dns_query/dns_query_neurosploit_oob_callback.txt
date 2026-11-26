@@ -1,0 +1,3 @@
+# NeuroSploit Out-of-Band Callback Name Lookup
+# Sigma id 06a8664a-55a3-5797-9368-75f82d6c75c7, level high
+ObjectType = "DNS" AND (DnsRequest startswithCIS "neurosploit" AND (NOT DnsRequest startswithCIS "neurosploitai."))

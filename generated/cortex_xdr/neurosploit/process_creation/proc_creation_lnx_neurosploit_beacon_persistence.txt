@@ -1,0 +1,10 @@
+// NeuroSploit Beacon or Persistence on Linux
+// Sigma id 936d9e3d-22cf-55c0-9745-d8d4e1e79923, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line contains "X-Implant-Token" and 
+ action_process_image_command_line contains "/api/beacon") or 
+ action_process_image_command_line contains "nsupdate.service" or 
+ (action_process_image_command_line contains "# NSUpdate" and 
+ action_process_image_command_line contains ".bashrc")))

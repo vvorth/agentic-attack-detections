@@ -1,0 +1,3 @@
+# 0security Cloud Host Lookup
+# Sigma id b2286c95-c336-5cbf-9579-4e315fcc1913, level low
+ObjectType = "DNS" AND DnsRequest = "cloud.0.security"

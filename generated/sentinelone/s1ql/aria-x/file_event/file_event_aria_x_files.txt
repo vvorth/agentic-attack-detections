@@ -1,0 +1,3 @@
+# ARIA-X Database, Run Evidence or Working Folders
+# Sigma id ee1ec5c0-526b-536c-940d-c9ffc4a9ff50, level medium
+ObjectType = "File" AND ((TgtFilePath endswithCIS "/aria-x.db" OR TgtFilePath endswithCIS "/aria-x.db-wal" OR TgtFilePath endswithCIS "/aria-x.db-shm" OR TgtFilePath endswithCIS "/configs/aria-x.toml") OR (TgtFilePath containsCIS "/runs/run_" AND TgtFilePath containsCIS "/work/evidence/http_") OR (TgtFilePath containsCIS "/runs/run_" AND (TgtFilePath endswithCIS "/report.html" OR TgtFilePath endswithCIS "/report.md" OR TgtFilePath endswithCIS "/report.json")) OR (TgtFilePath containsCIS "/aria-x-work-" OR TgtFilePath containsCIS "/aria-x-doctor-" OR TgtFilePath containsCIS "/aria-x-tools-" OR TgtFilePath containsCIS "/aria-x-demo-target-"))

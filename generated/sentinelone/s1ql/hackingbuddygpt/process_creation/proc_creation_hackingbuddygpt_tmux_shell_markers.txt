@@ -1,0 +1,3 @@
+# hackingBuddyGPT Local Shell Command Markers Sent Through tmux
+# Sigma id 9acfd2b0-21a2-5d83-958c-7901906c161e, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcImagePath endswithCIS "/tmux" AND TgtProcCmdLine containsCIS "send-keys") AND (TgtProcCmdLine containsCIS "echo 'CMDSTART" OR TgtProcCmdLine containsCIS "echo 'CMDEND" OR TgtProcCmdLine containsCIS "echo \"__CLEAR_" OR TgtProcCmdLine containsCIS "echo \"__END_")))

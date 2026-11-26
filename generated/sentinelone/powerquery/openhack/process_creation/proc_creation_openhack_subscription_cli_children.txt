@@ -1,0 +1,3 @@
+# Claude Code or Codex CLI Started by OpenHack
+# Sigma id c04336d7-897c-5138-9198-8280c8a2f615, level low
+event.type="Process Creation" and ((tgt.process.cmdline contains "--safe-mode" and tgt.process.cmdline contains "disableAllHooks" and tgt.process.cmdline contains "forceLoginMethod") or tgt.process.cmdline contains "openhack-subscription-" or tgt.process.cmdline contains "source-review worker inside OpenHack")

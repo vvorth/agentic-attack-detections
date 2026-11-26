@@ -1,0 +1,3 @@
+# Claude-Red Offensive Skills Installed for a Coding Agent
+# Sigma id 8818d933-0d08-5fd4-a553-e4bcf8f84118, level low
+event.category="file" and ((tgt.file.path contains "/skills/claude-red/" or tgt.file.path contains "\\skills\\claude-red\\") or ((tgt.file.path contains "/skills/" and tgt.file.path contains "/offensive-") and tgt.file.path contains "/SKILL.md") or ((tgt.file.path contains "\\skills\\" and tgt.file.path contains "\\offensive-") and tgt.file.path contains "\\SKILL.md"))

@@ -1,0 +1,11 @@
+// AutoPT Agent Started or Running Its Scan Steps
+// Sigma id 090f97a6-0e7e-5ebb-90cf-9e9a28e40656, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "main.py" and 
+ action_process_image_command_line contains "--name " and 
+ action_process_image_command_line contains "--ip_addr ") or 
+ (action_process_image_command_line contains "autopt" and 
+ action_process_image_command_line contains "--benchmark-name" and 
+ action_process_image_command_line contains "--ip-addr") or 
+ action_process_image_command_line contains "nmap -sS -p- --min-rate 3000 -T4 ")

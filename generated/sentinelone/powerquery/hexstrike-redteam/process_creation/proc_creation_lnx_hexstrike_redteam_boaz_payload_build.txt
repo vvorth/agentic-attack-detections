@@ -1,0 +1,3 @@
+# Hexstrike-redteam BOAZ Evasive Payload Build
+# Sigma id ce9f3452-ef61-53d3-bb9e-fa7bdf6d0bf4, level high
+event.type="Process Creation" and (endpoint.os="linux" and (tgt.process.cmdline contains "/BOAZ_beta/Boaz.py" or (src.process.cmdline contains "hexstrike_server.py" and (tgt.process.cmdline contains "Boaz.py" and tgt.process.cmdline contains " -f " and tgt.process.cmdline contains " -o "))))

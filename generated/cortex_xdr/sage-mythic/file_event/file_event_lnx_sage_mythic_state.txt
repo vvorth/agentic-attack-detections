@@ -1,0 +1,8 @@
+// Sage (Mythic) State and Trace Databases on a Mythic Server
+// Sigma id 1230384f-fc23-5c73-b219-b8ecf62fbdb0, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path contains "/InstalledServices/sage/" and 
+ (action_file_path in ("*/sage.db", "*/.phoenix/phoenix.db"))) or 
+ action_file_path contains "/.sage_engagement/" or 
+ action_file_path contains "/opt/sage_data/sage.db"))

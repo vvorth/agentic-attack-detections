@@ -1,0 +1,3 @@
+# numasec Operation, Database or Out-of-Band Session Files Written
+# Sigma id c601624c-74b4-5cfe-81ad-0c3bd1492ffe, level low
+event.category="file" and ((tgt.file.path contains "/.numasec/operation/" or tgt.file.path contains "\\.numasec\\operation\\") or (tgt.file.path contains "/numasec/numasec.db" or tgt.file.path contains "\\numasec\\numasec.db" or tgt.file.path contains "/numasec/interact-sessions.json" or tgt.file.path contains "\\numasec\\interact-sessions.json"))

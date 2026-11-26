@@ -1,0 +1,4 @@
+// Cain Workspace Stage Files Written
+// Sigma id de9463da-7ec1-544d-9f74-3cc10d85cfa2, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path in ("*/recon/recon-output.txt", "*\recon\recon-output.txt", "*/test/test-output.txt", "*\test\test-output.txt", "*/test/gate-skipped.txt", "*\test\gate-skipped.txt"))

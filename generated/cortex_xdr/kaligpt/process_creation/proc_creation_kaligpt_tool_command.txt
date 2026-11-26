@@ -1,0 +1,7 @@
+// Command Run by the KaliGPT Agent
+// Sigma id 00c313a4-6e2b-5975-824f-35700f7b6cf1, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((actor_process_command_line in ("* -m agents.gemini*", "* -m agents.ollama*", "* -m agents.openrouter*", "* -m agents.chatgpt*", "* -m agents.litellm*")) and 
+ action_process_cwd contains "/KaliGPT"))

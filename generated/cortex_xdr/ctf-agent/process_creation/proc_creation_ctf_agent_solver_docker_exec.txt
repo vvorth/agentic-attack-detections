@@ -1,0 +1,7 @@
+// CTF Agent Claude Solver Command Redirected Into Its Sandbox
+// Sigma id 7511b526-3541-55af-9a2b-1f75039a7ad1, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "docker exec -i " and 
+ action_process_image_command_line contains " bash -c ") and 
+ action_process_image_command_line ~= "docker exec -i [0-9a-f]{64} bash -c ")

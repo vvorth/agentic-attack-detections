@@ -1,0 +1,7 @@
+// MCP Kali Server Files Written
+// Sigma id b8a0d660-48cf-505b-bf00-5001068dda48, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_file_path contains "/mks_msf_resource.rc" or 
+ action_file_path contains "/usr/share/mcp-kali-server/" or 
+ (action_file_path in ("*/usr/bin/kali-server-mcp", "*/etc/default/kali-server-mcp", "*/systemd/system/kali-server-mcp.service"))))

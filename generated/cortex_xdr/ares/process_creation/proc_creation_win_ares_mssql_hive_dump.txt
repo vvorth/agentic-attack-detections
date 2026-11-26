@@ -1,0 +1,15 @@
+// Ares SQL Server Hive Dump Through xp_cmdshell
+// Sigma id b080ca37-185c-5b9a-9f15-025bd2ae6b23, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_WINDOWS and 
+ (action_process_image_command_line contains "JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwB0AG8AcAAnAAoAJAB0AD0AJABlAG4AdgA6AFQARQBNAFAACgAkAGEAPQAiACQAdABcAGEALgBoAGkAdgBlACIA" or 
+ (action_process_image_command_line contains "save" and 
+ action_process_image_command_line contains "HKLM\SAM" and 
+ action_process_image_command_line contains "\a.hive") or 
+ (action_process_image_command_line contains "save" and 
+ action_process_image_command_line contains "HKLM\SYSTEM" and 
+ action_process_image_command_line contains "\b.hive") or 
+ (action_process_image_command_line contains "save" and 
+ action_process_image_command_line contains "HKLM\SECURITY" and 
+ action_process_image_command_line contains "\c.hive")))

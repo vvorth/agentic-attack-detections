@@ -1,0 +1,8 @@
+// Cyber-AutoAgent General Module Tool Command Lines
+// Sigma id f431fc1b-d3f2-5ee6-aace-b0034ce41036, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "dalfox" and 
+ action_process_image_command_line contains "dalfox-xss-test.com") or 
+ (action_process_image_command_line contains "feroxbuster" and 
+ action_process_image_command_line contains "/tmp/auth_wordlist.txt"))

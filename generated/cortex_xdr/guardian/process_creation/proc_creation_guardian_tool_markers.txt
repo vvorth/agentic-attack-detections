@@ -1,0 +1,8 @@
+// Guardian Tool Wrapper Markers in a Command Line
+// Sigma id 2ba5eb49-9713-5e7a-bb88-ddb8b80e0e90, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line contains "/tmp/guardian_ffuf_wordlist.txt" or 
+ action_process_image_command_line contains " -F guardian-prowler" or 
+ (action_process_image_command_line contains "dependency-check" and 
+ action_process_image_command_line contains " --project guardian"))

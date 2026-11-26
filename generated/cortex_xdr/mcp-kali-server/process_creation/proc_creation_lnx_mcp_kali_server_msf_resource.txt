@@ -1,0 +1,6 @@
+// MCP Kali Server Metasploit Resource File Run
+// Sigma id aee3c45f-09a4-5e31-a256-1ebabd6c1342, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ action_process_image_command_line contains "mks_msf_resource.rc")

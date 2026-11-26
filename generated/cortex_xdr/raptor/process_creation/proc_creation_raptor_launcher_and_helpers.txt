@@ -1,0 +1,9 @@
+// RAPTOR Launcher, Pipelines or Helper Scripts
+// Sigma id 8535eed2-ab36-53b4-81f4-e9ce41a586c4, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "plugins/coverage" and 
+ action_process_image_command_line contains "-n RAPTOR") or 
+ (action_process_image_command_line in ("*/core/security/scratch_supervisor.py*", "*/core/startup/install_guard.py*", "*/core/security/launch_scratch.py*", "*--_scratch-session-stage*")) or 
+ action_process_image_command_line contains "libexec/raptor-" or 
+ (action_process_image_command_line in ("*raptor.py agentic*", "*raptor.py web --url*", "*raptor.py scan --repo*", "*raptor.py codeql --repo*", "*raptor.py fuzz --binary*", "*raptor_agentic.py*", "*raptor_fuzzing.py*", "*raptor_codeql.py*", "*packages/web/scanner.py*", "*packages/llm_analysis/agent.py*")))

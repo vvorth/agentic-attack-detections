@@ -1,0 +1,3 @@
+# Nebula Core, Desktop Sidecar or Browser Sidecar Process
+# Sigma id fe4a3d7d-5728-5b90-80d1-833e25980251, level low
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "nebula-core runtime-service" AND TgtProcCmdLine containsCIS "--manifest-sha256") OR TgtProcCmdLine containsCIS "nebula-core desktop-connect" OR (TgtProcCmdLine containsCIS "nebula-core serve" OR TgtProcCmdLine containsCIS "nebula-core headless" OR TgtProcCmdLine containsCIS "-m nebula.v3.cli" OR TgtProcCmdLine containsCIS "nebula-browserd")))

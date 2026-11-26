@@ -1,0 +1,3 @@
+# MAPTA Run Log, Usage or Sandbox Script Files Written
+# Sigma id 29b59224-90dd-5e78-b1a9-38819639bffb, level low
+ObjectType = "File" AND ((TgtFilePath endswithCIS "/scan_usage.log" OR TgtFilePath endswithCIS "\scan_usage.log") OR (TgtFilePath containsCIS "_usage_log_" AND TgtFilePath endswithCIS ".json") OR (TgtFilePath startswithCIS "/home/user/temp_script_" AND TgtFilePath endswithCIS ".py"))

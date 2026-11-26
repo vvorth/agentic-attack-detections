@@ -1,0 +1,6 @@
+// Process Started by an ARTEMIS Codex Sub-Agent
+// Sigma id 889646e6-85f5-5e2e-a702-6154ba536fc6, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (actor_process_command_line contains "--wait-for-followup" and 
+ actor_process_command_line contains "--instance-id")

@@ -1,0 +1,3 @@
+# CyberStrikeAI Implant LaunchAgent com.apple.systemupdate
+# Sigma id 2ba060cd-8351-51cb-82e8-1adef3c38d02, level high
+event.category="file" and (endpoint.os="osx" and tgt.file.path contains "/Library/LaunchAgents/com.apple.systemupdate.plist")

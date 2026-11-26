@@ -1,0 +1,12 @@
+// BreachWeave (tch-agent) Web Console, Solver Container or Image Build Started
+// Sigma id 90eaf5e0-cc8c-51ce-acdb-aaa55a3bd0b6, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*apps/cli/src/main.ts web*", "*tch-agent-linux-x64 web*", "*tch-agent-darwin-arm64 web*", "*tch-agent-darwin-x64 web*", "*tch-agent-windows-x64.exe web*")) or 
+ (action_process_image_command_line contains "--name tch-solver-" and 
+ action_process_image_command_line contains "/opt/tch-agent/tch-agent") or 
+ action_process_image_command_line contains "/opt/tch-agent/tch-agent solver rpc" or 
+ action_process_image_command_line contains "ai.tch-agent.dockerfile-sha256=" or 
+ (action_process_image_command_line contains "scripts/build.ts" and 
+ action_process_image_command_line contains "bun-linux-x64-baseline" and 
+ action_process_image_command_line contains "/.tch-agent/runtime/self/tch-agent-linux-x64"))

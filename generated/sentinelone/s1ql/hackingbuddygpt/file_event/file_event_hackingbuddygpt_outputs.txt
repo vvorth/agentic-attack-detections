@@ -1,0 +1,3 @@
+# hackingBuddyGPT Web API Report, Generated Spec or Benchmark Trace Written
+# Sigma id 9421ba54-f030-5fcc-ac07-57e6029b8333, level medium
+ObjectType = "File" AND ((TgtFilePath containsCIS "/hackingBuddyGPT/usecases/web_api/reports/" OR TgtFilePath containsCIS "/hackingBuddyGPT/usecases/web_api/openapi_spec/" OR TgtFilePath containsCIS "\hackingBuddyGPT\usecases\web_api\reports\" OR TgtFilePath containsCIS "\hackingBuddyGPT\usecases\web_api\openapi_spec\") OR ((TgtFilePath containsCIS "/benchmark_results/" AND TgtFilePath containsCIS "/traces/") AND (TgtFilePath endswithCIS ".jsonl" OR TgtFilePath endswithCIS "/console.log")))

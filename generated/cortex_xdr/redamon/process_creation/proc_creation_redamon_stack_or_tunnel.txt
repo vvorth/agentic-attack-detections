@@ -1,0 +1,8 @@
+// RedAmon Stack or Reverse Shell Tunnel on a Host
+// Sigma id be46e125-4e31-5c6e-bb54-fa0cd011195e, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line in ("*redamon-kali*", "*redamon-agent*", "*redamon-webapp*", "*redamon-recon-*", "*redamon-docker-broker*", "*/opt/mcp_servers/run_servers.py*", "*/opt/mcp_servers/tunnel_manager.py*", "*redamon.sh *")) or 
+ action_process_image_command_line contains "ngrok tcp 4444" or 
+ (action_process_image_command_line contains "chisel client" and 
+ action_process_image_command_line contains "R:4444:localhost:4444"))

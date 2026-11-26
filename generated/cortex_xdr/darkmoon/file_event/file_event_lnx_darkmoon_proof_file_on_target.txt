@@ -1,0 +1,5 @@
+// DarkMoon Proof File /tmp/.dm_proof Written on a Server
+// Sigma id b26984be-1655-5687-afda-bbfd614f19fb, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ action_file_path = "/tmp/.dm_proof")

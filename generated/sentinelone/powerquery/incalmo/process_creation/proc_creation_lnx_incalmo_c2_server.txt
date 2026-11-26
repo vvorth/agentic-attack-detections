@@ -1,0 +1,3 @@
+# Incalmo C2 Server or Its Celery Worker
+# Sigma id 57e6a544-ed95-5bb2-9897-71920401d10e, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "incalmo/c2server/c2server.py" or tgt.process.cmdline contains "incalmo.c2server.celery.celery_worker") or (tgt.process.cmdline contains "msfrpcd" and tgt.process.cmdline contains "-P password")))

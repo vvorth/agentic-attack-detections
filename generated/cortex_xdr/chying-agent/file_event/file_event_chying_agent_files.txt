@@ -1,0 +1,12 @@
+// CHYing-agent Work Folder, Database or Log Files Written
+// Sigma id 56e2db42-5bb1-5724-bd1e-c939642cb0fe, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path contains "/agent-work/ctf/" and 
+ (action_file_path in ("*/findings.log", "*/attack_timeline.md", "*/dumps/commands.log", "*/dumps/execution_summary.md", "*/dumps/reflection_history.md"))) or 
+ ((action_file_path contains "/agent-work/ctf/" and 
+ action_file_path contains "/poc_scripts/poc_") and 
+ action_file_path contains ".py") or 
+ action_file_path contains "/data/chying.db" or 
+ (action_file_path contains "/logs/chying_agent_" and 
+ action_file_path contains ".log") or 
+ action_file_path contains "/.taie/null-zone/")

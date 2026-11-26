@@ -1,0 +1,3 @@
+# LazyOwn C2 Server, MCP Server or Launcher Started
+# Sigma id 452f7d09-5501-559c-814d-555ec58d6773, level high
+event.type="Process Creation" and (endpoint.os="linux" and ((tgt.process.cmdline contains "lazyc2.py" or tgt.process.cmdline contains "lazyown_mcp.py" or tgt.process.cmdline contains "lazyown_mcp_opencode.py" or tgt.process.cmdline contains "fast_run_as_r00t.sh" or tgt.process.cmdline contains "sessions/c2_launch.sh") or (tgt.process.cmdline contains "python3" and tgt.process.cmdline contains "lazyown.py") or (tgt.process.cmdline contains "tmux" and tgt.process.cmdline contains "lazyown_sessions") or (tgt.process.cmdline contains "raw.githubusercontent.com/grisuno/LazyOwn/" or tgt.process.cmdline contains "ghcr.io/grisuno/lazyown")))

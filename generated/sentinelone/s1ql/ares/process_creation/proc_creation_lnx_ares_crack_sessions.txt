@@ -1,0 +1,3 @@
+# Ares Hashcat or John Session Name
+# Sigma id aaf24266-6bdd-5d9d-9df3-aa25f4747675, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND (TgtProcCmdLine containsCIS "--session ares-hc-" OR TgtProcCmdLine containsCIS "--session=ares-hc-" OR TgtProcCmdLine containsCIS "--session=ares-jtr-" OR TgtProcCmdLine containsCIS "--session ares-jtr-"))

@@ -1,0 +1,8 @@
+// MAPTA Run Log, Usage or Sandbox Script Files Written
+// Sigma id 29b59224-90dd-5e78-b1a9-38819639bffb, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/scan_usage.log", "*\scan_usage.log")) or 
+ (action_file_path contains "_usage_log_" and 
+ action_file_path contains ".json") or 
+ (action_file_path contains "/home/user/temp_script_" and 
+ action_file_path contains ".py"))

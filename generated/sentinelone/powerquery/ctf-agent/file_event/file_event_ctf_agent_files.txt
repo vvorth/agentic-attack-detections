@@ -1,0 +1,3 @@
+# CTF Agent Workspace or Solver Trace Written
+# Sigma id fabd1fe4-c3ff-5a98-bc70-740b8da12fbd, level low
+event.category="file" and (tgt.file.path contains "/ctf-workspace-" or ((tgt.file.path contains "/logs/trace-" and tgt.file.path contains ".jsonl") and (tgt.file.path contains "-claude-opus-4-6-" or tgt.file.path contains "-gpt-5.4-" or tgt.file.path contains "-gpt-5.4-mini-" or tgt.file.path contains "-gpt-5.3-codex-" or tgt.file.path contains "-us.anthropic.claude-opus-4-6-v1-")))

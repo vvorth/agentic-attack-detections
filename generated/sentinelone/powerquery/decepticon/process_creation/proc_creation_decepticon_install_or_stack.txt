@@ -1,0 +1,3 @@
+# Decepticon AI Red Team Agent Installed or Started
+# Sigma id b2cc9abb-091b-552c-9671-43932c67be6d, level medium
+event.type="Process Creation" and ((tgt.process.cmdline contains "decepticon.red/install" or tgt.process.cmdline contains "raw.githubusercontent.com/BitterSecurity/Decepticon/") or tgt.process.cmdline matches "(^|[/\\\\\\s])decepticon(\\.exe)?["']?\\s+(onboard|start|stop|status|doctor|update|attach|resume|mcp\\s+serve)(\\s|$)" or tgt.process.cmdline contains "ghcr.io/bittersecurity/decepticon-" or ((tgt.process.cmdline contains "decepticon-sandbox" or tgt.process.cmdline contains "decepticon-langgraph" or tgt.process.cmdline contains "decepticon-c2-sliver" or tgt.process.cmdline contains "decepticon-c2-havoc") and tgt.process.cmdline contains "docker"))

@@ -1,0 +1,3 @@
+# Mitsu Local SearXNG Container
+# Sigma id 319cdede-e39a-5f0d-8581-51ffe6ef432b, level medium
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "mitsu-searxng-config" OR TgtProcCmdLine containsCIS "--name mitsu-searxng-" OR TgtProcCmdLine containsCIS "start mitsu-searxng-")

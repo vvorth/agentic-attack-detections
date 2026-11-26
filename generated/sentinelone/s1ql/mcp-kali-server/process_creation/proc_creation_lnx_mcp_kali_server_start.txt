@@ -1,0 +1,3 @@
+# MCP Kali Server API Server or MCP Client Started
+# Sigma id 007a41b4-3da4-5e66-909c-c458ddd16746, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "/usr/bin/kali-server-mcp" OR TgtProcCmdLine containsCIS "/usr/share/mcp-kali-server/") OR (TgtProcImagePath startswithCIS "/usr/share/mcp-kali-server" AND (TgtProcCmdLine containsCIS "server.py" OR TgtProcCmdLine containsCIS "client.py")) OR TgtProcUser = "_mcp-kali" OR (TgtProcCmdLine containsCIS "client.py" AND TgtProcCmdLine containsCIS "--server http" AND TgtProcCmdLine containsCIS ":5000")))

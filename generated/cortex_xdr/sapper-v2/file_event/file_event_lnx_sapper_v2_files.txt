@@ -1,0 +1,6 @@
+// sapper-v2 Engagement Graph or Run Files Written
+// Sigma id c7f134df-fb75-5194-bc67-c8870c97a51c, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_file_path in ("*/.sapper/facts/*", "*/.sapper/intents/*", "*/.sapper/hints/*", "*/opt/sapper/docker/commander/*", "*/work/runs/pane-env/*")) or 
+ (action_file_path in ("*/.sapper/project.json", "*/.sapper/arena.json", "*/.sapper/ai-channel.txt", "*/.sapper/ai-peers.json", "*/sapper-graph.html", "*/work/runs/commander-state.md", "*/work/runs/rotated.env", "*/.claude/skills/sapper-setup"))))

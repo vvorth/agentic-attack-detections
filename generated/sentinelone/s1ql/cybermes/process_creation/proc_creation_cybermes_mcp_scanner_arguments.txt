@@ -1,0 +1,3 @@
+# Scanners Started With Cybermes MCP Argument Order
+# Sigma id 9cc640fd-512b-506a-ae60-87d3ff395ce4, level medium
+EventType = "Process Creation" AND (((SrcProcImagePath endswithCIS "/cybermes-mcp" OR SrcProcImagePath endswithCIS "\cybermes-mcp.exe") OR SrcProcImagePath containsCIS "cybermes-mcp-v") OR (TgtProcCmdLine containsCIS "-sT --open -T3 --max-rate " AND TgtProcCmdLine containsCIS " -oN - ") OR TgtProcCmdLine containsCIS " -silent -jsonl -timeout 10 -duc" OR TgtProcCmdLine containsCIS " -silent -status-code -title -tech-detect -json -timeout " OR TgtProcCmdLine containsCIS " -jc -silent -ct " OR (TgtProcCmdLine containsCIS "/FUZZ -w " AND TgtProcCmdLine containsCIS " -timeout 5 -s -json"))

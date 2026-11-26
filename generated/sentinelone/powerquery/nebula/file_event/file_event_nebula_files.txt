@@ -1,0 +1,3 @@
+# Nebula Data Folder, Runtime or Container Files Written
+# Sigma id a619ae46-1b9f-5f55-9811-c1eba1009840, level low
+event.category="file" and (endpoint.os="linux" and ((tgt.file.path contains "/.local/share/nebula/v3/" or tgt.file.path contains "/io.nebula.security/core/") or (tgt.file.path contains "/tmp/nebula-process-" and tgt.file.path contains ".pid") or (tgt.file.path in ("/run/nebula/public-ip","/etc/cron.d/nebula-public-ip","/usr/local/share/nebula/security-tools.json","/usr/local/bin/nebula-terminal-entrypoint","/usr/local/lib/nebula-public-ip-update")) or (tgt.file.path contains "/tmp/nebula-kali-" and tgt.file.path contains "/Dockerfile") or (tgt.file.path contains "/run/nebula-memory-runner/" or tgt.file.path contains "/var/lib/nebula-memory-runner/")))

@@ -1,0 +1,10 @@
+// Hexstrike-redteam BOAZ Evasive Payload Build
+// Sigma id ce9f3452-ef61-53d3-bb9e-fa7bdf6d0bf4, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "/BOAZ_beta/Boaz.py" or 
+ (actor_process_command_line contains "hexstrike_server.py" and 
+ (action_process_image_command_line contains "Boaz.py" and 
+ action_process_image_command_line contains " -f " and 
+ action_process_image_command_line contains " -o "))))

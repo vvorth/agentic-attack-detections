@@ -1,0 +1,3 @@
+# Xalgorix Configuration, Service or Scan Data Written
+# Sigma id 9d651383-5871-5ba1-84da-625f1860e5b6, level low
+event.category="file" and (endpoint.os="linux" and ((tgt.file.path in ("/etc/xalgorix.env","/etc/systemd/system/xalgorix.service","/tmp/xalgorix.log","/tmp/xalgorix-crash.log")) or tgt.file.path contains "/.xalgorix/data/" or tgt.file.path contains "/.xalgorix.env"))

@@ -1,0 +1,7 @@
+// CTF Agent Workspace or Solver Trace Written
+// Sigma id fabd1fe4-c3ff-5a98-bc70-740b8da12fbd, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (action_file_path contains "/ctf-workspace-" or 
+ ((action_file_path contains "/logs/trace-" and 
+ action_file_path contains ".jsonl") and 
+ (action_file_path in ("*-claude-opus-4-6-*", "*-gpt-5.4-*", "*-gpt-5.4-mini-*", "*-gpt-5.3-codex-*", "*-us.anthropic.claude-opus-4-6-v1-*"))))

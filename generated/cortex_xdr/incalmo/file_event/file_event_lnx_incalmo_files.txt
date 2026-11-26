@@ -1,0 +1,12 @@
+// Incalmo Implant, Script or Run File Written
+// Sigma id 03be2d7d-0290-534d-951c-573623343505, level high
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (((action_file_path in ("*/sandcat_tmp.go", "*/tmp/sc.log", "*/tmp/state_store.db", "*/_litellm_key_status.json", "*/plugins/deception/payloads/exploit.py")) or 
+ (action_file_path contains "/dynamic_payload_" and 
+ action_file_path contains ".sh") or 
+ (action_file_path contains "/output/" and 
+ action_file_path contains "/llm_agent.log") or 
+ action_file_path contains "/splunkd") and 
+ (not 
+ action_file_path contains "/bin/splunkd")))

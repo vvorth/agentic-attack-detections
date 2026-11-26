@@ -1,0 +1,3 @@
+# NeuroSploit Project Store, Vault or C2 Files Written
+# Sigma id e3bb33ff-a33c-55ff-8592-e7841eac06be, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/.neurosploit/c2/" OR TgtFilePath containsCIS "\.neurosploit\c2\" OR TgtFilePath containsCIS "/.neurosploit/vault/" OR TgtFilePath containsCIS "\.neurosploit\vault\") OR (TgtFilePath endswithCIS "/.neurosploit/keys.json" OR TgtFilePath endswithCIS "\.neurosploit\keys.json") OR TgtFilePath = "/tmp/ns_browser_prefetch.js")

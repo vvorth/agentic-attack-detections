@@ -1,0 +1,3 @@
+# Cain AI Pentest Agent Run
+# Sigma id 7d79dcb7-fe87-5b82-8c55-a598b82867c7, level medium
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS "cain-agent" AND TgtProcCmdLine containsCIS " run " AND TgtProcCmdLine containsCIS "--target")

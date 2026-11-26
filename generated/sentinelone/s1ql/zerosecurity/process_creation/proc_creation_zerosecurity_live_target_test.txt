@@ -1,0 +1,3 @@
+# 0security Probe or Nuclei Target Scan Against a Live Endpoint
+# Sigma id 69c7dd9d-381a-5a6b-be5c-3d11304259ad, level medium
+EventType = "Process Creation" AND (((TgtProcCmdLine containsCIS " probe http" OR TgtProcCmdLine containsCIS "--i-own-this ") AND (TgtProcCmdLine containsCIS "0security" OR TgtProcCmdLine containsCIS "0.js" OR TgtProcCmdLine containsCIS "0 probe ")) OR (TgtProcCmdLine containsCIS "--target-url " AND TgtProcCmdLine containsCIS "--scanner nuclei") OR (TgtProcCmdLine containsCIS "0-nuclei-" AND TgtProcCmdLine containsCIS "-etags intrusive,dos,fuzz" AND TgtProcCmdLine containsCIS "-pt http"))

@@ -1,0 +1,3 @@
+# Guardian AI Pentest CLI Started
+# Sigma id cfccbdb0-bbdb-52ae-9c12-dc3aefe2866a, level medium
+event.type="Process Creation" and ((tgt.process.cmdline contains " -m cli.main " or tgt.process.cmdline contains "/bin/guardian " or tgt.process.cmdline contains "\\Scripts\\guardian.exe ") and (tgt.process.cmdline contains " workflow run " or tgt.process.cmdline contains " scan --target " or tgt.process.cmdline contains " scan -t " or tgt.process.cmdline contains " recon --target " or tgt.process.cmdline contains " recon -t " or tgt.process.cmdline contains " analyze " or tgt.process.cmdline contains " report --session " or tgt.process.cmdline contains " report -s " or tgt.process.cmdline contains " --resume "))

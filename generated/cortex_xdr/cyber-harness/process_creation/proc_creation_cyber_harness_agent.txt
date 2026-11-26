@@ -1,0 +1,10 @@
+// cyber-harness Agent, Node or Web Hub Started
+// Sigma id ebb09efa-4f08-5fdf-8988-d6fd6ae3fa13, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_path in ("*/cyber-scan", "*\cyber-scan.exe", "*/cyber-harness", "*\cyber-harness.exe", "*/cyber-audit", "*\cyber-audit.exe", "*/aiscan", "*\aiscan.exe", "*/aiscan-full", "*\aiscan-full.exe")) or 
+ (action_process_image_command_line contains "--server-url http" and 
+ action_process_image_command_line contains "--node-name") or 
+ (action_process_image_command_line in ("*chainreactors/cyber-harness/releases/*", "*chainreactors/aiscan/releases/*")) or 
+ (action_process_image_command_line contains "cyber-node-" and 
+ action_process_image_command_line contains "node.zip"))

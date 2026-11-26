@@ -1,0 +1,5 @@
+// Agent Zero Container, UI or Tunnel Started
+// Sigma id 454f6966-95ee-57f4-9ab3-d7d6798ab637, level low
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (action_process_image_command_line in ("*agent0ai/agent-zero*", "*self_update_manager.py docker-run-ui*", "*/a0/run_tunnel.py*"))

@@ -1,0 +1,3 @@
+# VulnBot CLI Started
+# Sigma id e65e9d4a-1178-56b9-bc1f-7c920e1baf70, level low
+EventType = "Process Creation" AND ((TgtProcCmdLine containsCIS "cli.py" AND TgtProcCmdLine containsCIS "vulnbot") AND (TgtProcCmdLine containsCIS "cli.py vulnbot" OR TgtProcCmdLine containsCIS "cli.py pentestgpt" OR TgtProcCmdLine containsCIS "cli.py start -a" OR TgtProcCmdLine containsCIS "cli.py init" OR TgtProcCmdLine containsCIS "cli.py base"))

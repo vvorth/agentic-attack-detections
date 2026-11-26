@@ -1,0 +1,3 @@
+# Incalmo Implant, Script or Run File Written
+# Sigma id 03be2d7d-0290-534d-951c-573623343505, level high
+event.category="file" and (endpoint.os="linux" and (((tgt.file.path contains "/sandcat_tmp.go" or tgt.file.path contains "/tmp/sc.log" or tgt.file.path contains "/tmp/state_store.db" or tgt.file.path contains "/_litellm_key_status.json" or tgt.file.path contains "/plugins/deception/payloads/exploit.py") or (tgt.file.path contains "/dynamic_payload_" and tgt.file.path contains ".sh") or (tgt.file.path contains "/output/" and tgt.file.path contains "/llm_agent.log") or tgt.file.path contains "/splunkd") and (not tgt.file.path contains "/bin/splunkd")))

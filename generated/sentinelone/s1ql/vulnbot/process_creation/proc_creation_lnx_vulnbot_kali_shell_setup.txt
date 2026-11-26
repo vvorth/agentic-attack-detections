@@ -1,0 +1,3 @@
+# VulnBot Shell Setup on the Kali Host It Drives
+# Sigma id dafb4a3d-5699-5044-8028-771509ffa732, level medium
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcImagePath endswithCIS "/touch" AND TgtProcCmdLine endswithCIS " /etc/legal") OR (TgtProcImagePath endswithCIS "/chmod" AND (TgtProcCmdLine containsCIS " 644 " AND TgtProcCmdLine containsCIS "/etc/legal")) OR (TgtProcImagePath endswithCIS "/sudo" AND (TgtProcCmdLine containsCIS "touch /etc/legal" OR TgtProcCmdLine containsCIS "chmod 644 /etc/legal"))))

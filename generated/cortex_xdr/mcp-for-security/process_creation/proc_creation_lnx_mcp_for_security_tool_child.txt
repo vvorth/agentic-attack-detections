@@ -1,0 +1,8 @@
+// Recon or Exploitation Tool Started by an MCP for Security Wrapper
+// Sigma id 56966f5d-7af6-5729-835f-e065f8ebba9b, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((actor_process_command_line in ("*-mcp/build/index.js*", "*/cero/build/index.js*")) and 
+ ((action_process_image_command_line in ("* -silent*", "*aws --force --no-browser*", "* -subs-only *", "*scan single --url *", "*scan file -f *", "*/opt/commix/commix.py -u *", "*/opt/smuggler/smuggler.py -u *", "*sqlmap -u *", "*sqlmap.py -u *", "*wpscan -u *")) or 
+ (action_process_image_path in ("*/nmap", "*/masscan", "*/nuclei", "*/httpx", "*/katana", "*/ffuf", "*/sqlmap", "*/wpscan", "*/sslscan", "*/arjun", "*/amass", "*/alterx", "*/assetfinder", "*/cero", "*/shuffledns", "*/gowitness", "*/waybackurls", "*/scout")))))

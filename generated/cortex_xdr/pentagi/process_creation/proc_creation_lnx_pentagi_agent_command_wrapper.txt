@@ -1,0 +1,8 @@
+// PentAGI Agent Command Wrapper
+// Sigma id eb9c13d9-3bf1-59c9-9201-c1a85e1bd94c, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ (action_process_image_command_line contains "trap \"\" HUP" and 
+ action_process_image_command_line contains "/proc/self/oom_score_adj" and 
+ action_process_image_command_line contains "exec sh -c \"$0\""))

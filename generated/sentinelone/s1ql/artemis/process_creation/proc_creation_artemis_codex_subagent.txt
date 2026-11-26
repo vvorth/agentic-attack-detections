@@ -1,0 +1,3 @@
+# ARTEMIS Codex Sub-Agent Started
+# Sigma id 2454e7c4-6eef-53a7-a1db-ad4c8ed4152f, level high
+EventType = "Process Creation" AND (TgtProcCmdLine containsCIS " exec " AND TgtProcCmdLine containsCIS "--wait-for-followup" AND TgtProcCmdLine containsCIS "--instance-id" AND TgtProcCmdLine containsCIS "--log-session-dir")

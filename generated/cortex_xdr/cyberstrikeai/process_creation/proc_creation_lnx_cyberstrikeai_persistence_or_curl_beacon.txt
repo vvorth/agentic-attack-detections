@@ -1,0 +1,8 @@
+// CyberStrikeAI Implant Linux Persistence or curl Beacon
+// Sigma id 292a54b3-11a5-5766-a339-5e3c2d90988b, level high
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ (agent_os_type = ENUM.AGENT_OS_LINUX and 
+ ((action_process_image_command_line contains "@reboot" and 
+ action_process_image_command_line contains "sort -u | crontab -") or 
+ action_process_image_command_line contains "X-Implant-Token"))

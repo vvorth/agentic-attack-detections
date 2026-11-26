@@ -1,0 +1,3 @@
+# Cyber-AutoAgent Operation Files Written
+# Sigma id 2dbb915f-15f8-5498-bf43-527bcf704946, level low
+ObjectType = "File" AND (((TgtFilePath containsCIS "/OP_" OR TgtFilePath containsCIS "\OP_") AND (TgtFilePath endswithCIS "cyber_operations.log" OR TgtFilePath endswithCIS "security_assessment_report.md" OR TgtFilePath endswithCIS "execution_prompt_optimized.txt")) OR (TgtFilePath containsCIS "/.cyber-autoagent/config.json" OR TgtFilePath containsCIS "\.cyber-autoagent\config.json"))

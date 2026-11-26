@@ -1,0 +1,3 @@
+# Agentic Bug Hunter Out-of-Band Payload Marker Resolved
+# Sigma id 9de3c394-884f-534e-b3a0-1db0acd835bc, level high
+event.category="dns" and event.dns.request matches "^(ssrf|xxe|sqli|rce|log4j)-[0-9a-f]{12}\\."

@@ -1,0 +1,3 @@
+# Sage (Mythic) State and Trace Databases on a Mythic Server
+# Sigma id 1230384f-fc23-5c73-b219-b8ecf62fbdb0, level medium
+event.category="file" and (endpoint.os="linux" and ((tgt.file.path contains "/InstalledServices/sage/" and (tgt.file.path contains "/sage.db" or tgt.file.path contains "/.phoenix/phoenix.db")) or tgt.file.path contains "/.sage_engagement/" or tgt.file.path contains "/opt/sage_data/sage.db"))

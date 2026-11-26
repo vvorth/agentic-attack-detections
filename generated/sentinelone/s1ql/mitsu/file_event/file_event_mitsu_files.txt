@@ -1,0 +1,3 @@
+# Mitsu Session, Configuration or Report Files Written
+# Sigma id d2be8aa4-645e-5d7a-a14d-04ad7d7ce8fb, level low
+ObjectType = "File" AND ((TgtFilePath containsCIS "/mitsu/sessions/" OR TgtFilePath containsCIS "/.config/mitsu/" OR TgtFilePath containsCIS "/mitsu/armory/" OR TgtFilePath containsCIS "/mitsu-codex-sessions/" OR TgtFilePath containsCIS "/mitsu-claude-sessions/") OR TgtFilePath endswithCIS "/.mitsu-armory-managed" OR (TgtFilePath endswithCIS "/mitsu/credentials.json" OR TgtFilePath endswithCIS "/mitsu/mcp_servers.json" OR TgtFilePath endswithCIS "/mitsu/host.json" OR TgtFilePath endswithCIS "/mitsu/instance.lock"))

@@ -1,0 +1,3 @@
+# HexStrike Server or MCP Client Process
+# Sigma id 23f271ff-3e26-57ca-81ec-347c96db618e, level high
+EventType = "Process Creation" AND (EndpointOS = "linux" AND ((TgtProcCmdLine containsCIS "hexstrike_server.py" OR TgtProcCmdLine containsCIS "hexstrike_mcp.py") OR SrcProcCmdLine containsCIS "hexstrike_server.py"))

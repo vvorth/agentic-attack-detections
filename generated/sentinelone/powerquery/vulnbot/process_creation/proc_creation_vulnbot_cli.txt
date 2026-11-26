@@ -1,0 +1,3 @@
+# VulnBot CLI Started
+# Sigma id e65e9d4a-1178-56b9-bc1f-7c920e1baf70, level low
+event.type="Process Creation" and ((tgt.process.cmdline contains "cli.py" and tgt.process.cmdline contains "vulnbot") and (tgt.process.cmdline contains "cli.py vulnbot" or tgt.process.cmdline contains "cli.py pentestgpt" or tgt.process.cmdline contains "cli.py start -a" or tgt.process.cmdline contains "cli.py init" or tgt.process.cmdline contains "cli.py base"))

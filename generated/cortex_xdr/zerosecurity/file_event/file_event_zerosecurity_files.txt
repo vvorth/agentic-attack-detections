@@ -1,0 +1,6 @@
+// 0security State, Access Token or Remote Engine Files Written
+// Sigma id 9b5a7273-2f3d-58c3-b0f8-7f9dee0b2ac8, level low
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/.0/0.db", "*/.0/access-token", "*/.0/analytics-id", "*/.0/analytics-sent.log", "*/.0/engines.json", "*/.0/web-connections.json", "*/.0/bin/0security", "*\.0\0.db", "*\.0\access-token", "*\.0\analytics-id", "*\.0\analytics-sent.log")) or 
+ (action_file_path in ("*/.0/runs/*", "*\.0\runs\*")) or 
+ action_file_path contains "/tmp/zero-engine/")

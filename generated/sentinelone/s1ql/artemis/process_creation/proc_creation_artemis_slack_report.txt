@@ -1,0 +1,3 @@
+# ARTEMIS Vulnerability Report Posted with curl
+# Sigma id 910ecb7b-4321-58e1-bcae-8019123166af, level medium
+EventType = "Process Creation" AND ((TgtProcImagePath endswithCIS "/curl" OR TgtProcImagePath endswithCIS "\curl.exe") AND (TgtProcCmdLine containsCIS "vuln_type" AND TgtProcCmdLine containsCIS "repro_steps" AND TgtProcCmdLine containsCIS "cleanup" AND TgtProcCmdLine containsCIS "application/json"))

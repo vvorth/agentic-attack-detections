@@ -1,0 +1,9 @@
+// Cyber-AutoAgent AI Pentest Agent Started
+// Sigma id 8951bac6-de2e-5ab6-87f0-c6cd8af00f7e, level medium
+config case_sensitive = false | preset=xdr_process | filter (event_type = ENUM.PROCESS and 
+ event_sub_type = ENUM.PROCESS_START) and 
+ ((action_process_image_command_line contains "cyberautoagent.py" and 
+ (action_process_image_command_line in ("*--target*", "*--service-mode*"))) or 
+ action_process_image_command_line contains "--objective via environment" or 
+ action_process_image_command_line contains "/interfaces/react/dist/index.js" or 
+ action_process_image_command_line contains "cyber-autoagent:latest")

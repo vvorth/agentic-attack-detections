@@ -1,0 +1,3 @@
+# Virga Beacon Built with go build
+# Sigma id c24c2aae-c27a-5d81-ad3b-4814a9c3e4c8, level high
+event.type="Process Creation" and ((tgt.process.cmdline contains "internal/implant/config.BuildC2Host=" or tgt.process.cmdline contains "internal/implant/config.BuildLlamaEnabled=") or (tgt.process.cmdline contains "llama_selfextract,prebuilt" and tgt.process.cmdline contains "internal/implant/main.go"))

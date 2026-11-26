@@ -1,0 +1,9 @@
+// ARIA-X Database, Run Evidence or Working Folders
+// Sigma id ee1ec5c0-526b-536c-940d-c9ffc4a9ff50, level medium
+config case_sensitive = false | preset=xdr_file | filter event_type = ENUM.FILE and 
+ ((action_file_path in ("*/aria-x.db", "*/aria-x.db-wal", "*/aria-x.db-shm", "*/configs/aria-x.toml")) or 
+ (action_file_path contains "/runs/run_" and 
+ action_file_path contains "/work/evidence/http_") or 
+ (action_file_path contains "/runs/run_" and 
+ (action_file_path in ("*/report.html", "*/report.md", "*/report.json"))) or 
+ (action_file_path in ("*/aria-x-work-*", "*/aria-x-doctor-*", "*/aria-x-tools-*", "*/aria-x-demo-target-*")))
